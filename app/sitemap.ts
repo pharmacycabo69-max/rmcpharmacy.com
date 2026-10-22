@@ -1,9 +1,11 @@
 import type { MetadataRoute } from "next";
 import { LOCATIONS } from "@/lib/locations";
-import { POSTS } from "@/lib/posts";
+import { getPublishedPosts } from "@/lib/posts";
 import { localizedPath } from "@/lib/routes";
 import { SERVICES } from "@/lib/services";
 import { LANGS, SITE } from "@/lib/site";
+
+export const revalidate = 3600;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [
@@ -15,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...SERVICES.map((s) => `/services/${s.slug}`),
     "/about",
     "/contact",
-    ...(POSTS.length ? ["/blog", ...POSTS.map((p) => `/blog/${p.slug}`)] : []),
+    ...(getPublishedPosts().length ? ["/blog", ...getPublishedPosts().map((p) => `/blog/${p.slug}`)] : []),
   ];
   return paths.map((path) => ({
     url: SITE.url + localizedPath("en", path),

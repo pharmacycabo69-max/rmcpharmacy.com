@@ -2,7 +2,7 @@ import type { Post } from "./types";
 
 export const post: Post = {
   slug: "heat-and-sun-safety-cabo",
-  date: "2026-10-21",
+  date: "2026-11-11",
   title: {
     en: "Sun and Heat Safety on Your Cabo Vacation",
     es: "Cuidado del sol y el calor en tus vacaciones en Cabo",

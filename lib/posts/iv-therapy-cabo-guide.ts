@@ -2,7 +2,7 @@ import type { Post } from "./types";
 
 export const post: Post = {
   slug: "iv-therapy-cabo-guide",
-  date: "2026-10-21",
+  date: "2026-11-04",
   title: {
     en: "IV Therapy in Cabo: What to Expect and How It Works",
     es: "Terapia IV en Cabo: qué esperar y cómo funciona",

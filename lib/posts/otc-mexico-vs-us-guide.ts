@@ -2,7 +2,7 @@ import type { Post } from "./types";
 
 export const post: Post = {
   slug: "otc-mexico-vs-us-guide",
-  date: "2026-10-21",
+  date: "2026-12-02",
   title: {
     en: "Over-the-Counter in Mexico vs. the US: A Traveler's Guide",
     es: "Venta libre en México vs. EE.UU.: guía para viajeros",

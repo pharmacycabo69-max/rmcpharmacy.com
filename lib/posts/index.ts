@@ -12,6 +12,16 @@ export type { Block, Post } from "./types";
 
 export const POSTS: Post[] = [delivery, firstAidKit, ivTherapy, heat, stomach, doctor, otc, nurse];
 
+/** A post goes live on its date (UTC). Pages revalidate hourly so each one appears without a redeploy. */
+export function isPublished(post: Post, now = new Date()) {
+  return post.date <= now.toISOString().slice(0, 10);
+}
+
+export function getPublishedPosts() {
+  return POSTS.filter((p) => isPublished(p));
+}
+
 export function getPost(slug: string) {
-  return POSTS.find((p) => p.slug === slug);
+  const post = POSTS.find((p) => p.slug === slug);
+  return post && isPublished(post) ? post : undefined;
 }

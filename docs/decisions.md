@@ -68,3 +68,19 @@ Ver [phase0-proposal.md](phase0-proposal.md), sección NAP.
 | B2 | Cada artículo cierra con CTA de WhatsApp (`cta_source = blog-<slug>`) y enlaces relacionados; el de entrega incluye FAQPage y todos llevan schema Article. |
 | B3 | Con artículos publicados, el índice del blog ya no va `noindex` y entra al sitemap. Blog agregado al menú. |
 | B4 | Pendiente: escalonar las fechas de publicación (uno por semana) o publicar todo junto; hoy salen todos a la vez. |
+
+## Calendario de publicación
+Un artículo por semana, en el orden del plan. Cada uno sale en su fecha (`date` en `lib/posts/<slug>.ts`, UTC); antes de esa fecha su URL devuelve 404 y no entra al sitemap. Las páginas del blog y el sitemap se revalidan cada hora, así que no hace falta redesplegar (en Vercel funciona por ISR).
+
+| Fecha | Artículo |
+|---|---|
+| 2026-10-21 | pharmacy-delivery-villa-hotel-cabo |
+| 2026-10-28 | cabo-travel-first-aid-kit |
+| 2026-11-04 | iv-therapy-cabo-guide |
+| 2026-11-11 | heat-and-sun-safety-cabo |
+| 2026-11-18 | upset-stomach-on-vacation-cabo |
+| 2026-11-25 | see-a-doctor-in-cabo-on-vacation |
+| 2026-12-02 | otc-mexico-vs-us-guide |
+| 2026-12-09 | nurse-at-your-villa-cabo |
+
+Nota: si el lanzamiento del sitio es después del 2026-10-21, mover las fechas para que el primero salga el día del lanzamiento.

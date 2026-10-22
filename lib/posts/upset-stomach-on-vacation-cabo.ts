@@ -2,7 +2,7 @@ import type { Post } from "./types";
 
 export const post: Post = {
   slug: "upset-stomach-on-vacation-cabo",
-  date: "2026-10-21",
+  date: "2026-11-18",
   title: {
     en: "Upset Stomach on Vacation: What to Do in Cabo",
     es: "Malestar estomacal en vacaciones: qué hacer en Cabo",

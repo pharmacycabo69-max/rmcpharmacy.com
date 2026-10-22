@@ -5,15 +5,17 @@ import { CtaButtons } from "@/components/CtaButtons";
 import { JsonLd } from "@/components/JsonLd";
 import { FaqList } from "@/components/ServiceFaqList";
 import { buildMetadata } from "@/lib/metadata";
-import { POSTS, getPost } from "@/lib/posts";
+import { getPost, getPublishedPosts } from "@/lib/posts";
 import { localizedPath } from "@/lib/routes";
 import { faqSchema } from "@/lib/schema";
 import { LANGS, SITE, isLang } from "@/lib/site";
 
 type Props = { params: Promise<{ lang: string; slug: string }> };
 
+export const revalidate = 3600;
+
 export function generateStaticParams() {
-  return LANGS.flatMap((lang) => POSTS.map((p) => ({ lang, slug: p.slug })));
+  return LANGS.flatMap((lang) => getPublishedPosts().map((p) => ({ lang, slug: p.slug })));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

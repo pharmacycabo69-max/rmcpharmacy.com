@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { buildMetadata } from "@/lib/metadata";
-import { POSTS } from "@/lib/posts";
+import { getPublishedPosts } from "@/lib/posts";
 import { localizedPath } from "@/lib/routes";
 import { isLang } from "@/lib/site";
 
 type Props = { params: Promise<{ lang: string }> };
+
+export const revalidate = 3600;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params;
@@ -19,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         ? "Practical tips for staying well on vacation in Los Cabos."
         : "Consejos prácticos para cuidarte en tus vacaciones en Los Cabos.",
   });
-  return POSTS.length === 0 ? { ...meta, robots: { index: false, follow: true } } : meta;
+  return getPublishedPosts().length === 0 ? { ...meta, robots: { index: false, follow: true } } : meta;
 }
 
 export default async function Blog({ params }: Props) {
@@ -28,11 +30,11 @@ export default async function Blog({ params }: Props) {
   return (
     <div className="container section">
       <h1>Blog</h1>
-      {POSTS.length === 0 ? (
+      {getPublishedPosts().length === 0 ? (
         <p>{lang === "en" ? "Articles coming soon." : "Próximamente."}</p>
       ) : (
         <ul>
-          {POSTS.map((p) => (
+          {getPublishedPosts().map((p) => (
             <li key={p.slug}>
               <Link href={localizedPath(lang, `/blog/${p.slug}`)}>{p.title[lang]}</Link>
               <p className="muted">{p.description[lang]}</p>

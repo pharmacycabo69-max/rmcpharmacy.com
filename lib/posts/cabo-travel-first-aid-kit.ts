@@ -2,7 +2,7 @@ import type { Post } from "./types";
 
 export const post: Post = {
   slug: "cabo-travel-first-aid-kit",
-  date: "2026-10-21",
+  date: "2026-10-28",
   title: {
     en: "What to Pack in a Travel First-Aid Kit for Los Cabos",
     es: "Qué llevar en tu botiquín de viaje a Los Cabos",
