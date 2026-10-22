@@ -35,6 +35,7 @@ export default async function Blog({ params }: Props) {
           {POSTS.map((p) => (
             <li key={p.slug}>
               <Link href={localizedPath(lang, `/blog/${p.slug}`)}>{p.title[lang]}</Link>
+              <p className="muted">{p.description[lang]}</p>
             </li>
           ))}
         </ul>

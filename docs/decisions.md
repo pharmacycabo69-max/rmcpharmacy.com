@@ -60,3 +60,11 @@ Ver [phase0-proposal.md](phase0-proposal.md), sección NAP.
 | C2 | Los 8 artículos hablan de categorías, nunca de nombres de medicamentos (ni de venta libre), para respetar la regla 2. La nota de equivalencias OTC se hace por categoría. |
 | C3 | Ante síntomas serios los artículos remiten al 911; la terapia IV se describe como servicio, sin promesas médicas. |
 | C4 | Plantillas de reseñas en docs/review-replies.md; checklist en docs/gbp-checklist.md. |
+
+## Artículos del blog
+| # | Decisión |
+|---|----------|
+| B1 | Los 8 artículos del plan están escritos en EN y ES en `lib/posts/` (un archivo por artículo, bloques de título, párrafo y lista). Todos con fecha 2026-10-21. |
+| B2 | Cada artículo cierra con CTA de WhatsApp (`cta_source = blog-<slug>`) y enlaces relacionados; el de entrega incluye FAQPage y todos llevan schema Article. |
+| B3 | Con artículos publicados, el índice del blog ya no va `noindex` y entra al sitemap. Blog agregado al menú. |
+| B4 | Pendiente: escalonar las fechas de publicación (uno por semana) o publicar todo junto; hoy salen todos a la vez. |

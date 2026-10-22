@@ -19,6 +19,7 @@ export function Header({ lang }: { lang: Lang }) {
           <Link href={p("/services/iv-therapy")}>{t(lang, UI.nav.ivTherapy)}</Link>
           <Link href={p("/services/doctor-consultation")}>{t(lang, UI.nav.doctor)}</Link>
           <Link href={p("/services/home-nursing")}>{t(lang, UI.nav.nursing)}</Link>
+          <Link href={p("/blog")}>{t(lang, UI.nav.blog)}</Link>
           <Link href={p("/about")}>{t(lang, UI.nav.about)}</Link>
           <Link href={p("/contact")}>{t(lang, UI.nav.contact)}</Link>
         </nav>
