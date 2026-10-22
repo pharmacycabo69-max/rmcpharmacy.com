@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
+import { AnalyticsHead, AnalyticsNoscript } from "@/components/Analytics";
+import { CtaTracker } from "@/components/CtaTracker";
 import { JsonLd } from "@/components/JsonLd";
 import { organizationSchema } from "@/lib/schema";
 import { LANGS, SITE, isLang } from "@/lib/site";
@@ -21,6 +23,9 @@ export default async function LangLayout({ children, params }: { children: React
   return (
     <html lang={lang}>
       <body>
+        <AnalyticsNoscript />
+        <AnalyticsHead />
+        <CtaTracker />
         <JsonLd data={organizationSchema()} />
         {children}
       </body>

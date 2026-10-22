@@ -43,3 +43,12 @@ Ver [phase0-proposal.md](phase0-proposal.md), sección NAP.
 - Precios de consulta presencial y enfermería.
 - Imágenes optimizadas con `next/image` cuando existan las fotos.
 - Mapa de 301 desde cabopharmacy.com y pharmacycabo.com (`docs/redirects.csv`).
+
+## Fase 2 (medición)
+| # | Decisión |
+|---|----------|
+| M1 | GTM se carga solo si existe `NEXT_PUBLIC_GTM_ID`; GA4 se configura dentro del contenedor (docs/analytics.md). |
+| M2 | Un único listener delegado (`CtaTracker`) lee `data-cta`/`data-source` y publica `whatsapp_click`, `call_click`, `directions_click` en el dataLayer. |
+| M3 | Los UTMs de la visita se guardan en `sessionStorage` y viajan con cada evento. Convención en docs/utm-convention.md. |
+| M4 | `form_submit` queda pendiente hasta que exista el formulario de contacto (necesita backend, p. ej. Supabase). |
+| M5 | Sin banner de consentimiento por ahora; decidir antes de lanzar. |
