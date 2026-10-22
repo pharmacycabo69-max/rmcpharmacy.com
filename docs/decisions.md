@@ -52,3 +52,11 @@ Ver [phase0-proposal.md](phase0-proposal.md), sección NAP.
 | M3 | Los UTMs de la visita se guardan en `sessionStorage` y viajan con cada evento. Convención en docs/utm-convention.md. |
 | M4 | `form_submit` queda pendiente hasta que exista el formulario de contacto (necesita backend, p. ej. Supabase). |
 | M5 | Sin banner de consentimiento por ahora; decidir antes de lanzar. |
+
+## Fase 3 (contenido)
+| # | Decisión |
+|---|----------|
+| C1 | Descripciones de GBP de 396-450 caracteres (límite 750), una por sucursal en EN y ES, con el mismo nombre "RMC Pharmacy" (docs/gbp-content.md). |
+| C2 | Los 8 artículos hablan de categorías, nunca de nombres de medicamentos (ni de venta libre), para respetar la regla 2. La nota de equivalencias OTC se hace por categoría. |
+| C3 | Ante síntomas serios los artículos remiten al 911; la terapia IV se describe como servicio, sin promesas médicas. |
+| C4 | Plantillas de reseñas en docs/review-replies.md; checklist en docs/gbp-checklist.md. |
