@@ -25,6 +25,10 @@ export function Footer({ lang }: { lang: Lang }) {
           </p>
         </div>
       </div>
+      <div className="container footer-links">
+        <Link href={localizedPath(lang, "/about")}>{t(lang, UI.nav.about)}</Link>
+        <Link href={localizedPath(lang, "/blog")}>{t(lang, UI.nav.blog)}</Link>
+      </div>
       <div className="container footer-bottom">
         <small>
           © {new Date().getFullYear()} {SITE.name}. {t(lang, UI.footer.rights)}

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CtaButtons } from "@/components/CtaButtons";
-import { LOCATIONS, addressLine } from "@/lib/locations";
+import { LOCATIONS } from "@/lib/locations";
 import { UI, t } from "@/lib/i18n";
 import { buildMetadata } from "@/lib/metadata";
 import { localizedPath } from "@/lib/routes";
@@ -44,47 +44,31 @@ export default async function Home({ params }: Props) {
       </section>
 
       <section className="container section">
-        <h2>{t(lang, UI.nav.locations)}</h2>
-        <div className="cards">
-          {LOCATIONS.map((l) => (
-            <article key={l.slug} className="card">
-              <h3>
-                <Link href={p(`/locations/${l.slug}`)}>{l.name}</Link>
-              </h3>
-              <p>{l.street}</p>
-              <p className="muted">{l.blurb[lang]}</p>
-              <Link href={p(`/locations/${l.slug}`)}>{t(lang, UI.cta.viewLocation)}</Link>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="container section">
         <h2>{lang === "en" ? "Services" : "Servicios"}</h2>
-        <div className="cards">
+        <ul className="rows">
           {SERVICES.map((s) => (
-            <article key={s.slug} className="card">
-              <h3>
-                <Link href={p(`/services/${s.slug}`)}>{s.name[lang]}</Link>
-              </h3>
-              <p>{s.price[lang]}</p>
-            </article>
+            <li key={s.slug}>
+              <Link href={p(`/services/${s.slug}`)}>{s.name[lang]}</Link>
+              <span className="muted">{s.price[lang]}</span>
+            </li>
           ))}
-          <article className="card">
-            <h3>
-              <Link href={p("/delivery")}>{lang === "en" ? "Delivery to your villa or hotel" : "Entrega a tu villa u hotel"}</Link>
-            </h3>
-            <p className="muted">
-              {lang === "en" ? "Marina, hotels and villas around Cabo San Lucas." : "Marina, hoteles y villas en Cabo San Lucas."}
-            </p>
-          </article>
-        </div>
+          <li>
+            <Link href={p("/delivery")}>{lang === "en" ? "Delivery to your villa or hotel" : "Entrega a tu villa u hotel"}</Link>
+            <span className="muted">{lang === "en" ? "Marina, hotels and villas" : "Marina, hoteles y villas"}</span>
+          </li>
+        </ul>
       </section>
 
       <section className="container section">
-        <h2>{lang === "en" ? "Find us" : "Encuéntranos"}</h2>
-        <address>{addressLine(LOCATIONS[0])}</address>
-        <CtaButtons lang={lang} source="home-find-us" location={LOCATIONS[0]} />
+        <h2>{t(lang, UI.nav.locations)}</h2>
+        <ul className="rows">
+          {LOCATIONS.map((l) => (
+            <li key={l.slug}>
+              <Link href={p(`/locations/${l.slug}`)}>{l.street}</Link>
+              <span className="muted">{SITE.hoursLabel[lang]}</span>
+            </li>
+          ))}
+        </ul>
       </section>
     </>
   );
