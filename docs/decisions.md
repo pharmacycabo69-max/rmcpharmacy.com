@@ -23,7 +23,7 @@ Las decisiones marcadas (propuesta) se asumen por defecto hasta que se confirmen
 ## Datos NAP (fuente única)
 Ver [phase0-proposal.md](phase0-proposal.md), sección NAP.
 | D7 | Categorías GBP: Farmacia y Minisúper | confirmada |
-| D8 | Precios: IV a domicilio desde USD 129; consulta por video USD 59 | confirmada |
+| D8 | Precios: IV a domicilio desde USD 159 (corregido el 2026-10-25; antes 129) y en consultorio desde USD 129; consulta por video USD 59 | confirmada |
 | D9 | Por ahora son 3 sucursales, todas con nombre RMC Pharmacy | confirmada |
 | D10 | Nombre público: **RMC Pharmacy** (los 3 perfiles de GBP se renombran desde "Pharmacy RMC" antes del lanzamiento) | confirmada |
 
@@ -92,3 +92,10 @@ Nota: si el lanzamiento del sitio es después del 2026-10-21, mover las fechas p
 | G2 | La nota de evaluación de salud se redactó sin la palabra "Licensed" (regla 1). |
 | G3 | Bloque de licencia en el footer (COFEPRIS, licencia sanitaria, responsable sanitario) **no implementado**: choca con la regla 1. Pendiente de decisión del cliente. |
 | G4 | URL canónica del sitio: `https://www.rmcpharmacy.com`. Canonical, og:url, hreflang, sitemap y schema salen de `SITE.url`. En Vercel, `NEXT_PUBLIC_SITE_URL` debe valer lo mismo o estar sin definir, y el dominio sin www debe redirigir (308) al www. |
+
+## Precios de terapia IV (tabla de la base de datos, 2026-10-25)
+| # | Decisión |
+|---|----------|
+| P1 | El sitio publica solo precios mínimos: desde $159 USD a domicilio y $129 USD en consultorio. |
+| P2 | No se publican nombres de fórmulas ni ingredientes de la tabla (incluye fármacos), por la regla 2 y la regla 5. |
+| P3 | Precio por persona de grupos sigue como placeholder `$___` en `lib/groups.ts`. |

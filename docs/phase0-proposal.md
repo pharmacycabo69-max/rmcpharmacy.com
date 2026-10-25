@@ -67,7 +67,7 @@ Nota de intención: las páginas de sucursal compiten por búsquedas "near me"/m
 - **IV therapy:** el texto debe evitar promesas médicas ("cura", "trata"); describir el servicio, duración y precio.
 
 ## 6. Precios (para páginas de servicio)
-- Terapia IV a domicilio: desde USD 129.
+- Terapia IV a domicilio: desde USD 159. En consultorio: desde USD 129.
 - Consulta médica por videoconferencia: USD 59.
 - Consulta presencial y enfermería: precio pendiente.
 

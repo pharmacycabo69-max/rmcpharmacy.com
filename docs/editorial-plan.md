@@ -30,7 +30,7 @@ Público: turista norteamericano en la zona de la marina y hoteles. Inglés prim
 3. **Venta libre México vs. EE.UU.** Por categorías, no por marcas ni ingredientes. Cómo leer etiquetas en español, diferencias de presentación y unidades (mg/ml, tabletas), cuándo preguntar en mostrador. Evitar listas de "equivalencias" por producto.
 4. **Sol y calor.** Reglas simples: hidratar, sombra, reaplicar protector, horas pico. Señales de alerta (confusión, desmayo, piel muy caliente y seca): llamar al 911. IV therapy como opción de hidratación, sin afirmar resultados médicos.
 5. **Malestar estomacal.** Hidratación, comida ligera, cuándo consultar (fiebre alta, sangre, más de 48 h, deshidratación). Opción de consulta por video ($59 USD). Sin nombrar medicamentos.
-6. **Guía de terapia IV.** Qué es, cómo se agenda, cuánto dura, qué pasa en tu villa, precio desde $129 USD, preguntas frecuentes. Sin promesas de efectos; describir el servicio, no tratar condiciones.
+6. **Guía de terapia IV.** Qué es, cómo se agenda, cuánto dura, qué pasa en tu villa, precio desde $159 USD a domicilio, preguntas frecuentes. Sin promesas de efectos; describir el servicio, no tratar condiciones.
 7. **Ver a un médico.** Video vs. presencial, qué preparar, idioma, precio ($59 video). Cuándo ir directo a urgencias.
 8. **Enfermera en tu villa.** Casos típicos de visita (seguimiento, apoyo a un viajero, personas mayores o niños), cómo se coordina con Cabo Nurse, precio por WhatsApp.
 

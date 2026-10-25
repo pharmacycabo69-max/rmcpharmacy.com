@@ -25,15 +25,15 @@ export const SERVICES: ServiceItem[] = [
     name: { en: "IV therapy at your villa or hotel", es: "Terapia IV en tu villa u hotel" },
     metaTitle: { en: "IV Therapy in Cabo San Lucas", es: "Terapia IV en Cabo San Lucas" },
     metaDescription: {
-      en: "IV therapy delivered to your villa, hotel or boat in Cabo San Lucas. From $129 USD. Book on WhatsApp.",
-      es: "Terapia IV a tu villa, hotel o yate en Cabo San Lucas. Desde $129 USD. Reserva por WhatsApp.",
+      en: "IV therapy delivered to your villa, hotel or boat in Cabo San Lucas. From $159 USD at home, $129 USD in office. Book on WhatsApp.",
+      es: "Terapia IV a tu villa, hotel o yate en Cabo San Lucas. Desde $159 USD a domicilio, $129 USD en consultorio. Reserva por WhatsApp.",
     },
     headline: { en: "IV therapy in Cabo, where you are staying", es: "Terapia IV en Cabo, donde te hospedas" },
     intro: {
       en: "Skip the trip. A nurse comes to your villa, hotel room or boat with everything needed for your session while you relax.",
       es: "Sin salir de donde estás. Una enfermera llega a tu villa, habitación de hotel o yate con todo lo necesario para tu sesión.",
     },
-    price: { en: "From $129 USD at home", es: "Desde $129 USD a domicilio" },
+    price: { en: "From $159 USD at home · $129 USD in office", es: "Desde $159 USD a domicilio · $129 USD en consultorio" },
     points: [
       { en: "We come to you: villas, hotels, marina and boats", es: "Vamos a ti: villas, hoteles, marina y yates" },
       { en: "Book by WhatsApp in English or Spanish", es: "Reserva por WhatsApp en inglés o español" },
@@ -47,7 +47,7 @@ export const SERVICES: ServiceItem[] = [
     faqs: [
       {
         q: { en: "How much does IV therapy cost in Cabo?", es: "¿Cuánto cuesta la terapia IV en Cabo?" },
-        a: { en: "Sessions at your villa or hotel start at $129 USD. Send us a message and we confirm the final price before we come.", es: "Las sesiones en tu villa u hotel comienzan en $129 USD. Escríbenos y confirmamos el precio final antes de ir." },
+        a: { en: "Sessions at your villa or hotel start at $159 USD, and in-office sessions at $129 USD. Send us a message and we confirm the final price before we come.", es: "Las sesiones en tu villa u hotel comienzan en $159 USD, y las de consultorio en $129 USD. Escríbenos y confirmamos el precio final antes de ir." },
       },
       {
         q: { en: "Do you come to hotels and villas?", es: "¿Van a hoteles y villas?" },

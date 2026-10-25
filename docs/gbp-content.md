@@ -47,7 +47,7 @@ Cada elemento: nombre (máx. 140 caracteres) y descripción (máx. 300).
 
 | # | Servicio EN | Descripción EN | Servicio ES | Descripción ES |
 |---|---|---|---|---|
-| 1 | IV therapy at your door | A nurse comes to your villa, hotel or boat in Cabo San Lucas. From $129 USD. Book on WhatsApp. | Terapia IV a domicilio | Una enfermera llega a tu villa, hotel o yate en Cabo San Lucas. Desde $129 USD. Reserva por WhatsApp. |
+| 1 | IV therapy at your door | A nurse comes to your villa, hotel or boat in Cabo San Lucas. From $159 USD. Book on WhatsApp. | Terapia IV a domicilio | Una enfermera llega a tu villa, hotel o yate en Cabo San Lucas. Desde $159 USD. Reserva por WhatsApp. |
 | 2 | Doctor consultation by video | See a doctor by video call from where you are staying. $59 USD. English and Spanish. | Consulta médica por videollamada | Consulta con un médico por videollamada desde donde te hospedas. $59 USD. Inglés y español. |
 | 3 | Home nursing | A nurse at your villa or hotel through our sister brand Cabo Nurse. Price confirmed on WhatsApp. | Enfermería a domicilio | Una enfermera en tu villa u hotel con nuestra marca hermana Cabo Nurse. Precio confirmado por WhatsApp. |
 | 4 | Delivery to hotels, villas and boats | Order on WhatsApp and we bring everyday essentials to where you are staying. | Entrega en hoteles, villas y yates | Pide por WhatsApp y llevamos esenciales de todos los días a donde te hospedas. |
