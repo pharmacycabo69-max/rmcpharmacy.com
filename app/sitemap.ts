@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/pharmacy",
     "/delivery",
     ...SERVICES.map((s) => `/services/${s.slug}`),
+    "/services/iv-therapy/groups",
     "/about",
     "/contact",
     ...(getPublishedPosts().length ? ["/blog", ...getPublishedPosts().map((p) => `/blog/${p.slug}`)] : []),

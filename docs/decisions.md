@@ -84,3 +84,11 @@ Un artículo por semana, en el orden del plan. Cada uno sale en su fecha (`date`
 | 2026-12-09 | nurse-at-your-villa-cabo |
 
 Nota: si el lanzamiento del sitio es después del 2026-10-21, mover las fechas para que el primero salga el día del lanzamiento.
+
+## Terapia IV grupal y dominio www
+| # | Decisión |
+|---|----------|
+| G1 | Nueva página `/services/iv-therapy/groups` (ES: `/es/servicios/terapia-iv/grupos`) en el layout de landing (sin enlaces a farmacia ni entrega). Contenido en `lib/groups.ts`. Precios con placeholder `$___` hasta confirmarlos. |
+| G2 | La nota de evaluación de salud se redactó sin la palabra "Licensed" (regla 1). |
+| G3 | Bloque de licencia en el footer (COFEPRIS, licencia sanitaria, responsable sanitario) **no implementado**: choca con la regla 1. Pendiente de decisión del cliente. |
+| G4 | URL canónica del sitio: `https://www.rmcpharmacy.com`. Canonical, og:url, hreflang, sitemap y schema salen de `SITE.url`. En Vercel, `NEXT_PUBLIC_SITE_URL` debe valer lo mismo o estar sin definir, y el dominio sin www debe redirigir (308) al www. |

@@ -1,6 +1,6 @@
 export const SITE = {
   name: "RMC Pharmacy",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://rmcpharmacy.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.rmcpharmacy.com",
   phone: "+52 624 226 1023",
   phoneDigits: "526242261023",
   hours: { days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], opens: "09:00", closes: "18:00" },

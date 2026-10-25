@@ -11,6 +11,7 @@ export const ES_SEGMENTS: Record<string, string> = {
   "iv-therapy": "terapia-iv",
   "doctor-consultation": "consulta-medica",
   "home-nursing": "enfermeria-a-domicilio",
+  groups: "grupos",
 };
 
 const EN_FROM_ES = Object.fromEntries(Object.entries(ES_SEGMENTS).map(([en, es]) => [es, en]));

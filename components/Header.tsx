@@ -19,6 +19,9 @@ export function Header({ lang }: { lang: Lang }) {
             <summary>{lang === "en" ? "Services" : "Servicios"}</summary>
             <div className="menu-panel">
               <Link href={p("/services/iv-therapy")}>{t(lang, UI.nav.ivTherapy)}</Link>
+              <Link href={p("/services/iv-therapy/groups")} className="menu-sub">
+                {lang === "en" ? "Group IV Therapy" : "Terapia IV grupal"}
+              </Link>
               <Link href={p("/services/doctor-consultation")}>{t(lang, UI.nav.doctor)}</Link>
               <Link href={p("/services/home-nursing")}>{t(lang, UI.nav.nursing)}</Link>
             </div>

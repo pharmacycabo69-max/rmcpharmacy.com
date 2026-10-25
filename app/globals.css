@@ -43,6 +43,7 @@ address { font-style: normal; margin: 0 0 1em; }
 .menu summary::after { content: " ▾"; font-size: 0.7em; }
 .menu-panel { position: absolute; top: 100%; left: -12px; margin-top: 10px; display: grid; gap: 4px; min-width: 200px; padding: 10px; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 8px 24px rgb(0 0 0 / 0.08); }
 .menu-panel a { padding: 6px 10px; border-radius: 6px; }
+.menu-panel .menu-sub { padding-left: 22px; font-size: 0.9rem; color: var(--muted); }
 .menu-panel a:hover { background: var(--surface); }
 .lang-switch { margin-left: auto; font-size: 0.9rem; text-decoration: none; }
 
