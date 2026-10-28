@@ -10,6 +10,7 @@ import { UI, t } from "@/lib/i18n";
 import { buildMetadata } from "@/lib/metadata";
 import { localizedPath } from "@/lib/routes";
 import { SERVICES } from "@/lib/services";
+import { SERVICE_CARD_PHOTO } from "@/lib/sessionPhotos";
 import { SITE, isLang } from "@/lib/site";
 import { AREA_LABEL, ZONES } from "@/lib/zones";
 
@@ -164,7 +165,19 @@ export default async function Home({ params }: Props) {
         <div className="service-grid">
           {SERVICES.map((s) => (
             <Link key={s.slug} href={p(`/services/${s.slug}`)} className="service-card">
-              <span className="service-icon">{serviceIcon[s.slug] ?? <ChatIcon />}</span>
+              <span className="service-media">
+                {SERVICE_CARD_PHOTO[s.slug] ? (
+                  <Image
+                    src={SERVICE_CARD_PHOTO[s.slug]!.src}
+                    alt={SERVICE_CARD_PHOTO[s.slug]!.alt[lang]}
+                    width={SERVICE_CARD_PHOTO[s.slug]!.width}
+                    height={SERVICE_CARD_PHOTO[s.slug]!.height}
+                    sizes="(max-width: 720px) 100vw, 320px"
+                  />
+                ) : (
+                  <span className="service-media-icon">{serviceIcon[s.slug] ?? <ChatIcon />}</span>
+                )}
+              </span>
               <h3>{s.name[lang]}</h3>
               <p className="muted">{s.price[lang]}</p>
             </Link>

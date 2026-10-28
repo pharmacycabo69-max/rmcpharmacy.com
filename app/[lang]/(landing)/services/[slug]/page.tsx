@@ -6,7 +6,7 @@ import { Gallery } from "@/components/Gallery";
 import { FaqList } from "@/components/ServiceFaqList";
 import { buildMetadata } from "@/lib/metadata";
 import { IV_PRODUCTS, ivBookingMessage } from "@/lib/ivProducts";
-import { IV_SESSION_PHOTOS } from "@/lib/sessionPhotos";
+import { IV_SESSION_PHOTOS, NURSING_PHOTOS } from "@/lib/sessionPhotos";
 import { DropIcon } from "@/components/Icons";
 import { whatsappUrl } from "@/lib/whatsapp";
 import { faqSchema, serviceSchema } from "@/lib/schema";
@@ -45,9 +45,9 @@ export default async function ServicePage({ params }: Props) {
           <CtaButtons lang={lang} source={`${source}-hero`} />
         </div>
       </section>
-      {slug === "iv-therapy" && (
+      {(slug === "iv-therapy" || slug === "home-nursing") && (
         <section className="container section">
-          <Gallery photos={IV_SESSION_PHOTOS} lang={lang} />
+          <Gallery photos={slug === "iv-therapy" ? IV_SESSION_PHOTOS : NURSING_PHOTOS} lang={lang} />
         </section>
       )}
       {slug === "iv-therapy" && (
