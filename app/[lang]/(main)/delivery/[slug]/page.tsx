@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CtaButtons } from "@/components/CtaButtons";
@@ -60,6 +61,12 @@ export default async function ZonePage({ params }: Props) {
         {c.leadAfter}
       </p>
       <CtaButtons lang={lang} source={`zone-${z.slug}`} rawMessage={c.whatsapp} />
+
+      {z.photo && (
+        <figure className="zone-hero">
+          <Image src={z.photo.src} alt={z.photo.alt[lang]} width={z.photo.width} height={z.photo.height} sizes="(max-width: 1200px) 100vw, 1100px" priority />
+        </figure>
+      )}
 
       <section className="section">
         <h2>{c.aboutTitle}</h2>

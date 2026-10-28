@@ -2,12 +2,16 @@ type L = { en: string; es: string };
 
 export type ZoneArtKind = "marina" | "beach" | "hills" | "golf" | "sunset" | "surf" | "town";
 
+export type ZonePhoto = { src: string; width: number; height: number; alt: L };
+
 export type Zone = {
   slug: string;
   name: L;
   area: "cabo-san-lucas" | "corridor" | "san-jose";
   /** Illustration used on the zone card until a real photo of the area is added. */
   art: ZoneArtKind;
+  /** Real photo of the area. When present it replaces the illustration. */
+  photo?: ZonePhoto;
   etaMin: number;
   etaMax: number;
   /** Reference hotels and developments in the zone. Orientative list: the owner extends it. */
@@ -35,6 +39,7 @@ export const ZONES: Zone[] = [
     name: { en: "Marina & Downtown Cabo", es: "Marina y Centro de Cabo" },
     area: "cabo-san-lucas",
     art: "marina",
+    photo: { src: "/zones/marina-centro.jpg", width: 1600, height: 900, alt: { en: "Aerial view of the marina in Cabo San Lucas", es: "Vista aérea de la marina de Cabo San Lucas" } },
     etaMin: 15,
     etaMax: 25,
     hotels: ["Hotel Tesoro Los Cabos", "Marina Fiesta Resort & Spa", "Hotel Mar de Cortez", "Siesta Suites Cabo San Lucas"],
