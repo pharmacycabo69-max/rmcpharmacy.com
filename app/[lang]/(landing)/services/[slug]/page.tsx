@@ -8,7 +8,10 @@ import Link from "next/link";
 import { CLINIC_SLUG, fullAddress, getLocation } from "@/lib/locations";
 import { buildMetadata } from "@/lib/metadata";
 import { localizedPath } from "@/lib/routes";
+import { IV_PRODUCTS, ivBookingMessage } from "@/lib/ivProducts";
 import { IV_SESSION_PHOTOS } from "@/lib/sessionPhotos";
+import { DropIcon } from "@/components/Icons";
+import { whatsappUrl } from "@/lib/whatsapp";
 import { faqSchema, serviceSchema } from "@/lib/schema";
 import { SERVICES, getService } from "@/lib/services";
 import { LANGS, isLang } from "@/lib/site";
@@ -49,6 +52,48 @@ export default async function ServicePage({ params }: Props) {
       {slug === "iv-therapy" && (
         <section className="container section">
           <Gallery photos={IV_SESSION_PHOTOS} lang={lang} />
+        </section>
+      )}
+      {slug === "iv-therapy" && (
+        <section className="container section">
+          <h2>{lang === "en" ? "Choose your IV" : "Elige tu IV"}</h2>
+          <div className="product-grid">
+            {IV_PRODUCTS.map((p) => (
+              <article key={p.slug} className="product-card">
+                <span className="service-icon">
+                  <DropIcon />
+                </span>
+                <h3>{p.name[lang]}</h3>
+                <p className="muted">
+                  {p.description[lang]} {p.minutes} min
+                </p>
+                <dl className="prices">
+                  <div>
+                    <dt>{lang === "en" ? "At your villa or hotel" : "En tu villa u hotel"}</dt>
+                    <dd>
+                      {lang === "en" ? "From" : "Desde"} <strong>${p.home}</strong> USD
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>{lang === "en" ? "In office" : "En consultorio"}</dt>
+                    <dd>
+                      {lang === "en" ? "From" : "Desde"} <strong>${p.office}</strong> USD
+                    </dd>
+                  </div>
+                </dl>
+                <a
+                  className="btn btn-primary"
+                  href={whatsappUrl(lang, `iv-product-${p.slug}`, ivBookingMessage(p, lang))}
+                  target="_blank"
+                  rel="noopener"
+                  data-cta="whatsapp"
+                  data-source={`iv-product-${p.slug}`}
+                >
+                  {lang === "en" ? "Book on WhatsApp" : "Reservar por WhatsApp"}
+                </a>
+              </article>
+            ))}
+          </div>
         </section>
       )}
       <section className="container section">

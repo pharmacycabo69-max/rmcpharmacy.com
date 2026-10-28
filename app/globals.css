@@ -153,3 +153,14 @@ address { font-style: normal; margin: 0 0 1em; }
 @media (prefers-reduced-motion: reduce) {
   .service-card, .store-card, .fab { transition: none; }
 }
+
+.product-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+.product-card { display: flex; flex-direction: column; gap: 10px; background: var(--bg); border: 1px solid var(--border); border-radius: 18px; padding: 22px; }
+.product-card h3 { margin: 4px 0 0; font-size: 1.25rem; }
+.product-card p { margin: 0; }
+.prices { margin: 4px 0 6px; display: grid; gap: 8px; }
+.prices div { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-top: 1px solid var(--border); padding-top: 8px; }
+.prices dt { color: var(--muted); font-size: 0.9rem; }
+.prices dd { margin: 0; }
+.prices strong { font-size: 1.35rem; }
+.product-card .btn { text-align: center; margin-top: 4px; }

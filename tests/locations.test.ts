@@ -4,6 +4,7 @@ import { join } from "node:path";
 import { test } from "node:test";
 import { getOpenStatus } from "../lib/hours.ts";
 import { ALL_LOCATIONS, LOCATIONS, PHARMACIES, locationH1, validateLocations, type Location } from "../lib/locations.ts";
+import { IV_PRODUCTS } from "../lib/ivProducts.ts";
 import { IV_SESSION_PHOTOS } from "../lib/sessionPhotos.ts";
 
 const published = ALL_LOCATIONS.filter((l) => l.isPublished);
@@ -115,4 +116,10 @@ test("session photos exist and are small", () => {
     assert.ok(statSync(join("public", ph.src)).size < 400 * 1024, ph.src);
     assert.ok(ph.alt.en.length > 10 && ph.alt.es.length > 10);
   }
+});
+
+test("IV products list prices consistent with the minimums and no drug names or claims", () => {
+  assert.equal(Math.min(...IV_PRODUCTS.map((p) => p.home)), 159);
+  assert.equal(Math.min(...IV_PRODUCTS.map((p) => p.office)), 129);
+  assert.doesNotMatch(JSON.stringify(IV_PRODUCTS), /ondans|omepra|licen[sc]|certif|detox|hangover|cure|medical-grade/i);
 });
