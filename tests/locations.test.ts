@@ -186,3 +186,10 @@ test("team and zone photos exist and are small", () => {
   }
   for (const z of ZONES) if (z.photo) assert.ok(statSync(join("public", z.photo.src)).size < 400 * 1024, z.slug);
 });
+
+test("every delivery zone has a real photo with alt text in both languages", () => {
+  for (const z of ZONES) {
+    assert.ok(z.photo, `${z.slug} has no photo`);
+    assert.ok(z.photo!.alt.en.length > 10 && z.photo!.alt.es.length > 10, z.slug);
+  }
+});
