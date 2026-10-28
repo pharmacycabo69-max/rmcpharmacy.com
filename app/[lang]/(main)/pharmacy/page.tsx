@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CtaButtons } from "@/components/CtaButtons";
+import { EssentialsGrid } from "@/components/EssentialsGrid";
 import { buildMetadata } from "@/lib/metadata";
 import { isLang } from "@/lib/site";
 
@@ -19,11 +20,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-const CATEGORIES = {
-  en: ["Sun care and after-sun", "First aid and bandages", "Hydration and electrolytes", "Personal care and hygiene", "Travel basics and snacks", "Baby and family care"],
-  es: ["Protector solar y after-sun", "Primeros auxilios y vendajes", "Hidratación y electrolitos", "Cuidado personal e higiene", "Básicos de viaje y snacks", "Cuidado de bebé y familia"],
-};
-
 export default async function Pharmacy({ params }: Props) {
   const { lang } = await params;
   if (!isLang(lang)) return null;
@@ -35,11 +31,7 @@ export default async function Pharmacy({ params }: Props) {
           ? "Everyday essentials for your trip, in English and Spanish. Ask us on WhatsApp if you want to check availability before you walk over."
           : "Esenciales de todos los días para tu viaje, en inglés y español. Pregúntanos por WhatsApp para revisar disponibilidad antes de venir."}
       </p>
-      <ul className="checks">
-        {CATEGORIES[lang].map((c) => (
-          <li key={c}>{c}</li>
-        ))}
-      </ul>
+      <EssentialsGrid lang={lang} />
       <CtaButtons lang={lang} source="pharmacy-page" />
     </div>
   );

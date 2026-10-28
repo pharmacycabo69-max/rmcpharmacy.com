@@ -135,3 +135,13 @@ El dueño decidió no incluir Cabo Walk-In Medical Clinic, Urgent Care & Mobile 
 | D-2 | Movimiento sutil: entrada escalonada del hero, aparición al hacer scroll (`data-reveal`, `components/RevealOnScroll.tsx`), tarjetas que se elevan, fotos con zoom suave, indicador "abierto ahora" con pulso. Con `prefers-reduced-motion` todo queda quieto y visible. |
 | D-3 | Confianza solo con datos reales: horario, idiomas, formas de pago, entrega estimada, fotos reales y estado abierto/cerrado. No hay calificaciones ni cifras inventadas. |
 | D-4 | Inicio reorganizado: hero con buscador de hotel y mosaico de fotos, franja de confianza, entrega en 3 pasos, zonas, servicios con foto, tiendas y franja final. |
+
+## Pasada de SEO y contenido (2026-10-29)
+| # | Decisión |
+|---|----------|
+| S1 | Imagen por defecto al compartir (`/og-default.jpg`, 1200x630) y tarjeta de Twitter en todas las páginas; las que tienen foto propia la usan. |
+| S2 | Datos estructurados nuevos: BreadcrumbList en zonas, tiendas, servicios y artículos; WebSite en el inicio; Organization con logo y contacto. |
+| S3 | Enlaces internos en el pie de página a las 13 zonas y a los servicios, para que Google las rastree desde cualquier página. |
+| S4 | Página 404 propia (bilingüe) con enlaces al inicio. |
+| S5 | Esenciales de todos los días: 6 categorías con ícono que abren WhatsApp con una pregunta de disponibilidad. Sin precios. |
+| S6 | 6 artículos nuevos (zonas de Médano y San José/corredor, guía de protector solar, esenciales para un día en barco, lista de farmacia con niños, cómo funciona la entrega en el lobby). Salen de uno en uno cada semana del 16 dic 2026 al 20 ene 2027. |

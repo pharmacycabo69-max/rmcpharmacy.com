@@ -5,6 +5,7 @@ import { test } from "node:test";
 import { getOpenStatus } from "../lib/hours.ts";
 import { ALL_LOCATIONS, LOCATIONS, locationH1, validateLocations, type Location } from "../lib/locations.ts";
 import { buildBot } from "../lib/botFlows.ts";
+import { ESSENTIALS } from "../lib/essentials.ts";
 import { IV_PRODUCTS } from "../lib/ivProducts.ts";
 import { TEAM_PHOTOS } from "../lib/team.ts";
 import { zoneContent } from "../lib/zoneContent.ts";
@@ -191,5 +192,28 @@ test("every delivery zone has a real photo with alt text in both languages", () 
   for (const z of ZONES) {
     assert.ok(z.photo, `${z.slug} has no photo`);
     assert.ok(z.photo!.alt.en.length > 10 && z.photo!.alt.es.length > 10, z.slug);
+  }
+});
+
+test("new articles: weekly schedule, EN/ES text, no regulatory or drug wording", async () => {
+  const { readdirSync } = await import("node:fs");
+  const files = readdirSync("lib/posts").filter((f) => f.endsWith(".ts") && !["index.ts", "types.ts"].includes(f));
+  const dates: string[] = [];
+  for (const f of files) {
+    const src = readFileSync(join("lib/posts", f), "utf8");
+    assert.doesNotMatch(src, /licen[sc]|licencia|cofepris|coepris|prescription|receta|antibio|viagra|ondans|omepra|detox|hangover/i, f);
+    const d = /date: "(\d{4}-\d{2}-\d{2})"/.exec(src);
+    assert.ok(d, `${f} has no date`);
+    dates.push(d![1]);
+    assert.ok(/en: \[/.test(src) && /es: \[/.test(src), `${f} needs both languages`);
+  }
+  assert.equal(new Set(dates).size, dates.length, "two articles share a publication date");
+});
+
+test("essentials tiles: every category has EN/ES text and a WhatsApp question", () => {
+  assert.ok(ESSENTIALS.length >= 6);
+  for (const e of ESSENTIALS) {
+    for (const lang of ["en", "es"] as const) assert.ok(e.name[lang] && e.text[lang] && e.ask[lang], e.id);
+    assert.doesNotMatch(JSON.stringify(e), /licen[sc]|cofepris|prescription|receta|antibio|viagra/i, e.id);
   }
 });

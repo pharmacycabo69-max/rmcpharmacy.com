@@ -3,6 +3,8 @@ import { LOCATIONS, fullAddress } from "@/lib/locations";
 import { UI, t } from "@/lib/i18n";
 import { localizedPath } from "@/lib/routes";
 import { SITE, type Lang } from "@/lib/site";
+import { SERVICES } from "@/lib/services";
+import { ZONES } from "@/lib/zones";
 import { telUrl } from "@/lib/whatsapp";
 
 export function Footer({ lang }: { lang: Lang }) {
@@ -23,6 +25,31 @@ export function Footer({ lang }: { lang: Lang }) {
           <p>
             <a href={telUrl()}>{SITE.phone}</a>
           </p>
+        </div>
+      </div>
+      <div className="container footer-lists">
+        <div>
+          <h2 className="footer-title">{lang === "en" ? "Delivery zones" : "Zonas de entrega"}</h2>
+          <ul>
+            {ZONES.map((z) => (
+              <li key={z.slug}>
+                <Link href={localizedPath(lang, `/delivery/${z.slug}`)}>{z.name[lang]}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h2 className="footer-title">{lang === "en" ? "Services" : "Servicios"}</h2>
+          <ul>
+            {SERVICES.map((s) => (
+              <li key={s.slug}>
+                <Link href={localizedPath(lang, `/services/${s.slug}`)}>{s.name[lang]}</Link>
+              </li>
+            ))}
+            <li>
+              <Link href={localizedPath(lang, "/services/iv-therapy/groups")}>{lang === "en" ? "Group IV therapy" : "Terapia IV grupal"}</Link>
+            </li>
+          </ul>
         </div>
       </div>
       <div className="container footer-links">

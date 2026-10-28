@@ -7,7 +7,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { FaqList } from "@/components/ServiceFaqList";
 import { buildMetadata } from "@/lib/metadata";
 import { localizedPath } from "@/lib/routes";
-import { faqSchema } from "@/lib/schema";
+import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { LANGS, SITE, isLang } from "@/lib/site";
 import { zoneContent } from "@/lib/zoneContent";
 import { AREA_LABEL, ZONES, getZone } from "@/lib/zones";
@@ -54,6 +54,7 @@ export default async function ZonePage({ params }: Props) {
     <div className="container section">
       <JsonLd data={schema} />
       <JsonLd data={faqSchema(c.faqs)} />
+      <JsonLd data={breadcrumbSchema(lang, [{ name: lang === "en" ? "Home" : "Inicio", enPath: "/" }, { name: lang === "en" ? "Delivery" : "Entrega", enPath: "/delivery" }, { name: z.name[lang], enPath: `/delivery/${z.slug}` }])} />
       <h1>{c.h1}</h1>
       <p className="lead">
         {c.leadBefore}

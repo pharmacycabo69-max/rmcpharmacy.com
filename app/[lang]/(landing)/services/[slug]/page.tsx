@@ -9,7 +9,7 @@ import { IV_PRODUCTS, ivBookingMessage } from "@/lib/ivProducts";
 import { DOCTOR_PHOTOS, IV_SESSION_PHOTOS, NURSING_PHOTOS } from "@/lib/sessionPhotos";
 import { DropIcon } from "@/components/Icons";
 import { whatsappUrl } from "@/lib/whatsapp";
-import { faqSchema, serviceSchema } from "@/lib/schema";
+import { breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
 import { SERVICES, getService } from "@/lib/services";
 import { LANGS, isLang } from "@/lib/site";
 
@@ -36,6 +36,7 @@ export default async function ServicePage({ params }: Props) {
   return (
     <>
       <JsonLd data={serviceSchema(s, lang)} />
+      <JsonLd data={breadcrumbSchema(lang, [{ name: lang === "en" ? "Home" : "Inicio", enPath: "/" }, { name: s.name[lang], enPath: `/services/${s.slug}` }])} />
       <JsonLd data={faqSchema(s.faqs.map((f) => ({ q: f.q[lang], a: f.a[lang] })))} />
       <section className="hero">
         <div className="container">

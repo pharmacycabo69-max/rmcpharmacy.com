@@ -26,7 +26,8 @@ export function buildMetadata(opts: {
       siteName: SITE.name,
       locale: lang === "es" ? "es_MX" : "en_US",
       type: "website",
-      ...(image ? { images: [{ url: image.startsWith("http") ? image : SITE.url + image }] } : {}),
+      images: [{ url: (image ?? "/og-default.jpg").startsWith("http") ? (image ?? "/og-default.jpg") : SITE.url + (image ?? "/og-default.jpg") }],
     },
+    twitter: { card: "summary_large_image", title, description },
   };
 }

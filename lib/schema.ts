@@ -78,7 +78,32 @@ export function organizationSchema() {
     "@type": "Organization",
     name: SITE.name,
     url: SITE.url,
+    logo: `${SITE.url}/icon.png`,
     telephone: SITE.phone,
+    contactPoint: { "@type": "ContactPoint", telephone: SITE.phone, contactType: "customer service", availableLanguage: ["English", "Spanish"] },
   };
 }
 
+export function websiteSchema(lang: Lang) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: SITE.name,
+    url: SITE.url + localizedPath(lang, "/"),
+    inLanguage: lang,
+  };
+}
+
+/** items: [{ name, enPath }] from the home page down to the current page. */
+export function breadcrumbSchema(lang: Lang, items: { name: string; enPath: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((it, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: it.name,
+      item: SITE.url + localizedPath(lang, it.enPath),
+    })),
+  };
+}

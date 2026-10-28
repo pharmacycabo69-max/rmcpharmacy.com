@@ -4,6 +4,9 @@ import Image from "next/image";
 import { CtaButtons } from "@/components/CtaButtons";
 import { BagIcon, CardIcon, ChatIcon, ClockIcon, DropIcon, GlobeIcon, PulseIcon, UserIcon } from "@/components/Icons";
 import { OpenStatus } from "@/components/OpenStatus";
+import { EssentialsGrid } from "@/components/EssentialsGrid";
+import { JsonLd } from "@/components/JsonLd";
+import { websiteSchema } from "@/lib/schema";
 import { HotelFinder, type HotelOption } from "@/components/HotelFinder";
 import { StoreCard } from "@/components/StoreCard";
 import { ZoneCard } from "@/components/ZoneCard";
@@ -87,6 +90,7 @@ export default async function Home({ params }: Props) {
 
   return (
     <>
+      <JsonLd data={websiteSchema(lang)} />
       <section className="hero-home">
         <div className="container hero-grid">
           <div className="hero-copy">
@@ -224,6 +228,17 @@ export default async function Home({ params }: Props) {
             </ul>
           </div>
         ))}
+      </section>
+
+      <section className="container section" style={{ paddingTop: 0 }}>
+        <div className="section-head" {...rv()}>
+          <p className="eyebrow">{en ? "Pharmacy and minimarket" : "Farmacia y minisúper"}</p>
+          <h2>{en ? "Everyday essentials" : "Esenciales de todos los días"}</h2>
+          <p className="muted">
+            {en ? "Tap a category to check availability on WhatsApp. We confirm before you walk over or order delivery." : "Toca una categoría para revisar disponibilidad por WhatsApp. Confirmamos antes de que vengas o pidas entrega."}
+          </p>
+        </div>
+        <EssentialsGrid lang={lang} />
       </section>
 
       <section className="container section">

@@ -6,11 +6,17 @@ import { post as stomach } from "./upset-stomach-on-vacation-cabo";
 import { post as doctor } from "./see-a-doctor-in-cabo-on-vacation";
 import { post as otc } from "./otc-mexico-vs-us-guide";
 import { post as nurse } from "./nurse-at-your-villa-cabo";
+import { post as medanoDelivery } from "./pharmacy-delivery-medano-beach-hotels";
+import { post as sanJoseDelivery } from "./pharmacy-delivery-san-jose-del-cabo-corridor";
+import { post as sunscreen } from "./sunscreen-guide-los-cabos";
+import { post as boatDay } from "./boat-day-essentials-cabo-marina";
+import { post as kids } from "./traveling-with-kids-pharmacy-checklist-cabo";
+import { post as lobby } from "./how-hotel-lobby-delivery-works-cabo";
 import type { Post } from "./types";
 
 export type { Block, Post } from "./types";
 
-export const POSTS: Post[] = [delivery, firstAidKit, ivTherapy, heat, stomach, doctor, otc, nurse];
+export const POSTS: Post[] = [delivery, firstAidKit, ivTherapy, heat, stomach, doctor, otc, nurse, medanoDelivery, sanJoseDelivery, sunscreen, boatDay, kids, lobby];
 
 /** A post goes live on its date (UTC). Pages revalidate hourly so each one appears without a redeploy. */
 export function isPublished(post: Post, now = new Date()) {

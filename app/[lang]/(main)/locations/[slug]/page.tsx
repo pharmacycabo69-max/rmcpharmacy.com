@@ -12,7 +12,7 @@ import { LOCATIONS, fullAddress, getLocation, locationH1 } from "@/lib/locations
 import { locationDescription, locationTitle } from "@/lib/locationMeta";
 import { buildMetadata } from "@/lib/metadata";
 import { localizedPath } from "@/lib/routes";
-import { faqSchema, locationSchema } from "@/lib/schema";
+import { breadcrumbSchema, faqSchema, locationSchema } from "@/lib/schema";
 import { getService } from "@/lib/services";
 import { LANGS, SITE, isLang } from "@/lib/site";
 import { ZONES, ZONE_PRIMARY_STORE } from "@/lib/zones";
@@ -55,6 +55,7 @@ export default async function LocationPage({ params }: Props) {
   return (
     <div className="container section">
       <JsonLd data={locationSchema(l, lang)} />
+      <JsonLd data={breadcrumbSchema(lang, [{ name: lang === "en" ? "Home" : "Inicio", enPath: "/" }, { name: lang === "en" ? "Locations" : "Sucursales", enPath: "/locations" }, { name: `${l.gbpName} · ${l.placeLabel}`, enPath: `/locations/${l.slug}` }])} />
       <JsonLd data={faqSchema(l.faq.map((f) => ({ q: f.q[lang], a: f.a[lang] })))} />
 
       <h1>{locationH1(l)}</h1>

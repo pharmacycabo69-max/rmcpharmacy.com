@@ -8,7 +8,7 @@ import { buildMetadata } from "@/lib/metadata";
 import { storeCountLabel } from "@/lib/locations";
 import { getPost, getPublishedPosts } from "@/lib/posts";
 import { localizedPath } from "@/lib/routes";
-import { faqSchema } from "@/lib/schema";
+import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { LANGS, SITE, isLang } from "@/lib/site";
 
 type Props = { params: Promise<{ lang: string; slug: string }> };
@@ -43,6 +43,7 @@ export default async function Post({ params }: Props) {
   return (
     <article className="container section prose">
       <JsonLd data={article} />
+      <JsonLd data={breadcrumbSchema(lang, [{ name: lang === "en" ? "Home" : "Inicio", enPath: "/" }, { name: "Blog", enPath: "/blog" }, { name: post.title[lang], enPath: `/blog/${slug}` }])} />
       {post.faqs && <JsonLd data={faqSchema(post.faqs.map((f) => ({ q: f.q[lang], a: f.a[lang] })))} />}
       <h1>{post.title[lang]}</h1>
       {post.body[lang].map((b, i) => {
