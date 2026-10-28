@@ -15,6 +15,16 @@ test("H1 equals the exact GBP name for every published store", () => {
   }
 });
 
+test("confirmed addresses are used verbatim and Embarcadero is flagged for review", () => {
+  const by = (s: string) => ALL_LOCATIONS.find((l) => l.slug === s)!;
+  assert.equal(by("plaza-gali").addressLine, "Plaza Gali, Blvd. Paseo de la Marina, Loc 47");
+  assert.equal(by("mercado-marina").addressLine, "Mercado Marina 11");
+  assert.equal(by("celeste").addressLine, "Blvd. Lázaro Cárdenas, Dep 17");
+  assert.equal(by("ocean").addressLine, "Blvd. Paseo de la Marina 103, Andador Módulo 103");
+  assert.equal(by("plaza-embarcadero").needsReview, true);
+  assert.ok(published.every((l) => l.phone === "+52 624 226 1023"));
+});
+
 test("Celeste and Ocean keep their own names and stay unpublished with nulls", () => {
   const celeste = ALL_LOCATIONS.find((l) => l.slug === "celeste")!;
   const ocean = ALL_LOCATIONS.find((l) => l.slug === "ocean")!;

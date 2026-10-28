@@ -36,6 +36,8 @@ export type Location = {
   intro: L | null;
   faq: Faq[];
   isPublished: boolean;
+  /** Published, but some data still needs the owner's confirmation. Listed in the final report; does not block the build. */
+  needsReview: boolean;
 };
 
 const BRAND_PHONE = "+52 624 226 1023";
@@ -78,6 +80,7 @@ const RMC_BASE = {
   delivers: true,
   faq: RMC_FAQ,
   isPublished: true,
+  needsReview: false,
 };
 
 export const ALL_LOCATIONS: Location[] = [
@@ -85,7 +88,7 @@ export const ALL_LOCATIONS: Location[] = [
     ...RMC_BASE,
     slug: "plaza-gali",
     placeLabel: "Plaza Gali",
-    addressLine: "Blvd. Paseo de la Marina Loc 47",
+    addressLine: "Plaza Gali, Blvd. Paseo de la Marina, Loc 47",
     geo: { lat: 22.8783056, lng: -109.9089587 },
     mapsUrl: "https://maps.app.goo.gl/hiNCXGKqXwE5JRv2A",
     intro: {
@@ -109,6 +112,7 @@ Esta sucursal también te conecta con nuestros servicios: terapia IV en tu villa
     ...RMC_BASE,
     slug: "plaza-embarcadero",
     placeLabel: "Plaza Embarcadero",
+    needsReview: true, // owner to confirm whether the GBP listing is "Boulevard Marina local 36"
     addressLine: "Blvd. Paseo de la Marina S/N, Local 15 Plaza Embarcadero",
     geo: null,
     mapsUrl: null,
@@ -158,9 +162,9 @@ Si necesitas algo más que un producto, pregunta por nuestros servicios: terapia
     slug: "celeste",
     gbpName: "Celeste Pharmacy",
     brand: "Celeste",
-    neighborhood: "Centro",
-    placeLabel: "Lázaro Cárdenas",
-    addressLine: "Lázaro Cárdenas, Dep 17",
+    neighborhood: "Downtown, Centro",
+    placeLabel: "Blvd. Lázaro Cárdenas",
+    addressLine: "Blvd. Lázaro Cárdenas, Dep 17",
     ...COMMON,
     phone: null,
     hours: null,
@@ -173,14 +177,15 @@ Si necesitas algo más que un producto, pregunta por nuestros servicios: terapia
     intro: null,
     faq: [],
     isPublished: false,
+    needsReview: false,
   },
   {
     slug: "ocean",
     gbpName: "Ocean Pharmacy",
     brand: "Ocean",
-    neighborhood: "Centro, Marina",
+    neighborhood: "Marina",
     placeLabel: "Paseo de la Marina",
-    addressLine: "Andador Módulo 103, Paseo de la Marina",
+    addressLine: "Blvd. Paseo de la Marina 103, Andador Módulo 103",
     ...COMMON,
     phone: null,
     hours: null,
@@ -193,6 +198,7 @@ Si necesitas algo más que un producto, pregunta por nuestros servicios: terapia
     intro: null,
     faq: [],
     isPublished: false,
+    needsReview: false,
   },
 ];
 
