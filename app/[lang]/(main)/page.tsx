@@ -43,9 +43,9 @@ export default async function Home({ params }: Props) {
   // Hero photos: real pictures of the RMC stores, picked by file name so a reorder never swaps them.
   const photoOf = (slug: string, file: string) => getLocation(slug)?.photos.find((x) => x.src.endsWith(file));
   const bento = [
-    photoOf("mercado-marina", "06-interior.jpg"),
-    photoOf("mercado-marina", "02-counter-service.jpg"),
-    photoOf("plaza-gali", "06-sun-care.jpg"),
+    TEAM_PHOTOS.find((x) => x.src.endsWith("team-sun-care.jpg")),
+    TEAM_PHOTOS.find((x) => x.src.endsWith("plaza-gali/05-counter-team.jpg")),
+    TEAM_PHOTOS.find((x) => x.src.endsWith("team-shelf.jpg")),
   ].filter((x): x is NonNullable<typeof x> => Boolean(x));
   const hoursStore = getLocation("plaza-gali");
 
@@ -126,7 +126,7 @@ export default async function Home({ params }: Props) {
             <div className="hero-visual">
               <div className="bento">
                 <figure className="b1">
-                  <Image src={bento[0].src} alt={bento[0].alt[lang]} width={bento[0].width} height={bento[0].height} priority sizes="(max-width: 960px) 60vw, 360px" />
+                  <Image src={bento[0].src} alt={bento[0].alt[lang]} width={bento[0].width} height={bento[0].height} priority sizes="(max-width: 960px) 60vw, 360px" style={{ objectPosition: "30% 40%" }} />
                 </figure>
                 <figure>
                   <Image src={bento[1].src} alt={bento[1].alt[lang]} width={bento[1].width} height={bento[1].height} sizes="(max-width: 960px) 40vw, 300px" />
@@ -162,6 +162,26 @@ export default async function Home({ params }: Props) {
             </li>
           ))}
         </ul>
+      </section>
+
+      <section className="container section">
+        <div className="section-head" {...rv()}>
+          <p className="eyebrow">{en ? "Our team" : "Nuestro equipo"}</p>
+          <h2>{en ? "The people who help you" : "Las personas que te atienden"}</h2>
+        </div>
+        <div className="team-grid">
+          {TEAM_PHOTOS.slice(0, 4).map((tp, i) => (
+            <figure key={tp.src} className="team-card" {...rv(i)}>
+              <Image src={tp.src} alt={tp.alt[lang]} width={tp.width} height={tp.height} sizes="(max-width: 720px) 100vw, 280px" />
+              <figcaption>{tp.caption}</figcaption>
+            </figure>
+          ))}
+        </div>
+        <p style={{ marginTop: 24 }}>
+          <Link className="text-link" href={p("/about")}>
+            {en ? "Meet the whole team" : "Conoce a todo el equipo"}
+          </Link>
+        </p>
       </section>
 
       <section className="container section">
@@ -245,26 +265,6 @@ export default async function Home({ params }: Props) {
             </div>
           ))}
         </div>
-      </section>
-
-      <section className="container section" style={{ paddingTop: 0 }}>
-        <div className="section-head" {...rv()}>
-          <p className="eyebrow">{en ? "Our team" : "Nuestro equipo"}</p>
-          <h2>{en ? "The people who help you" : "Las personas que te atienden"}</h2>
-        </div>
-        <div className="team-grid">
-          {TEAM_PHOTOS.slice(0, 4).map((tp, i) => (
-            <figure key={tp.src} className="team-card" {...rv(i)}>
-              <Image src={tp.src} alt={tp.alt[lang]} width={tp.width} height={tp.height} sizes="(max-width: 720px) 100vw, 280px" />
-              <figcaption>{tp.caption}</figcaption>
-            </figure>
-          ))}
-        </div>
-        <p style={{ marginTop: 24 }}>
-          <Link className="text-link" href={p("/about")}>
-            {en ? "Meet the whole team" : "Conoce a todo el equipo"}
-          </Link>
-        </p>
       </section>
 
       <section className="container section" style={{ paddingTop: 0 }}>

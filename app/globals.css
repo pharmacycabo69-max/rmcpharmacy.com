@@ -141,7 +141,7 @@ h3 { font-size: 1.2rem; letter-spacing: -0.015em; }
 }
 .float-card strong { font-size: 0.95rem; }
 .float-a { left: -18px; bottom: 56px; }
-.float-b { right: -14px; top: 26px; animation-delay: -3s; }
+.float-b { right: -14px; top: 45%; animation-delay: -3s; }
 .chips { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; margin: 26px 0 0; padding: 0; }
 .chips li { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; background: var(--surface); border: 1px solid var(--border); font-size: 0.88rem; }
 .chips svg { color: var(--brand); flex: none; }

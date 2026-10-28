@@ -113,11 +113,11 @@ export const ALL_LOCATIONS: Location[] = [
     reviewUrl: "https://g.page/r/Cd-qhz6zjhAaEAI/review",
     placeLabel: "Plaza Gali",
     photos: [
+      { src: "/locations/plaza-gali/05-counter-team.jpg", width: 1600, height: 1069, alt: { en: "Team member at the counter of RMC Pharmacy at Plaza Gali", es: "Integrante del equipo en el mostrador de RMC Pharmacy en Plaza Gali" } },
       { src: "/locations/plaza-gali/01-storefront.jpg", width: 1600, height: 1069, alt: { en: "Storefront of RMC Pharmacy at Plaza Gali", es: "Fachada de RMC Pharmacy en Plaza Gali" } },
       { src: "/locations/plaza-gali/02-street-view.jpg", width: 1600, height: 1200, alt: { en: "RMC Pharmacy seen from the walkway at Plaza Gali", es: "RMC Pharmacy vista desde el pasillo de Plaza Gali" } },
       { src: "/locations/plaza-gali/03-interior-entrance.jpg", width: 1600, height: 1200, alt: { en: "Inside RMC Pharmacy at Plaza Gali, looking toward the entrance", es: "Interior de RMC Pharmacy en Plaza Gali, mirando hacia la entrada" } },
       { src: "/locations/plaza-gali/04-interior-shelves.jpg", width: 1600, height: 1069, alt: { en: "Shelves with personal care and sun care products inside RMC Pharmacy at Plaza Gali", es: "Estantes con productos de cuidado personal y protección solar dentro de RMC Pharmacy en Plaza Gali" } },
-      { src: "/locations/plaza-gali/05-counter-team.jpg", width: 1600, height: 1069, alt: { en: "Team member at the counter of RMC Pharmacy at Plaza Gali", es: "Integrante del equipo en el mostrador de RMC Pharmacy en Plaza Gali" } },
       { src: "/locations/plaza-gali/06-sun-care.jpg", width: 1600, height: 1069, alt: { en: "Sun care products on the shelves at RMC Pharmacy, Plaza Gali", es: "Productos de protección solar en los estantes de RMC Pharmacy, Plaza Gali" } },
       { src: "/locations/plaza-gali/07-counter-service.jpg", width: 1600, height: 1069, alt: { en: "Team member serving at the counter of RMC Pharmacy, Plaza Gali", es: "Integrante del equipo atendiendo en el mostrador de RMC Pharmacy, Plaza Gali" } },
     ],
@@ -179,8 +179,8 @@ Además de la tienda, puedes reservar terapia IV en tu puerta desde $159 USD, un
     reviewUrl: "https://g.page/r/CXz8ZpnRA7MbEAI/review",
     placeLabel: "Mercado Marina",
     photos: [
-      { src: "/locations/mercado-marina/01-storefront.jpg", width: 1600, height: 1500, alt: { en: "Storefront of RMC Pharmacy at Mercado Marina", es: "Fachada de RMC Pharmacy en Mercado Marina" } },
       { src: "/locations/mercado-marina/02-counter-service.jpg", width: 1600, height: 1069, alt: { en: "Team member at the counter of RMC Pharmacy at Mercado Marina", es: "Integrante del equipo en el mostrador de RMC Pharmacy en Mercado Marina" } },
+      { src: "/locations/mercado-marina/01-storefront.jpg", width: 1600, height: 1500, alt: { en: "Storefront of RMC Pharmacy at Mercado Marina", es: "Fachada de RMC Pharmacy en Mercado Marina" } },
       { src: "/locations/mercado-marina/03-team.jpg", width: 1600, height: 1069, alt: { en: "Team member behind the counter at RMC Pharmacy, Mercado Marina", es: "Integrante del equipo detrás del mostrador en RMC Pharmacy, Mercado Marina" } },
       { src: "/locations/mercado-marina/04-counter-overview.jpg", width: 1600, height: 1276, alt: { en: "Service counter and shelves at RMC Pharmacy, Mercado Marina", es: "Mostrador y estantes en RMC Pharmacy, Mercado Marina" } },
       { src: "/locations/mercado-marina/05-shelves.jpg", width: 1600, height: 1069, alt: { en: "Shelves with personal care and everyday products at RMC Pharmacy, Mercado Marina", es: "Estantes con productos de cuidado personal y de uso diario en RMC Pharmacy, Mercado Marina" } },
@@ -265,9 +265,9 @@ Nuestros servicios también están disponibles desde esta sucursal: terapia IV e
     mapsUrl: "https://maps.app.goo.gl/hUKii4Xvy8FG1Sg78",
     reviewUrl: "https://g.page/r/CYFBh9X3v9bqEAI/review",
     photos: [
+      { src: "/locations/ocean/03-team-service.jpg", width: 1600, height: 1069, alt: { en: "Team member serving at the Ocean Pharmacy counter", es: "Integrante del equipo atendiendo en el mostrador de Ocean Pharmacy" } },
       { src: "/locations/ocean/01-kiosk-marina.jpg", width: 1600, height: 1069, alt: { en: "Ocean Pharmacy module on Paseo de la Marina", es: "Módulo de Ocean Pharmacy sobre Paseo de la Marina" } },
       { src: "/locations/ocean/02-kiosk-front.jpg", width: 1200, height: 1600, alt: { en: "Front of the Ocean Pharmacy module with open shelves", es: "Frente del módulo de Ocean Pharmacy con estantes abiertos" } },
-      { src: "/locations/ocean/03-team-service.jpg", width: 1600, height: 1069, alt: { en: "Team member serving at the Ocean Pharmacy counter", es: "Integrante del equipo atendiendo en el mostrador de Ocean Pharmacy" } },
       { src: "/locations/ocean/04-counter-overview.jpg", width: 1600, height: 1200, alt: { en: "Counter and shelves at Ocean Pharmacy", es: "Mostrador y estantes en Ocean Pharmacy" } },
       { src: "/locations/ocean/05-sun-care-shelves.jpg", width: 1600, height: 1069, alt: { en: "Sun care and everyday products on the shelves at Ocean Pharmacy", es: "Protección solar y productos de uso diario en los estantes de Ocean Pharmacy" } },
       { src: "/locations/ocean/06-counter-team.jpg", width: 1600, height: 1068, alt: { en: "Team member at the Ocean Pharmacy counter", es: "Integrante del equipo en el mostrador de Ocean Pharmacy" } },
