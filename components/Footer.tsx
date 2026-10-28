@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { LOCATIONS, addressLine } from "@/lib/locations";
+import { LOCATIONS, fullAddress } from "@/lib/locations";
 import { UI, t } from "@/lib/i18n";
 import { localizedPath } from "@/lib/routes";
 import { SITE, type Lang } from "@/lib/site";
@@ -12,9 +12,9 @@ export function Footer({ lang }: { lang: Lang }) {
         {LOCATIONS.map((l) => (
           <div key={l.slug}>
             <h2 className="footer-title">
-              <Link href={localizedPath(lang, `/locations/${l.slug}`)}>{l.name}</Link>
+              <Link href={localizedPath(lang, `/locations/${l.slug}`)}>{l.gbpName}</Link>
             </h2>
-            <address>{addressLine(l)}</address>
+            <address>{fullAddress(l)}</address>
           </div>
         ))}
         <div>

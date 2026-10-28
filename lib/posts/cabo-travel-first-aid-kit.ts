@@ -25,7 +25,7 @@ export const post: Post = {
       { h: "Your own regular items" },
       { p: "Pack anything you use regularly in its original container, and bring more than you think you need. If you have a health condition, talk to your own doctor before you travel. We do not replace that advice." },
       { h: "What you can pick up here" },
-      { p: "Sun care, first aid, hydration and personal care items are available at our three stores on the Cabo marina, open every day from 9 am to 6 pm. Send us a WhatsApp message to check availability, or ask for delivery to your villa or hotel." },
+      { p: "Sun care, first aid, hydration and personal care items are available at our {stores} in Cabo San Lucas. Find the hours on each store page. Send us a WhatsApp message to check availability, or ask for delivery to your villa or hotel." },
     ],
     es: [
       { p: "Los Cabos es sol, agua y actividad. Un botiquín pequeño en tu maleta te ahorra un viaje al otro lado de la ciudad cuando algo pequeño sale mal. Aquí tienes una lista sencilla por categorías." },
@@ -40,7 +40,7 @@ export const post: Post = {
       { h: "Tus propios artículos de siempre" },
       { p: "Lleva lo que usas con regularidad en su envase original y más de lo que crees necesitar. Si tienes alguna condición de salud, consulta a tu propio médico antes de viajar. No sustituimos ese consejo." },
       { h: "Lo que puedes conseguir aquí" },
-      { p: "Productos de protección solar, primeros auxilios, hidratación y cuidado personal están disponibles en nuestras tres sucursales en la marina de Cabo, abiertas todos los días de 9 am a 6 pm. Escríbenos por WhatsApp para revisar disponibilidad o pide entrega a tu villa u hotel." },
+      { p: "Productos de protección solar, primeros auxilios, hidratación y cuidado personal están disponibles en nuestras {stores} en Cabo San Lucas. Encuentra el horario en la página de cada sucursal. Escríbenos por WhatsApp para revisar disponibilidad o pide entrega a tu villa u hotel." },
     ],
   },
   related: [

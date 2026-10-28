@@ -90,3 +90,13 @@ address { font-style: normal; margin: 0 0 1em; }
   .hero { padding-block: 40px 32px; }
   .section { padding-block: 36px; }
 }
+
+.status { display: inline-block; min-height: 1.65em; color: var(--muted); font-weight: 600; }
+.status-open { color: var(--brand); }
+.subtitle { color: var(--muted); font-size: 1.15rem; margin: -0.2em 0 1em; }
+.hours-list { list-style: none; margin: 0 0 1em; padding: 0; max-width: 340px; }
+.hours-list li { display: flex; justify-content: space-between; gap: 16px; padding: 4px 0; border-bottom: 1px solid var(--border); }
+.photo-placeholder { aspect-ratio: 16 / 9; background: var(--surface); border-radius: 14px; }
+.gallery { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.gallery img { width: 100%; height: auto; border-radius: 14px; }
+.other-stores { display: flex; flex-wrap: wrap; gap: 8px 20px; padding: 0; list-style: none; }

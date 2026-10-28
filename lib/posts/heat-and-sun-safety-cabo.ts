@@ -29,7 +29,7 @@ export const post: Post = {
       { h: "Hydration support" },
       { p: "If you feel worn out after a day in the sun, rest, drink fluids and take it easy. Some travelers also book IV therapy at their villa or hotel. It is a service, not an emergency treatment, and it does not replace medical care." },
       { h: "What you can get here" },
-      { p: "Sun care, after-sun and hydration items are available at our three stores on the Cabo marina, open every day from 9 am to 6 pm, or delivered to your villa or hotel." },
+      { p: "Sun care, after-sun and hydration items are available at our {stores} in Cabo San Lucas, or delivered to your villa or hotel." },
     ],
     es: [
       { p: "El sol en Cabo es fuerte todo el año, y la combinación de calor, agua y unos tragos sorprende a muchos visitantes desde el primer día. Unos cuantos hábitos hacen una gran diferencia." },
@@ -48,7 +48,7 @@ export const post: Post = {
       { h: "Apoyo de hidratación" },
       { p: "Si te sientes agotado después de un día de sol, descansa, toma líquidos y ve con calma. Algunos viajeros también reservan terapia IV en su villa u hotel. Es un servicio, no un tratamiento de emergencia, y no sustituye la atención médica." },
       { h: "Lo que puedes conseguir aquí" },
-      { p: "Productos de protección solar, after-sun e hidratación están disponibles en nuestras tres sucursales en la marina de Cabo, abiertas todos los días de 9 am a 6 pm, o entregados en tu villa u hotel." },
+      { p: "Productos de protección solar, after-sun e hidratación están disponibles en nuestras {stores} en Cabo San Lucas, o entregados en tu villa u hotel." },
     ],
   },
   related: [

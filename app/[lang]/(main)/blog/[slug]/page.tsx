@@ -5,6 +5,7 @@ import { CtaButtons } from "@/components/CtaButtons";
 import { JsonLd } from "@/components/JsonLd";
 import { FaqList } from "@/components/ServiceFaqList";
 import { buildMetadata } from "@/lib/metadata";
+import { storeCountLabel } from "@/lib/locations";
 import { getPost, getPublishedPosts } from "@/lib/posts";
 import { localizedPath } from "@/lib/routes";
 import { faqSchema } from "@/lib/schema";
@@ -54,7 +55,7 @@ export default async function Post({ params }: Props) {
               ))}
             </ul>
           );
-        return <p key={i}>{b.p}</p>;
+        return <p key={i}>{b.p.replace("{stores}", storeCountLabel(lang))}</p>;
       })}
       {post.faqs && (
         <>

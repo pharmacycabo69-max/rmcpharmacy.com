@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CtaButtons } from "@/components/CtaButtons";
+import { hoursSummary } from "@/lib/hours";
 import { LOCATIONS } from "@/lib/locations";
 import { UI, t } from "@/lib/i18n";
 import { buildMetadata } from "@/lib/metadata";
@@ -64,8 +65,8 @@ export default async function Home({ params }: Props) {
         <ul className="rows">
           {LOCATIONS.map((l) => (
             <li key={l.slug}>
-              <Link href={p(`/locations/${l.slug}`)}>{l.street}</Link>
-              <span className="muted">{SITE.hoursLabel[lang]}</span>
+              <Link href={p(`/locations/${l.slug}`)}>{l.addressLine}</Link>
+              <span className="muted">{l.hours ? hoursSummary(l.hours, lang) : ""}</span>
             </li>
           ))}
         </ul>

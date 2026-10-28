@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CtaButtons } from "@/components/CtaButtons";
+import { storeCountLabel } from "@/lib/locations";
 import { buildMetadata } from "@/lib/metadata";
 import { isLang } from "@/lib/site";
 
@@ -14,8 +15,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: lang === "en" ? "About RMC Pharmacy" : "Sobre RMC Pharmacy",
     description:
       lang === "en"
-        ? "RMC Pharmacy: three stores on the Cabo San Lucas marina, open every day, in English and Spanish."
-        : "RMC Pharmacy: tres sucursales en la marina de Cabo San Lucas, abiertas todos los días, en inglés y español.",
+        ? `RMC Pharmacy: ${storeCountLabel("en")} in Cabo San Lucas, in English and Spanish.`
+        : `RMC Pharmacy: ${storeCountLabel("es")} en Cabo San Lucas, en inglés y español.`,
   });
 }
 
@@ -28,8 +29,8 @@ export default async function About({ params }: Props) {
       <h1>{lang === "en" ? "About RMC Pharmacy" : "Sobre RMC Pharmacy"}</h1>
       <p className="lead">
         {lang === "en"
-          ? "We are a pharmacy and minimarket with three stores on the Cabo San Lucas marina. We are open every day from 9 am to 6 pm and we attend in English and Spanish."
-          : "Somos una farmacia y minisúper con tres sucursales en la marina de Cabo San Lucas. Abrimos todos los días de 9 am a 6 pm y atendemos en inglés y español."}
+          ? `We are a pharmacy and minimarket with ${storeCountLabel("en")} in Cabo San Lucas. We attend in English and Spanish. Find the hours of each store on its page.`
+          : `Somos una farmacia y minisúper con ${storeCountLabel("es")} en Cabo San Lucas. Atendemos en inglés y español. Encuentra el horario de cada una en su página.`}
       </p>
       <CtaButtons lang={lang} source="about-page" />
     </div>

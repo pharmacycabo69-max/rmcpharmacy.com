@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { CtaButtons } from "@/components/CtaButtons";
-import { LOCATIONS, addressLine } from "@/lib/locations";
+import { LOCATIONS, fullAddress } from "@/lib/locations";
 import { buildMetadata } from "@/lib/metadata";
 import { SITE, isLang } from "@/lib/site";
 
@@ -33,8 +33,8 @@ export default async function Contact({ params }: Props) {
       <div className="cards">
         {LOCATIONS.map((l) => (
           <article key={l.slug} className="card">
-            <h2>{l.name}</h2>
-            <address>{addressLine(l)}</address>
+            <h2>{l.gbpName}</h2>
+            <address>{fullAddress(l)}</address>
             <CtaButtons lang={lang} source={`contact-${l.slug}`} location={l} showCall={false} />
           </article>
         ))}
