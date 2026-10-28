@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { CtaButtons } from "@/components/CtaButtons";
-import { BagIcon, ChatIcon, ClockIcon, DropIcon, GlobeIcon, PulseIcon, UserIcon } from "@/components/Icons";
+import { BagIcon, CardIcon, ChatIcon, ClockIcon, DropIcon, GlobeIcon, PulseIcon, UserIcon } from "@/components/Icons";
+import { OpenStatus } from "@/components/OpenStatus";
 import { HotelFinder, type HotelOption } from "@/components/HotelFinder";
 import { StoreCard } from "@/components/StoreCard";
-import { LOCATIONS, getLocation } from "@/lib/locations";
+import { LOCATIONS, getLocation, storeCountLabel } from "@/lib/locations";
 import { UI, t } from "@/lib/i18n";
 import { buildMetadata } from "@/lib/metadata";
 import { localizedPath } from "@/lib/routes";
@@ -33,15 +34,40 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Home({ params }: Props) {
   const { lang } = await params;
   if (!isLang(lang)) return null;
+  const en = lang === "en";
   const p = (path: string) => localizedPath(lang, path);
+  const rv = (i = 0) => ({ "data-reveal": "", style: { "--i": i } as React.CSSProperties });
 
-  // Hero mosaic: real photos of the RMC stores, picked by file name so a reorder never swaps them.
+  // Hero photos: real pictures of the RMC stores, picked by file name so a reorder never swaps them.
   const photoOf = (slug: string, file: string) => getLocation(slug)?.photos.find((x) => x.src.endsWith(file));
-  const mosaic = [
-    photoOf("plaza-gali", "06-sun-care.jpg"),
+  const bento = [
+    photoOf("mercado-marina", "06-interior.jpg"),
     photoOf("mercado-marina", "02-counter-service.jpg"),
-    photoOf("plaza-gali", "04-interior-shelves.jpg"),
+    photoOf("plaza-gali", "06-sun-care.jpg"),
   ].filter((x): x is NonNullable<typeof x> => Boolean(x));
+  const hoursStore = getLocation("plaza-gali");
+
+  const trust = [
+    { icon: <ClockIcon />, title: en ? "Open every day" : "Abierto todos los días", text: SITE.hoursLabel[lang].replace(/^[^,]+,\s*/, "") },
+    { icon: <GlobeIcon />, title: en ? "English & Spanish" : "Inglés y español", text: en ? "We speak both" : "Atendemos en ambos" },
+    { icon: <CardIcon />, title: en ? "Cash or card" : "Efectivo o tarjeta", text: en ? "Pesos or US dollars" : "Pesos o dólares" },
+    { icon: <BagIcon />, title: en ? "Delivery to your hotel" : "Entrega en tu hotel", text: en ? "Estimated up to 70 min" : "Estimada hasta 70 min" },
+  ];
+
+  const steps = [
+    {
+      title: en ? "Message us" : "Escríbenos",
+      text: en ? "Tell us what you need and the name of your hotel on WhatsApp." : "Dinos qué necesitas y el nombre de tu hotel por WhatsApp.",
+    },
+    {
+      title: en ? "We confirm" : "Confirmamos",
+      text: en ? "We send the total and an estimated arrival time of up to 70 minutes." : "Te enviamos el total y una hora estimada de llegada de hasta 70 minutos.",
+    },
+    {
+      title: en ? "We deliver" : "Entregamos",
+      text: en ? "We bring it to your hotel lobby. You pay by card with a secure link." : "Lo llevamos al lobby de tu hotel. Pagas con tarjeta mediante un enlace seguro.",
+    },
+  ];
 
   const hotelOptions: HotelOption[] = ZONES.flatMap((z) => {
     const base = { zoneName: z.name[lang], zoneSlug: z.slug, etaMin: z.etaMin, etaMax: z.etaMax, href: p(`/delivery/${z.slug}`) };
@@ -51,27 +77,6 @@ export default async function Home({ params }: Props) {
     ];
   });
 
-  const chips = [
-    { icon: <ClockIcon />, text: SITE.hoursLabel[lang] },
-    { icon: <GlobeIcon />, text: lang === "en" ? "English & Spanish" : "Inglés y español" },
-    { icon: <BagIcon />, text: lang === "en" ? "Delivery to your hotel · estimated up to 70 min" : "Entrega en tu hotel · estimada hasta 70 min" },
-  ];
-
-  const steps = [
-    {
-      title: lang === "en" ? "Message us" : "Escríbenos",
-      text: lang === "en" ? "Tell us what you need and the name of your hotel on WhatsApp." : "Dinos qué necesitas y el nombre de tu hotel por WhatsApp.",
-    },
-    {
-      title: lang === "en" ? "We confirm" : "Confirmamos",
-      text: lang === "en" ? "We send the total and an estimated arrival time of up to 70 minutes." : "Te enviamos el total y una hora estimada de llegada de hasta 70 minutos.",
-    },
-    {
-      title: lang === "en" ? "We deliver" : "Entregamos",
-      text: lang === "en" ? "We bring it to your hotel lobby. You pay by card with a secure link." : "Lo llevamos al lobby de tu hotel. Pagas con tarjeta mediante un enlace seguro.",
-    },
-  ];
-
   const serviceIcon: Record<string, React.ReactNode> = {
     "iv-therapy": <DropIcon />,
     "doctor-consultation": <PulseIcon />,
@@ -80,13 +85,23 @@ export default async function Home({ params }: Props) {
 
   return (
     <>
-      <section className="hero hero-home">
+      <section className="hero-home">
         <div className="container hero-grid">
-          <div>
-            <p className="eyebrow">{lang === "en" ? "Cabo San Lucas" : "Cabo San Lucas"}</p>
-            <h1>{lang === "en" ? "Your pharmacy on the Cabo marina" : "Tu farmacia en la marina de Cabo"}</h1>
+          <div className="hero-copy">
+            <p className="eyebrow">Cabo San Lucas · San José del Cabo</p>
+            <h1>
+              {en ? (
+                <>
+                  Your pharmacy on the <em>Cabo marina</em>
+                </>
+              ) : (
+                <>
+                  Tu farmacia en la <em>marina de Cabo</em>
+                </>
+              )}
+            </h1>
             <p className="lead">
-              {lang === "en"
+              {en
                 ? "Pharmacy and minimarket near the marina. We speak English and Spanish, and we deliver to your hotel, villa or boat."
                 : "Farmacia y minisúper cerca de la marina. Hablamos inglés y español, y entregamos en tu hotel, villa o yate."}
             </p>
@@ -95,62 +110,96 @@ export default async function Home({ params }: Props) {
               options={hotelOptions}
               waNumber={SITE.phoneDigits}
               strings={{
-                label: lang === "en" ? "Where are you staying?" : "¿Dónde te hospedas?",
-                placeholder: lang === "en" ? "Hotel, villa or area" : "Hotel, villa o zona",
-                button: lang === "en" ? "Order on WhatsApp" : "Pedir por WhatsApp",
-                eta: lang === "en" ? "Estimated delivery" : "Entrega estimada",
-                zonePage: lang === "en" ? "See this zone" : "Ver esta zona",
+                label: en ? "Where are you staying?" : "¿Dónde te hospedas?",
+                placeholder: en ? "Hotel, villa or area" : "Hotel, villa o zona",
+                button: en ? "Order on WhatsApp" : "Pedir por WhatsApp",
+                eta: en ? "Estimated delivery" : "Entrega estimada",
+                zonePage: en ? "See this zone" : "Ver esta zona",
               }}
             />
             <CtaButtons lang={lang} source="home-hero" />
-            <ul className="chips">
-              {chips.map((c) => (
-                <li key={c.text}>
-                  {c.icon}
-                  <span>{c.text}</span>
-                </li>
-              ))}
-            </ul>
           </div>
-          {mosaic.length === 3 && (
-            <div className="mosaic">
-              <span className="mosaic-badge">{lang === "en" ? "Delivery · estimated up to 70 min" : "Entrega · estimada hasta 70 min"}</span>
-              <Image className="m1" src={mosaic[0].src} alt={mosaic[0].alt[lang]} width={mosaic[0].width} height={mosaic[0].height} priority sizes="(max-width: 900px) 100vw, 520px" />
-              <Image className="m2" src={mosaic[1].src} alt={mosaic[1].alt[lang]} width={mosaic[1].width} height={mosaic[1].height} sizes="(max-width: 900px) 50vw, 260px" />
-              <Image className="m3" src={mosaic[2].src} alt={mosaic[2].alt[lang]} width={mosaic[2].width} height={mosaic[2].height} sizes="(max-width: 900px) 50vw, 260px" />
+
+          {bento.length === 3 && (
+            <div className="hero-visual">
+              <div className="bento">
+                <figure className="b1">
+                  <Image src={bento[0].src} alt={bento[0].alt[lang]} width={bento[0].width} height={bento[0].height} priority sizes="(max-width: 960px) 60vw, 360px" />
+                </figure>
+                <figure>
+                  <Image src={bento[1].src} alt={bento[1].alt[lang]} width={bento[1].width} height={bento[1].height} sizes="(max-width: 960px) 40vw, 300px" />
+                </figure>
+                <figure>
+                  <Image src={bento[2].src} alt={bento[2].alt[lang]} width={bento[2].width} height={bento[2].height} sizes="(max-width: 960px) 40vw, 300px" />
+                </figure>
+              </div>
+              {hoursStore?.hours && (
+                <div className="float-card float-a">
+                  <strong>{hoursStore.gbpName}</strong>
+                  <OpenStatus hours={hoursStore.hours} lang={lang} />
+                </div>
+              )}
+              <div className="float-card float-b">
+                <strong>{en ? "Delivery to your hotel" : "Entrega en tu hotel"}</strong>
+                <span className="muted">{en ? "Estimated up to 70 min" : "Estimada hasta 70 min"}</span>
+              </div>
             </div>
           )}
         </div>
       </section>
 
+      <section className="trust" aria-label={en ? "Why choose us" : "Por qué elegirnos"}>
+        <ul className="container trust-grid">
+          {trust.map((t, i) => (
+            <li key={t.title} className="trust-item" {...rv(i)}>
+              <span className="ico">{t.icon}</span>
+              <div>
+                <strong>{t.title}</strong>
+                <span>{t.text}</span>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+
       <section className="container section">
-        <h2>{lang === "en" ? "Delivery to your hotel in 3 steps" : "Entrega en tu hotel en 3 pasos"}</h2>
+        <div className="section-head" {...rv()}>
+          <p className="eyebrow">{en ? "Delivery" : "Entrega"}</p>
+          <h2>{en ? "Delivery to your hotel in 3 steps" : "Entrega en tu hotel en 3 pasos"}</h2>
+        </div>
         <ol className="steps-grid">
           {steps.map((st, i) => (
-            <li key={st.title} className="step">
+            <li key={st.title} className="step" {...rv(i)}>
               <span className="step-num">{i + 1}</span>
               <h3>{st.title}</h3>
               <p className="muted">{st.text}</p>
             </li>
           ))}
         </ol>
-        <p>
-          <Link href={p("/delivery")}>{lang === "en" ? "More about delivery" : "Más sobre la entrega"}</Link>
+        <p style={{ marginTop: 24 }}>
+          <Link className="text-link" href={p("/delivery")}>
+            {en ? "More about delivery" : "Más sobre la entrega"}
+          </Link>
         </p>
       </section>
 
-      <section className="container section">
-        <h2>{lang === "en" ? "Delivery zones" : "Zonas de entrega"}</h2>
-        {(Object.keys(AREA_LABEL) as (keyof typeof AREA_LABEL)[]).map((area) => (
-          <div key={area} className="zone-group">
+      <section className="container section" style={{ paddingTop: 0 }}>
+        <div className="section-head" {...rv()}>
+          <h2>{en ? "Delivery zones" : "Zonas de entrega"}</h2>
+          <p className="muted">
+            {en ? "Pick your area to see the estimated delivery time. All times are estimates." : "Elige tu zona para ver el tiempo estimado. Todos los tiempos son estimados."}
+          </p>
+        </div>
+        {(Object.keys(AREA_LABEL) as (keyof typeof AREA_LABEL)[]).map((area, ai) => (
+          <div key={area} className="zone-group" {...rv(ai)}>
             <h3>{AREA_LABEL[area][lang]}</h3>
             <ul className="zone-grid">
               {ZONES.filter((z) => z.area === area).map((z) => (
                 <li key={z.slug}>
                   <Link href={p(`/delivery/${z.slug}`)} className="zone-card">
                     <strong>{z.name[lang]}</strong>
-                    <span className="muted">
-                      {lang === "en" ? "Estimated" : "Estimado"} {z.etaMin}–{z.etaMax} min
+                    <span>
+                      {z.etaMin}–{z.etaMax} min
                     </span>
                   </Link>
                 </li>
@@ -161,43 +210,50 @@ export default async function Home({ params }: Props) {
       </section>
 
       <section className="container section">
-        <h2>{lang === "en" ? "Services" : "Servicios"}</h2>
+        <div className="section-head" {...rv()}>
+          <p className="eyebrow">{en ? "Care that comes to you" : "Atención que llega a ti"}</p>
+          <h2>{en ? "Services" : "Servicios"}</h2>
+        </div>
         <div className="service-grid">
-          {SERVICES.map((s) => (
-            <Link key={s.slug} href={p(`/services/${s.slug}`)} className="service-card">
-              <span className="service-media">
-                {SERVICE_CARD_PHOTO[s.slug] ? (
-                  <Image
-                    src={SERVICE_CARD_PHOTO[s.slug]!.src}
-                    alt={SERVICE_CARD_PHOTO[s.slug]!.alt[lang]}
-                    width={SERVICE_CARD_PHOTO[s.slug]!.width}
-                    height={SERVICE_CARD_PHOTO[s.slug]!.height}
-                    sizes="(max-width: 720px) 100vw, 320px"
-                  />
-                ) : (
-                  <span className="service-media-icon">{serviceIcon[s.slug] ?? <ChatIcon />}</span>
-                )}
-              </span>
-              <h3>{s.name[lang]}</h3>
-              <p className="muted">{s.price[lang]}</p>
-            </Link>
-          ))}
+          {SERVICES.map((s, i) => {
+            const photo = SERVICE_CARD_PHOTO[s.slug];
+            return (
+              <Link key={s.slug} href={p(`/services/${s.slug}`)} className="service-card" {...rv(i)}>
+                <span className="service-media">
+                  {photo ? (
+                    <Image src={photo.src} alt={photo.alt[lang]} width={photo.width} height={photo.height} sizes="(max-width: 960px) 100vw, 380px" />
+                  ) : (
+                    <span className="service-media-icon">{serviceIcon[s.slug] ?? <ChatIcon />}</span>
+                  )}
+                </span>
+                <span className="service-body">
+                  <h3>{s.name[lang]}</h3>
+                  <p className="muted">{s.price[lang]}</p>
+                </span>
+              </Link>
+            );
+          })}
         </div>
       </section>
 
       <section className="container section">
-        <h2>{t(lang, UI.nav.locations)}</h2>
+        <div className="section-head" {...rv()}>
+          <p className="eyebrow">{t(lang, UI.nav.locations)}</p>
+          <h2>{en ? `Find us: ${storeCountLabel(lang)}` : `Encuéntranos: ${storeCountLabel(lang)}`}</h2>
+        </div>
         <div className="store-grid">
-          {LOCATIONS.map((l) => (
-            <StoreCard key={l.slug} l={l} lang={lang} />
+          {LOCATIONS.map((l, i) => (
+            <div key={l.slug} {...rv(i)}>
+              <StoreCard l={l} lang={lang} />
+            </div>
           ))}
         </div>
       </section>
 
-      <section className="container section">
-        <div className="cta-band">
-          <h2>{lang === "en" ? "Need something now?" : "¿Necesitas algo ahora?"}</h2>
-          <p>{lang === "en" ? "Message us on WhatsApp. We reply in English or Spanish." : "Escríbenos por WhatsApp. Respondemos en inglés o español."}</p>
+      <section className="container section" style={{ paddingTop: 0 }}>
+        <div className="cta-band" {...rv()}>
+          <h2>{en ? "Need something now?" : "¿Necesitas algo ahora?"}</h2>
+          <p>{en ? "Message us on WhatsApp. We reply in English or Spanish." : "Escríbenos por WhatsApp. Respondemos en inglés o español."}</p>
           <CtaButtons lang={lang} source="home-final-cta" />
         </div>
       </section>

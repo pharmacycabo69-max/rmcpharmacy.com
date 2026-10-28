@@ -127,3 +127,11 @@ El dueño decidió no incluir Cabo Walk-In Medical Clinic, Urgent Care & Mobile 
 | Z3 | Se decidió no crear una página por hotel: duplicaría contenido. Los hoteles aparecen como lista dentro de cada zona y en el buscador del inicio. |
 | Z4 | Las listas de hoteles son orientativas, escritas con conocimiento general; el dueño debe revisarlas y ampliarlas (`hotels` en `lib/zones.ts`). |
 | Z5 | Entrega solo en el lobby del hotel; en villas se confirma el punto de encuentro. Tiempos siempre como "estimado". |
+
+## Rediseño minimalista (2026-10-29)
+| # | Decisión |
+|---|----------|
+| D-1 | Sistema de diseño reescrito en `app/globals.css`: tokens de color (lima del logo como acento, verde profundo para texto y acciones), tipografía Manrope más grande y compacta, contenedor de 1180 px, radios amplios y sombras suaves. Modo oscuro incluido. |
+| D-2 | Movimiento sutil: entrada escalonada del hero, aparición al hacer scroll (`data-reveal`, `components/RevealOnScroll.tsx`), tarjetas que se elevan, fotos con zoom suave, indicador "abierto ahora" con pulso. Con `prefers-reduced-motion` todo queda quieto y visible. |
+| D-3 | Confianza solo con datos reales: horario, idiomas, formas de pago, entrega estimada, fotos reales y estado abierto/cerrado. No hay calificaciones ni cifras inventadas. |
+| D-4 | Inicio reorganizado: hero con buscador de hotel y mosaico de fotos, franja de confianza, entrega en 3 pasos, zonas, servicios con foto, tiendas y franja final. |

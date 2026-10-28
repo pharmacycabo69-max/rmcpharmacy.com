@@ -108,6 +108,7 @@ export function ChatBot({ config }: { config: BotConfig }) {
         ref={launcherRef}
         className="bot-launcher"
         aria-expanded={open}
+        aria-label={ui.launcher}
         onClick={() => {
           setOpen((o) => !o);
           if (!open) track("bot_open");

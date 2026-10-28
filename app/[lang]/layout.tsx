@@ -5,6 +5,7 @@ import type { ReactNode } from "react";
 import { AnalyticsHead, AnalyticsNoscript } from "@/components/Analytics";
 import { CtaTracker } from "@/components/CtaTracker";
 import { JsonLd } from "@/components/JsonLd";
+import { RevealOnScroll } from "@/components/RevealOnScroll";
 import { organizationSchema } from "@/lib/schema";
 import { LANGS, SITE, isLang } from "@/lib/site";
 import "../globals.css";
@@ -29,6 +30,7 @@ export default async function LangLayout({ children, params }: { children: React
         <AnalyticsNoscript />
         <AnalyticsHead />
         <CtaTracker />
+        <RevealOnScroll />
         <JsonLd data={organizationSchema()} />
         {children}
       </body>
