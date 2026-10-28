@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { OpenStatus } from "@/components/OpenStatus";
+import { StoreCard } from "@/components/StoreCard";
 import { LOCATIONS, storeCountLabel } from "@/lib/locations";
 import { UI, t } from "@/lib/i18n";
 import { buildMetadata } from "@/lib/metadata";
-import { localizedPath } from "@/lib/routes";
 import { isLang } from "@/lib/site";
 
 type Props = { params: Promise<{ lang: string }> };
@@ -32,18 +30,11 @@ export default async function Locations({ params }: Props) {
   return (
     <div className="container section">
       <h1>{t(lang, UI.nav.locations)}</h1>
-      <ul className="rows">
-        {LOCATIONS.map((l) => (
-          <li key={l.slug}>
-            <span>
-              <Link href={localizedPath(lang, `/locations/${l.slug}`)}>{l.gbpName}</Link>
-              <br />
-              <span className="muted">{l.addressLine}</span>
-            </span>
-            {l.hours && <OpenStatus hours={l.hours} lang={lang} />}
-          </li>
+      <div className="store-grid">
+        {LOCATIONS.map((l, i) => (
+          <StoreCard key={l.slug} l={l} lang={lang} priority={i === 0} />
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

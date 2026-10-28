@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 import { LandingHeader } from "@/components/LandingHeader";
+import { WhatsAppFab } from "@/components/WhatsAppFab";
 import { UI } from "@/lib/i18n";
 import { SITE, isLang } from "@/lib/site";
 import { telUrl } from "@/lib/whatsapp";
@@ -16,6 +17,7 @@ export default async function LandingLayout({ children, params }: { children: Re
       </a>
       <LandingHeader lang={lang} />
       <main id="main">{children}</main>
+      <WhatsAppFab lang={lang} />
       <footer className="site-footer">
         <div className="container footer-bottom">
           <small>

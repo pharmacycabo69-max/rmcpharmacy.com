@@ -8,7 +8,7 @@ export function Gallery({ photos, lang }: { photos: Photo[]; lang: Lang }) {
   return (
     <div className="gallery">
       {photos.map((p, i) => (
-        <Image key={p.src} src={p.src} alt={p.alt[lang]} width={p.width} height={p.height} priority={i === 0} sizes="(max-width: 720px) 100vw, 480px" />
+        <Image key={p.src} src={p.src} alt={p.alt[lang]} width={p.width} height={p.height} priority={i === 0} sizes={i === 0 ? "(max-width: 720px) 100vw, 960px" : "(max-width: 720px) 100vw, 320px"} className={i === 0 ? "g-main" : undefined} />
       ))}
     </div>
   );
