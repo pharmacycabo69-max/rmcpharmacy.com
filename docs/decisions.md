@@ -118,3 +118,12 @@ Teléfono +52 624 226 1023 y horario todos los días 9 a 18 (confirmados por el 
 
 ## Clínica (2026-10-29) — retirada
 El dueño decidió no incluir Cabo Walk-In Medical Clinic, Urgent Care & Mobile Visits en este sitio, porque ya tiene su propio dominio y página. Se eliminó su página de ubicación, su enlace de reseñas y sus fotos de fachada, y el bloque "En persona" de la consulta médica. Se conservan las fotos de sesiones de terapia IV en villas en las páginas de terapia IV y de grupos.
+
+## Zonas de entrega (2026-10-29)
+| # | Decisión |
+|---|----------|
+| Z1 | 13 páginas de zona en `/delivery/<zona>` (ES: `/es/entrega/<zona>`), con los rangos estimados acordados (de 15 a 25 min en Marina y Médano hasta 55 a 70 en Puerto Los Cabos). Datos en `lib/zones.ts`; el texto de cada página se arma en `lib/zoneContent.ts`. |
+| Z2 | Tienda de origen de todas las zonas: Plaza Gali, hasta que el dueño diga otra cosa (`ZONE_PRIMARY_STORE`). |
+| Z3 | Se decidió no crear una página por hotel: duplicaría contenido. Los hoteles aparecen como lista dentro de cada zona y en el buscador del inicio. |
+| Z4 | Las listas de hoteles son orientativas, escritas con conocimiento general; el dueño debe revisarlas y ampliarlas (`hotels` en `lib/zones.ts`). |
+| Z5 | Entrega solo en el lobby del hotel; en villas se confirma el punto de encuentro. Tiempos siempre como "estimado". |

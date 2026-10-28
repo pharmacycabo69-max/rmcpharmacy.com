@@ -14,6 +14,7 @@ import { localizedPath } from "@/lib/routes";
 import { faqSchema, locationSchema } from "@/lib/schema";
 import { getService } from "@/lib/services";
 import { LANGS, SITE, isLang } from "@/lib/site";
+import { ZONES, ZONE_PRIMARY_STORE } from "@/lib/zones";
 import { telUrl } from "@/lib/whatsapp";
 
 type Props = { params: Promise<{ lang: string; slug: string }> };
@@ -86,6 +87,24 @@ export default async function LocationPage({ params }: Props) {
           <p key={para}>{para}</p>
         ))}
       </section>
+
+      {l.delivers && l.slug === ZONE_PRIMARY_STORE && (
+        <section className="section">
+          <h2>{lang === "en" ? "Delivery zones from this store" : "Zonas de entrega desde esta tienda"}</h2>
+          <ul className="zone-grid">
+            {ZONES.map((z) => (
+              <li key={z.slug}>
+                <Link href={localizedPath(lang, `/delivery/${z.slug}`)} className="zone-card">
+                  <strong>{z.name[lang]}</strong>
+                  <span className="muted">
+                    {lang === "en" ? "Estimated" : "Estimado"} {z.etaMin}–{z.etaMax} min
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       {services.length > 0 && (
         <section className="section">

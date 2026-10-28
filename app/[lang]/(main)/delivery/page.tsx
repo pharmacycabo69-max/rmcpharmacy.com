@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { CtaButtons } from "@/components/CtaButtons";
 import { JsonLd } from "@/components/JsonLd";
 import { FaqList } from "@/components/ServiceFaqList";
 import { buildMetadata } from "@/lib/metadata";
 import { faqSchema } from "@/lib/schema";
+import { localizedPath } from "@/lib/routes";
 import { isLang } from "@/lib/site";
+import { AREA_LABEL, ZONES, type Zone } from "@/lib/zones";
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -12,8 +15,8 @@ const FAQS = [
   {
     q: { en: "Where do you deliver?", es: "¿Dónde entregan?" },
     a: {
-      en: "Hotels, villas, the marina and boats around Cabo San Lucas. Send us your location on WhatsApp.",
-      es: "Hoteles, villas, la marina y yates en Cabo San Lucas. Envíanos tu ubicación por WhatsApp.",
+      en: "Hotels, villas, the marina and boats across Cabo San Lucas, the Tourist Corridor and San José del Cabo. Send us your location on WhatsApp.",
+      es: "Hoteles, villas, la marina y yates en Cabo San Lucas, el Corredor Turístico y San José del Cabo. Envíanos tu ubicación por WhatsApp.",
     },
   },
   {
@@ -66,6 +69,29 @@ export default async function Delivery({ params }: Props) {
           : "Pide por WhatsApp y llevamos esenciales de todos los días a donde te hospedas."}
       </p>
       <CtaButtons lang={lang} source="delivery-hero" />
+      <h2>{lang === "en" ? "Delivery zones" : "Zonas de entrega"}</h2>
+      <p className="muted">
+        {lang === "en"
+          ? "Pick your area to see the estimated delivery time. All times are estimates."
+          : "Elige tu zona para ver el tiempo estimado de entrega. Todos los tiempos son estimados."}
+      </p>
+      {(Object.keys(AREA_LABEL) as Zone["area"][]).map((area) => (
+        <div key={area} className="zone-group">
+          <h3>{AREA_LABEL[area][lang]}</h3>
+          <ul className="zone-grid">
+            {ZONES.filter((z) => z.area === area).map((z) => (
+              <li key={z.slug}>
+                <Link href={localizedPath(lang, `/delivery/${z.slug}`)} className="zone-card">
+                  <strong>{z.name[lang]}</strong>
+                  <span className="muted">
+                    {lang === "en" ? "Estimated" : "Estimado"} {z.etaMin}–{z.etaMax} min
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
       <h2>{lang === "en" ? "Frequently asked questions" : "Preguntas frecuentes"}</h2>
       <FaqList lang={lang} items={FAQS} />
     </div>

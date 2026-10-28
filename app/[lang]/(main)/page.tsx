@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { CtaButtons } from "@/components/CtaButtons";
 import { BagIcon, ChatIcon, ClockIcon, DropIcon, GlobeIcon, PulseIcon, UserIcon } from "@/components/Icons";
+import { HotelFinder, type HotelOption } from "@/components/HotelFinder";
 import { StoreCard } from "@/components/StoreCard";
 import { LOCATIONS, getLocation } from "@/lib/locations";
 import { UI, t } from "@/lib/i18n";
@@ -10,6 +11,7 @@ import { buildMetadata } from "@/lib/metadata";
 import { localizedPath } from "@/lib/routes";
 import { SERVICES } from "@/lib/services";
 import { SITE, isLang } from "@/lib/site";
+import { AREA_LABEL, ZONES } from "@/lib/zones";
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -39,6 +41,14 @@ export default async function Home({ params }: Props) {
     photoOf("mercado-marina", "02-counter-service.jpg"),
     photoOf("plaza-gali", "04-interior-shelves.jpg"),
   ].filter((x): x is NonNullable<typeof x> => Boolean(x));
+
+  const hotelOptions: HotelOption[] = ZONES.flatMap((z) => {
+    const base = { zoneName: z.name[lang], zoneSlug: z.slug, etaMin: z.etaMin, etaMax: z.etaMax, href: p(`/delivery/${z.slug}`) };
+    return [
+      ...z.hotels.map((h) => ({ ...base, name: h, aliases: z.aliases })),
+      { ...base, name: z.name[lang], aliases: z.aliases },
+    ];
+  });
 
   const chips = [
     { icon: <ClockIcon />, text: SITE.hoursLabel[lang] },
@@ -79,6 +89,18 @@ export default async function Home({ params }: Props) {
                 ? "Pharmacy and minimarket near the marina. We speak English and Spanish, and we deliver to your hotel, villa or boat."
                 : "Farmacia y minisúper cerca de la marina. Hablamos inglés y español, y entregamos en tu hotel, villa o yate."}
             </p>
+            <HotelFinder
+              lang={lang}
+              options={hotelOptions}
+              waNumber={SITE.phoneDigits}
+              strings={{
+                label: lang === "en" ? "Where are you staying?" : "¿Dónde te hospedas?",
+                placeholder: lang === "en" ? "Hotel, villa or area" : "Hotel, villa o zona",
+                button: lang === "en" ? "Order on WhatsApp" : "Pedir por WhatsApp",
+                eta: lang === "en" ? "Estimated delivery" : "Entrega estimada",
+                zonePage: lang === "en" ? "See this zone" : "Ver esta zona",
+              }}
+            />
             <CtaButtons lang={lang} source="home-hero" />
             <ul className="chips">
               {chips.map((c) => (
@@ -114,6 +136,27 @@ export default async function Home({ params }: Props) {
         <p>
           <Link href={p("/delivery")}>{lang === "en" ? "More about delivery" : "Más sobre la entrega"}</Link>
         </p>
+      </section>
+
+      <section className="container section">
+        <h2>{lang === "en" ? "Delivery zones" : "Zonas de entrega"}</h2>
+        {(Object.keys(AREA_LABEL) as (keyof typeof AREA_LABEL)[]).map((area) => (
+          <div key={area} className="zone-group">
+            <h3>{AREA_LABEL[area][lang]}</h3>
+            <ul className="zone-grid">
+              {ZONES.filter((z) => z.area === area).map((z) => (
+                <li key={z.slug}>
+                  <Link href={p(`/delivery/${z.slug}`)} className="zone-card">
+                    <strong>{z.name[lang]}</strong>
+                    <span className="muted">
+                      {lang === "en" ? "Estimated" : "Estimado"} {z.etaMin}–{z.etaMax} min
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </section>
 
       <section className="container section">

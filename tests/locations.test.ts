@@ -6,6 +6,8 @@ import { getOpenStatus } from "../lib/hours.ts";
 import { ALL_LOCATIONS, LOCATIONS, locationH1, validateLocations, type Location } from "../lib/locations.ts";
 import { buildBot } from "../lib/botFlows.ts";
 import { IV_PRODUCTS } from "../lib/ivProducts.ts";
+import { zoneContent } from "../lib/zoneContent.ts";
+import { ZONES } from "../lib/zones.ts";
 import { IV_SESSION_PHOTOS } from "../lib/sessionPhotos.ts";
 
 const published = ALL_LOCATIONS.filter((l) => l.isPublished);
@@ -144,4 +146,34 @@ test("bot prices match the service pages", () => {
   const services = readFileSync("lib/services.ts", "utf8");
   for (const price of ["$59", "$99", "$200"]) assert.ok(services.includes(price), price);
   assert.ok(readFileSync("lib/groups.ts", "utf8").includes("$139"));
+});
+
+test("13 delivery zones with the agreed estimated ranges and 300+ words of page text per language", () => {
+  const agreed: Record<string, [number, number]> = {
+    "marina-centro": [15, 25], medano: [15, 25], pedregal: [20, 30], "pacifico-sunset": [20, 35], "diamante-quivira": [25, 40],
+    "cabo-bello-misiones": [20, 35], "corredor-chileno": [30, 45], "cabo-del-sol": [30, 45], palmilla: [40, 55], "costa-azul": [45, 60],
+    "zona-hotelera-san-jose": [50, 65], "centro-san-jose": [50, 65], "puerto-los-cabos": [55, 70],
+  };
+  assert.equal(ZONES.length, 13);
+  for (const z of ZONES) {
+    assert.deepEqual([z.etaMin, z.etaMax], agreed[z.slug], z.slug);
+    assert.ok(z.hotels.length >= 1);
+    for (const lang of ["en", "es"] as const) {
+      const c = zoneContent(z, lang);
+      assert.ok(c.words >= 300, `${z.slug} ${lang} has ${c.words} words`);
+      assert.ok(c.faqs.length >= 4);
+      assert.match(c.title, /\d+–\d+ min/);
+      // delivery times are always estimates, and 70 minutes is the maximum
+      assert.ok(z.etaMax <= 70);
+      assert.match(JSON.stringify(c), /stimad|stimated/i);
+    }
+  }
+  assert.equal(Math.max(...ZONES.map((z) => z.etaMax)), 70);
+});
+
+test("zone pages never use regulatory or prescription wording and never promise delivery to the room", () => {
+  for (const z of ZONES) for (const lang of ["en", "es"] as const) {
+    const all = JSON.stringify(zoneContent(z, lang)) + JSON.stringify(z);
+    assert.doesNotMatch(all, /licen[sc]|licencia|permit|permiso|certif|cofepris|coepris|prescription|receta|antibio|viagra|24\/7|24 hours|24 horas/i, z.slug);
+  }
 });

@@ -3,6 +3,7 @@ import { LOCATIONS } from "@/lib/locations";
 import { getPublishedPosts } from "@/lib/posts";
 import { localizedPath } from "@/lib/routes";
 import { SERVICES } from "@/lib/services";
+import { ZONES } from "@/lib/zones";
 import { LANGS, SITE } from "@/lib/site";
 
 export const revalidate = 3600;
@@ -14,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...LOCATIONS.map((l) => `/locations/${l.slug}`),
     "/pharmacy",
     "/delivery",
+    ...ZONES.map((z) => `/delivery/${z.slug}`),
     ...SERVICES.map((s) => `/services/${s.slug}`),
     "/services/iv-therapy/groups",
     "/about",
