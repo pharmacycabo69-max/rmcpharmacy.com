@@ -154,8 +154,8 @@ Esta sucursal también te conecta con nuestros servicios: terapia IV en tu villa
       { src: "/locations/plaza-embarcadero/04-entrance.jpg", width: 1360, height: 909, alt: { en: "Entrance of RMC Pharmacy at Plaza Embarcadero", es: "Entrada de RMC Pharmacy en Plaza Embarcadero" } },
     ],
     addressLine: "Blvd. Paseo de la Marina S/N, Local 15 Plaza Embarcadero",
-    geo: null,
-    mapsUrl: null,
+    geo: { lat: 22.8786485, lng: -109.908936 },
+    mapsUrl: "https://maps.app.goo.gl/vTE4irdJb2eLEKju6",
     intro: {
       en: `Our Plaza Embarcadero store is RMC Pharmacy at Local 15, on Blvd. Paseo de la Marina in Cabo San Lucas. It is a pharmacy and minimarket open every day from 9 am to 6 pm, with service in English and Spanish.
 
@@ -187,8 +187,8 @@ Además de la tienda, puedes reservar terapia IV en tu puerta desde $159 USD, un
       { src: "/locations/mercado-marina/06-interior.jpg", width: 1200, height: 1600, alt: { en: "Store interior with shelves and a drinks cooler at RMC Pharmacy, Mercado Marina", es: "Interior de la tienda con estantes y un refrigerador de bebidas en RMC Pharmacy, Mercado Marina" } },
     ],
     addressLine: "Mercado Marina 11",
-    geo: null,
-    mapsUrl: null,
+    geo: { lat: 22.8790589, lng: -109.9078648 },
+    mapsUrl: "https://maps.app.goo.gl/hC9a9RiRt451juuG6",
     intro: {
       en: `RMC Pharmacy at Mercado Marina 11 is one of our stores in the Centro and Marina area of Cabo San Lucas. We are a pharmacy and minimarket, open every day from 9 am to 6 pm, and we attend in English and Spanish.
 
