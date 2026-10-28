@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { localizedPath } from "@/lib/routes";
 import { SITE, type Lang } from "@/lib/site";
@@ -9,7 +10,8 @@ export function LandingHeader({ lang }: { lang: Lang }) {
     <header className="site-header">
       <div className="container header-inner">
         <Link href={localizedPath(lang, "/")} className="brand">
-          {SITE.name}
+          <Image src="/logo-mark.png" alt="" width={34} height={34} className="brand-mark" />
+          <span>{SITE.name}</span>
         </Link>
         <LanguageSwitcher lang={lang} />
       </div>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { UI, t } from "@/lib/i18n";
 import { localizedPath } from "@/lib/routes";
@@ -10,7 +11,8 @@ export function Header({ lang }: { lang: Lang }) {
     <header className="site-header">
       <div className="container header-inner">
         <Link href={p("/")} className="brand">
-          {SITE.name}
+          <Image src="/logo-mark.png" alt="" width={34} height={34} className="brand-mark" />
+          <span>{SITE.name}</span>
         </Link>
         <nav aria-label="Main" className="nav">
           <Link href={p("/pharmacy")}>{t(lang, UI.nav.pharmacy)}</Link>

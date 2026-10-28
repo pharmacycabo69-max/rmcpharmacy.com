@@ -91,6 +91,7 @@ export default async function Home({ params }: Props) {
           </div>
           {mosaic.length === 3 && (
             <div className="mosaic">
+              <span className="mosaic-badge">{lang === "en" ? "Delivery · estimated up to 70 min" : "Entrega · estimada hasta 70 min"}</span>
               <Image className="m1" src={mosaic[0].src} alt={mosaic[0].alt[lang]} width={mosaic[0].width} height={mosaic[0].height} priority sizes="(max-width: 900px) 100vw, 520px" />
               <Image className="m2" src={mosaic[1].src} alt={mosaic[1].alt[lang]} width={mosaic[1].width} height={mosaic[1].height} sizes="(max-width: 900px) 50vw, 260px" />
               <Image className="m3" src={mosaic[2].src} alt={mosaic[2].alt[lang]} width={mosaic[2].width} height={mosaic[2].height} sizes="(max-width: 900px) 50vw, 260px" />

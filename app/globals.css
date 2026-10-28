@@ -1,26 +1,36 @@
 :root {
   --bg: #ffffff;
-  --fg: #111b21;
-  --muted: #66757f;
-  --brand: #0b6e5c;
+  --fg: #10201a;
+  --muted: #52645a;
+  --brand: #1f6b35;
   --brand-fg: #ffffff;
-  --surface: #f6f8f8;
-  --border: #e6ecec;
+  --accent: #9cc31a;
+  --accent-fg: #10201a;
+  --accent-soft: #f1f7dc;
+  --surface: #f6f9ee;
+  --border: #e3ebd3;
+  --footer-bg: #10281a;
+  --footer-fg: #dfe9d6;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #0e171b;
-    --fg: #eaf1ef;
-    --muted: #93a5a0;
-    --brand: #3fb59d;
-    --brand-fg: #0e171b;
-    --surface: #152227;
-    --border: #243538;
+    --bg: #0d1710;
+    --fg: #ecf3e6;
+    --muted: #a2b59b;
+    --brand: #a8d12a;
+    --brand-fg: #10200f;
+    --accent: #a8d12a;
+    --accent-fg: #10200f;
+    --accent-soft: #1a2a16;
+    --surface: #142017;
+    --border: #26382a;
+    --footer-bg: #09110b;
+    --footer-fg: #c9d8c0;
   }
 }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
-body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.65 var(--font-sans), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
 a { color: var(--brand); }
 h1, h2, h3 { line-height: 1.15; margin: 0 0 0.6em; font-weight: 650; letter-spacing: -0.01em; }
 h1 { font-size: clamp(2.1rem, 6vw, 3.4rem); }
@@ -140,7 +150,7 @@ address { font-style: normal; margin: 0 0 1em; }
 .cta-band .btn-secondary { color: var(--brand-fg); border-color: var(--brand-fg); }
 .gallery .g-main { grid-column: 1 / -1; aspect-ratio: 16 / 9; object-fit: cover; }
 .gallery img { object-fit: cover; }
-.fab { position: fixed; right: 18px; bottom: 18px; z-index: 20; display: inline-flex; align-items: center; gap: 10px; padding: 14px 20px 14px 16px; border-radius: 999px; background: #1faa59; color: #fff; font-weight: 700; text-decoration: none; box-shadow: 0 10px 28px rgb(0 0 0 / 0.28); transition: transform .15s ease; }
+.fab { position: fixed; right: 18px; bottom: 18px; z-index: 20; display: inline-flex; align-items: center; gap: 10px; padding: 14px 20px 14px 16px; border-radius: 999px; background: #0f8a43; color: #fff; font-weight: 700; text-decoration: none; box-shadow: 0 10px 28px rgb(0 0 0 / 0.28); transition: transform .15s ease; }
 .fab:hover { transform: translateY(-2px) scale(1.02); }
 .fab:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
 @media (max-width: 900px) {
@@ -164,3 +174,45 @@ address { font-style: normal; margin: 0 0 1em; }
 .prices dd { margin: 0; }
 .prices strong { font-size: 1.35rem; }
 .product-card .btn { text-align: center; margin-top: 4px; }
+
+/* ---- Brand pass: lime from the RMC logo, forest green for text and actions ---- */
+h1, h2, h3 { font-weight: 750; letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.5rem, 3vw, 1.9rem); }
+h2::after { content: ""; display: block; width: 44px; height: 4px; border-radius: 4px; background: var(--accent); margin-top: 10px; }
+.cta-band h2::after, .card h2::after, .card h3::after, .product-card h3::after, .service-card h3::after, .step h3::after, .store-body h3::after, .footer-title::after { display: none; }
+.site-header { background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: saturate(1.4) blur(10px); }
+.brand { display: inline-flex; align-items: center; gap: 10px; }
+.brand-mark { border-radius: 9px; }
+.eyebrow { display: inline-block; background: var(--accent-soft); color: var(--brand); padding: 5px 12px; border-radius: 999px; font-size: 0.82rem; letter-spacing: 0.02em; }
+.btn { border-width: 2px; border-radius: 999px; padding: 13px 26px; transition: transform .15s ease, box-shadow .15s ease, background .15s ease; }
+.btn-primary { box-shadow: 0 6px 18px color-mix(in srgb, var(--brand) 32%, transparent); }
+.btn:hover { transform: translateY(-2px); }
+.btn:focus-visible, a:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.hero-home { position: relative; overflow: hidden; background: linear-gradient(180deg, var(--surface), var(--bg)); }
+.hero-home::before { content: ""; position: absolute; width: 620px; height: 620px; right: -160px; top: -240px; border-radius: 50%; background: radial-gradient(circle at 40% 40%, color-mix(in srgb, var(--accent) 55%, transparent), transparent 68%); pointer-events: none; }
+.hero-home::after { content: ""; position: absolute; width: 380px; height: 380px; left: -140px; bottom: -200px; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--accent) 30%, transparent), transparent 70%); pointer-events: none; }
+.hero-home .container { position: relative; z-index: 1; }
+.hero-home h1 { font-size: clamp(2.4rem, 5.8vw, 3.9rem); }
+.mosaic { position: relative; }
+.mosaic img { border: 4px solid var(--bg); }
+.mosaic-badge { position: absolute; z-index: 2; left: 14px; top: 14px; background: var(--accent); color: var(--accent-fg); font-weight: 700; font-size: 0.82rem; padding: 7px 14px; border-radius: 999px; box-shadow: 0 6px 16px rgb(0 0 0 / 0.18); }
+.chips li { background: var(--accent-soft); border-color: transparent; }
+.step { background: var(--surface); border: 1px solid var(--border); }
+.step-num { background: var(--accent); color: var(--accent-fg); }
+.service-icon { background: var(--accent-soft); color: var(--brand); }
+.service-card, .store-card, .product-card { border-radius: 22px; }
+.service-card:hover, .store-card:hover { box-shadow: 0 14px 34px color-mix(in srgb, var(--brand) 16%, transparent); }
+.cta-band { background: linear-gradient(135deg, #1f6b35, #14451f); color: #fff; position: relative; overflow: hidden; }
+.cta-band::before { content: ""; position: absolute; width: 320px; height: 320px; right: -90px; top: -130px; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--accent) 60%, transparent), transparent 70%); }
+.cta-band > * { position: relative; }
+.cta-band .btn-primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); box-shadow: none; }
+.cta-band .btn-secondary { color: #fff; border-color: rgb(255 255 255 / 0.7); }
+.site-footer { background: var(--footer-bg); color: var(--footer-fg); border-top: 0; margin-top: 64px; }
+.site-footer a { color: var(--accent); }
+.site-footer .footer-title a { color: #fff; }
+.site-footer .footer-links a, .site-footer .footer-bottom { color: var(--footer-fg); }
+.site-footer address { color: var(--footer-fg); }
+.faq details { border-radius: 4px; }
+.faq summary { padding-block: 2px; }
+.lang-switch { padding: 6px 12px; border-radius: 999px; border: 1px solid var(--border); color: var(--brand); font-weight: 600; }
+.status-open { color: var(--brand); }

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Manrope } from "next/font/google";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 import { AnalyticsHead, AnalyticsNoscript } from "@/components/Analytics";
@@ -7,6 +8,8 @@ import { JsonLd } from "@/components/JsonLd";
 import { organizationSchema } from "@/lib/schema";
 import { LANGS, SITE, isLang } from "@/lib/site";
 import "../globals.css";
+
+const font = Manrope({ subsets: ["latin"], display: "swap", variable: "--font-sans" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -21,7 +24,7 @@ export default async function LangLayout({ children, params }: { children: React
   const { lang } = await params;
   if (!isLang(lang)) notFound();
   return (
-    <html lang={lang}>
+    <html lang={lang} className={font.variable}>
       <body>
         <AnalyticsNoscript />
         <AnalyticsHead />
