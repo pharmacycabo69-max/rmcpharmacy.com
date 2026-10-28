@@ -43,9 +43,9 @@ export default async function Home({ params }: Props) {
   // Hero photos: real pictures of the RMC stores, picked by file name so a reorder never swaps them.
   const photoOf = (slug: string, file: string) => getLocation(slug)?.photos.find((x) => x.src.endsWith(file));
   const bento = [
-    TEAM_PHOTOS.find((x) => x.src.endsWith("team-sun-care.jpg")),
     TEAM_PHOTOS.find((x) => x.src.endsWith("plaza-gali/05-counter-team.jpg")),
-    TEAM_PHOTOS.find((x) => x.src.endsWith("team-shelf.jpg")),
+    TEAM_PHOTOS.find((x) => x.src.endsWith("ocean/03-team-service.jpg")),
+    TEAM_PHOTOS.find((x) => x.src.endsWith("ocean/06-counter-team.jpg")),
   ].filter((x): x is NonNullable<typeof x> => Boolean(x));
   const hoursStore = getLocation("plaza-gali");
 
@@ -126,7 +126,7 @@ export default async function Home({ params }: Props) {
             <div className="hero-visual">
               <div className="bento">
                 <figure className="b1">
-                  <Image src={bento[0].src} alt={bento[0].alt[lang]} width={bento[0].width} height={bento[0].height} priority sizes="(max-width: 960px) 60vw, 360px" style={{ objectPosition: "30% 40%" }} />
+                  <Image src={bento[0].src} alt={bento[0].alt[lang]} width={bento[0].width} height={bento[0].height} priority sizes="(max-width: 960px) 60vw, 360px" style={{ objectPosition: "68% 40%" }} />
                 </figure>
                 <figure>
                   <Image src={bento[1].src} alt={bento[1].alt[lang]} width={bento[1].width} height={bento[1].height} sizes="(max-width: 960px) 40vw, 300px" />
