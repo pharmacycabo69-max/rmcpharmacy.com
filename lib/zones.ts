@@ -62,6 +62,7 @@ export const ZONES: Zone[] = [
     name: { en: "Médano Beach", es: "Playa Médano" },
     area: "cabo-san-lucas",
     art: "beach",
+    photo: { src: "/zones/medano.jpg", width: 1600, height: 1066, alt: { en: "Médano Beach and the bay seen from a terrace in Cabo San Lucas", es: "Playa Médano y la bahía vistas desde una terraza en Cabo San Lucas" } },
     etaMin: 15,
     etaMax: 25,
     hotels: ["ME Cabo", "Pueblo Bonito Rosé", "Villa del Palmar Beach Resort & Spa", "Riu Palace Cabo San Lucas", "Riu Santa Fe", "Casa Dorada Los Cabos"],

@@ -366,3 +366,9 @@ h3 { font-size: 1.2rem; letter-spacing: -0.015em; }
 .zone-card:hover .zone-art img { transform: scale(1.06); }
 .zone-hero { margin: 32px 0 0; overflow: hidden; border-radius: var(--radius); }
 .zone-hero img { width: 100%; height: auto; display: block; aspect-ratio: 16 / 9; object-fit: cover; }
+
+.team-grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.team-card { position: relative; margin: 0; overflow: hidden; border-radius: var(--radius); background: var(--surface); }
+.team-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; transition: transform .8s var(--ease); }
+.team-card:hover img { transform: scale(1.05); }
+.team-card figcaption { position: absolute; left: 12px; bottom: 12px; padding: 5px 12px; border-radius: 999px; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); font-size: 0.82rem; font-weight: 700; }

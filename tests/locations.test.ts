@@ -6,6 +6,7 @@ import { getOpenStatus } from "../lib/hours.ts";
 import { ALL_LOCATIONS, LOCATIONS, locationH1, validateLocations, type Location } from "../lib/locations.ts";
 import { buildBot } from "../lib/botFlows.ts";
 import { IV_PRODUCTS } from "../lib/ivProducts.ts";
+import { TEAM_PHOTOS } from "../lib/team.ts";
 import { zoneContent } from "../lib/zoneContent.ts";
 import { ZONES } from "../lib/zones.ts";
 import { IV_SESSION_PHOTOS } from "../lib/sessionPhotos.ts";
@@ -176,4 +177,12 @@ test("zone pages never use regulatory or prescription wording and never promise 
     const all = JSON.stringify(zoneContent(z, lang)) + JSON.stringify(z);
     assert.doesNotMatch(all, /licen[sc]|licencia|permit|permiso|certif|cofepris|coepris|prescription|receta|antibio|viagra|24\/7|24 hours|24 horas/i, z.slug);
   }
+});
+
+test("team and zone photos exist and are small", () => {
+  for (const ph of TEAM_PHOTOS) {
+    assert.ok(statSync(join("public", ph.src)).size < 400 * 1024, ph.src);
+    assert.ok(ph.alt.en.length > 10 && ph.alt.es.length > 10);
+  }
+  for (const z of ZONES) if (z.photo) assert.ok(statSync(join("public", z.photo.src)).size < 400 * 1024, z.slug);
 });

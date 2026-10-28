@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { CtaButtons } from "@/components/CtaButtons";
 import { storeCountLabel } from "@/lib/locations";
 import { buildMetadata } from "@/lib/metadata";
+import { TEAM_PHOTOS } from "@/lib/team";
 import { isLang } from "@/lib/site";
 
 type Props = { params: Promise<{ lang: string }> };
@@ -20,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-// TODO(content): add real story, team and store photos before launch.
+// TODO(content): add the real story of the business.
 export default async function About({ params }: Props) {
   const { lang } = await params;
   if (!isLang(lang)) return null;
@@ -33,6 +35,21 @@ export default async function About({ params }: Props) {
           : `Somos una farmacia y minisúper con ${storeCountLabel("es")} en Cabo San Lucas. Atendemos en inglés y español. Encuentra el horario de cada una en su página.`}
       </p>
       <CtaButtons lang={lang} source="about-page" />
+
+      <section className="section" style={{ paddingBottom: 0 }}>
+        <div className="section-head">
+          <p className="eyebrow">{lang === "en" ? "Our team" : "Nuestro equipo"}</p>
+          <h2>{lang === "en" ? "The people who help you" : "Las personas que te atienden"}</h2>
+        </div>
+        <div className="team-grid">
+          {TEAM_PHOTOS.map((t, i) => (
+            <figure key={t.src} className="team-card">
+              <Image src={t.src} alt={t.alt[lang]} width={t.width} height={t.height} sizes="(max-width: 720px) 100vw, 380px" priority={i < 2} />
+              <figcaption>{t.caption}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
