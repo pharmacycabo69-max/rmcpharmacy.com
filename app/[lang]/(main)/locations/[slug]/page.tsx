@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { CtaButtons } from "@/components/CtaButtons";
 import { Gallery } from "@/components/Gallery";
 import { JsonLd } from "@/components/JsonLd";
+import { ZoneCard } from "@/components/ZoneCard";
 import { OpenStatus } from "@/components/OpenStatus";
 import { FaqList } from "@/components/ServiceFaqList";
 import { DAYS, DAY_LABEL, formatRange } from "@/lib/hours";
@@ -94,12 +95,7 @@ export default async function LocationPage({ params }: Props) {
           <ul className="zone-grid">
             {ZONES.map((z) => (
               <li key={z.slug}>
-                <Link href={localizedPath(lang, `/delivery/${z.slug}`)} className="zone-card">
-                  <strong>{z.name[lang]}</strong>
-                  <span className="muted">
-                    {lang === "en" ? "Estimated" : "Estimado"} {z.etaMin}–{z.etaMax} min
-                  </span>
-                </Link>
+                <ZoneCard zone={z} lang={lang} />
               </li>
             ))}
           </ul>

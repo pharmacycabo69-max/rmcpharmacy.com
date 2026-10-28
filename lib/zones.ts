@@ -1,9 +1,13 @@
 type L = { en: string; es: string };
 
+export type ZoneArtKind = "marina" | "beach" | "hills" | "golf" | "sunset" | "surf" | "town";
+
 export type Zone = {
   slug: string;
   name: L;
   area: "cabo-san-lucas" | "corridor" | "san-jose";
+  /** Illustration used on the zone card until a real photo of the area is added. */
+  art: ZoneArtKind;
   etaMin: number;
   etaMax: number;
   /** Reference hotels and developments in the zone. Orientative list: the owner extends it. */
@@ -30,6 +34,7 @@ export const ZONES: Zone[] = [
     slug: "marina-centro",
     name: { en: "Marina & Downtown Cabo", es: "Marina y Centro de Cabo" },
     area: "cabo-san-lucas",
+    art: "marina",
     etaMin: 15,
     etaMax: 25,
     hotels: ["Hotel Tesoro Los Cabos", "Marina Fiesta Resort & Spa", "Hotel Mar de Cortez", "Siesta Suites Cabo San Lucas"],
@@ -51,6 +56,7 @@ export const ZONES: Zone[] = [
     slug: "medano",
     name: { en: "Médano Beach", es: "Playa Médano" },
     area: "cabo-san-lucas",
+    art: "beach",
     etaMin: 15,
     etaMax: 25,
     hotels: ["ME Cabo", "Pueblo Bonito Rosé", "Villa del Palmar Beach Resort & Spa", "Riu Palace Cabo San Lucas", "Riu Santa Fe", "Casa Dorada Los Cabos"],
@@ -72,6 +78,7 @@ export const ZONES: Zone[] = [
     slug: "pedregal",
     name: { en: "Pedregal", es: "Pedregal" },
     area: "cabo-san-lucas",
+    art: "hills",
     etaMin: 20,
     etaMax: 30,
     hotels: ["Waldorf Astoria Los Cabos Pedregal", "Private villas in Pedregal"],
@@ -93,6 +100,7 @@ export const ZONES: Zone[] = [
     slug: "pacifico-sunset",
     name: { en: "Pacific Side & Sunset", es: "Lado Pacífico y Sunset" },
     area: "cabo-san-lucas",
+    art: "sunset",
     etaMin: 20,
     etaMax: 35,
     hotels: ["Pueblo Bonito Pacifica Golf & Spa Resort", "Pueblo Bonito Sunset Beach Golf & Spa Resort", "Playa Grande Resort", "Solmar Resort"],
@@ -114,6 +122,7 @@ export const ZONES: Zone[] = [
     slug: "diamante-quivira",
     name: { en: "Diamante & Quivira", es: "Diamante y Quivira" },
     area: "cabo-san-lucas",
+    art: "golf",
     etaMin: 25,
     etaMax: 40,
     hotels: ["Diamante Cabo San Lucas", "Quivira Los Cabos"],
@@ -135,6 +144,7 @@ export const ZONES: Zone[] = [
     slug: "cabo-bello-misiones",
     name: { en: "Cabo Bello & Misiones", es: "Cabo Bello y Misiones" },
     area: "corridor",
+    art: "hills",
     etaMin: 20,
     etaMax: 35,
     hotels: ["Cabo Bello", "Misiones del Cabo", "Esperanza, an Auberge Resort"],
@@ -156,6 +166,7 @@ export const ZONES: Zone[] = [
     slug: "corredor-chileno",
     name: { en: "Chileno Bay", es: "Bahía Chileno" },
     area: "corridor",
+    art: "beach",
     etaMin: 30,
     etaMax: 45,
     hotels: ["Viceroy Los Cabos", "Chileno Bay Resort & Residences"],
@@ -177,6 +188,7 @@ export const ZONES: Zone[] = [
     slug: "cabo-del-sol",
     name: { en: "Cabo del Sol", es: "Cabo del Sol" },
     area: "corridor",
+    art: "golf",
     etaMin: 30,
     etaMax: 45,
     hotels: ["Cabo del Sol"],
@@ -198,6 +210,7 @@ export const ZONES: Zone[] = [
     slug: "palmilla",
     name: { en: "Palmilla", es: "Palmilla" },
     area: "san-jose",
+    art: "beach",
     etaMin: 40,
     etaMax: 55,
     hotels: ["One&Only Palmilla", "Las Ventanas al Paraíso"],
@@ -219,6 +232,7 @@ export const ZONES: Zone[] = [
     slug: "costa-azul",
     name: { en: "Costa Azul", es: "Costa Azul" },
     area: "san-jose",
+    art: "surf",
     etaMin: 45,
     etaMax: 60,
     hotels: ["The Cape, a Thompson Hotel", "Cabo Surf Hotel"],
@@ -240,6 +254,7 @@ export const ZONES: Zone[] = [
     slug: "zona-hotelera-san-jose",
     name: { en: "San José del Cabo Hotel Zone", es: "Zona Hotelera de San José del Cabo" },
     area: "san-jose",
+    art: "beach",
     etaMin: 50,
     etaMax: 65,
     hotels: ["Holiday Inn Resort Los Cabos", "Barceló Grand Faro Los Cabos", "Posada Real Los Cabos"],
@@ -261,6 +276,7 @@ export const ZONES: Zone[] = [
     slug: "centro-san-jose",
     name: { en: "Downtown San José del Cabo", es: "Centro de San José del Cabo" },
     area: "san-jose",
+    art: "town",
     etaMin: 50,
     etaMax: 65,
     hotels: ["Casa Natalia", "Tropicana Inn", "Posada Terranova"],
@@ -282,6 +298,7 @@ export const ZONES: Zone[] = [
     slug: "puerto-los-cabos",
     name: { en: "Puerto Los Cabos", es: "Puerto Los Cabos" },
     area: "san-jose",
+    art: "marina",
     etaMin: 55,
     etaMax: 70,
     hotels: ["Secrets Puerto Los Cabos", "JW Marriott Los Cabos", "El Ganzo"],

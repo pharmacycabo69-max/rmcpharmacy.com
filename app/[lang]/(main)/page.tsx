@@ -6,6 +6,7 @@ import { BagIcon, CardIcon, ChatIcon, ClockIcon, DropIcon, GlobeIcon, PulseIcon,
 import { OpenStatus } from "@/components/OpenStatus";
 import { HotelFinder, type HotelOption } from "@/components/HotelFinder";
 import { StoreCard } from "@/components/StoreCard";
+import { ZoneCard } from "@/components/ZoneCard";
 import { LOCATIONS, getLocation, storeCountLabel } from "@/lib/locations";
 import { UI, t } from "@/lib/i18n";
 import { buildMetadata } from "@/lib/metadata";
@@ -196,12 +197,7 @@ export default async function Home({ params }: Props) {
             <ul className="zone-grid">
               {ZONES.filter((z) => z.area === area).map((z) => (
                 <li key={z.slug}>
-                  <Link href={p(`/delivery/${z.slug}`)} className="zone-card">
-                    <strong>{z.name[lang]}</strong>
-                    <span>
-                      {z.etaMin}–{z.etaMax} min
-                    </span>
-                  </Link>
+                  <ZoneCard zone={z} lang={lang} />
                 </li>
               ))}
             </ul>

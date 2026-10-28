@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CtaButtons } from "@/components/CtaButtons";
+import { ZoneCard } from "@/components/ZoneCard";
 import { JsonLd } from "@/components/JsonLd";
 import { FaqList } from "@/components/ServiceFaqList";
 import { buildMetadata } from "@/lib/metadata";
@@ -81,12 +82,7 @@ export default async function Delivery({ params }: Props) {
           <ul className="zone-grid">
             {ZONES.filter((z) => z.area === area).map((z) => (
               <li key={z.slug}>
-                <Link href={localizedPath(lang, `/delivery/${z.slug}`)} className="zone-card">
-                  <strong>{z.name[lang]}</strong>
-                  <span className="muted">
-                    {lang === "en" ? "Estimated" : "Estimado"} {z.etaMin}–{z.etaMax} min
-                  </span>
-                </Link>
+                <ZoneCard zone={z} lang={lang} />
               </li>
             ))}
           </ul>
