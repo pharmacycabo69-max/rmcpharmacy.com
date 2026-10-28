@@ -154,6 +154,7 @@ export const ZONES: Zone[] = [
     name: { en: "Cabo Bello & Misiones", es: "Cabo Bello y Misiones" },
     area: "corridor",
     art: "hills",
+    photo: { src: "/zones/cabo-bello-misiones.jpg", width: 1365, height: 768, alt: { en: "Rocky coast and a small beach on the Tourist Corridor near Cabo Bello", es: "Costa rocosa y una pequeña playa en el Corredor Turístico cerca de Cabo Bello" } },
     etaMin: 20,
     etaMax: 35,
     hotels: ["Cabo Bello", "Misiones del Cabo", "Esperanza, an Auberge Resort"],
