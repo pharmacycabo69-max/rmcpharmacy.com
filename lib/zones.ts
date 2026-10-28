@@ -85,6 +85,7 @@ export const ZONES: Zone[] = [
     name: { en: "Pedregal", es: "Pedregal" },
     area: "cabo-san-lucas",
     art: "hills",
+    photo: { src: "/zones/pedregal.jpg", width: 1600, height: 1200, alt: { en: "Resort buildings and beach at the foot of the hills in Pedregal, Cabo San Lucas", es: "Edificios de un resort y la playa al pie de los cerros en Pedregal, Cabo San Lucas" } },
     etaMin: 20,
     etaMax: 30,
     hotels: ["Waldorf Astoria Los Cabos Pedregal", "Private villas in Pedregal"],
