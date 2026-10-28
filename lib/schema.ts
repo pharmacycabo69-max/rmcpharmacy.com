@@ -19,8 +19,8 @@ export function locationSchema(l: Location, lang: Lang) {
   const image = l.photos[0] ? (l.photos[0].src.startsWith("http") ? l.photos[0].src : SITE.url + l.photos[0].src) : undefined;
   return {
     "@context": "https://schema.org",
-    "@type": "Pharmacy",
-    "@id": `${SITE.url}/locations/${l.slug}#pharmacy`,
+    "@type": l.kind === "clinic" ? "MedicalClinic" : "Pharmacy",
+    "@id": `${SITE.url}/locations/${l.slug}#${l.kind === "clinic" ? "clinic" : "pharmacy"}`,
     name: l.gbpName,
     url: SITE.url + localizedPath(lang, `/locations/${l.slug}`),
     ...(l.phone ? { telephone: l.phone } : {}),

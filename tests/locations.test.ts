@@ -3,7 +3,8 @@ import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { test } from "node:test";
 import { getOpenStatus } from "../lib/hours.ts";
-import { ALL_LOCATIONS, LOCATIONS, locationH1, validateLocations, type Location } from "../lib/locations.ts";
+import { ALL_LOCATIONS, LOCATIONS, PHARMACIES, locationH1, validateLocations, type Location } from "../lib/locations.ts";
+import { IV_SESSION_PHOTOS } from "../lib/sessionPhotos.ts";
 
 const published = ALL_LOCATIONS.filter((l) => l.isPublished);
 
@@ -11,7 +12,7 @@ test("H1 equals the exact GBP name for every published store", () => {
   assert.ok(published.length > 0);
   for (const l of published) {
     assert.equal(locationH1(l), l.gbpName, l.slug);
-    assert.doesNotMatch(l.gbpName, /cabo|delivery|24/i, `${l.slug} name has keywords`);
+    if (l.kind === "pharmacy") assert.doesNotMatch(l.gbpName, /cabo|delivery|24/i, `${l.slug} name has keywords`);
   }
 });
 
@@ -95,7 +96,23 @@ test("published stores with photos use files that exist, are small, and have neu
   }
 });
 
-test("review links are Google review short links for the five stores and none for the clinic", () => {
+test("every published store has a Google review short link", () => {
   for (const l of published) assert.match(l.reviewUrl ?? "", /^https:\/\/g\.page\/r\/[\w-]+\/review$/, l.slug);
-  assert.ok(!JSON.stringify(ALL_LOCATIONS).includes("CdOKsP6bcFvgEAI"), "clinic review link must not be used");
+});
+
+test("the clinic uses its exact Google name, is not counted as a pharmacy and has no delivery wording", () => {
+  const c = ALL_LOCATIONS.find((l) => l.slug === "cabo-walk-in-clinic")!;
+  assert.equal(c.gbpName, "Cabo Walk-In Medical Clinic, Urgent Care & Mobile Visits");
+  assert.equal(c.kind, "clinic");
+  assert.equal(c.delivers, false);
+  assert.ok(!PHARMACIES.includes(c));
+  assert.ok(LOCATIONS.includes(c));
+  assert.doesNotMatch(JSON.stringify(c.faq) + JSON.stringify(c.intro), /deliver|entrega/i);
+});
+
+test("session photos exist and are small", () => {
+  for (const ph of IV_SESSION_PHOTOS) {
+    assert.ok(statSync(join("public", ph.src)).size < 400 * 1024, ph.src);
+    assert.ok(ph.alt.en.length > 10 && ph.alt.es.length > 10);
+  }
 });

@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CtaButtons } from "@/components/CtaButtons";
 import { JsonLd } from "@/components/JsonLd";
+import { Gallery } from "@/components/Gallery";
 import { FaqList } from "@/components/ServiceFaqList";
 import { GROUPS as G } from "@/lib/groups";
 import { buildMetadata } from "@/lib/metadata";
+import { IV_SESSION_PHOTOS } from "@/lib/sessionPhotos";
 import { localizedPath } from "@/lib/routes";
 import { faqSchema } from "@/lib/schema";
 import { LANGS, SITE, isLang } from "@/lib/site";
@@ -45,6 +47,10 @@ export default async function GroupIvPage({ params }: Props) {
           <p className="lead">{G.intro[lang]}</p>
           <CtaButtons lang={lang} source="group-iv-hero" message={G.whatsapp[lang]} />
         </div>
+      </section>
+
+      <section className="container section">
+        <Gallery photos={IV_SESSION_PHOTOS} lang={lang} />
       </section>
 
       <section className="container section">

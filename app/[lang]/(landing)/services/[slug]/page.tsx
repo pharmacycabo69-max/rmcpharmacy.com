@@ -2,8 +2,13 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CtaButtons } from "@/components/CtaButtons";
 import { JsonLd } from "@/components/JsonLd";
+import { Gallery } from "@/components/Gallery";
 import { FaqList } from "@/components/ServiceFaqList";
+import Link from "next/link";
+import { CLINIC_SLUG, fullAddress, getLocation } from "@/lib/locations";
 import { buildMetadata } from "@/lib/metadata";
+import { localizedPath } from "@/lib/routes";
+import { IV_SESSION_PHOTOS } from "@/lib/sessionPhotos";
 import { faqSchema, serviceSchema } from "@/lib/schema";
 import { SERVICES, getService } from "@/lib/services";
 import { LANGS, isLang } from "@/lib/site";
@@ -27,6 +32,7 @@ export default async function ServicePage({ params }: Props) {
   if (!isLang(lang) || !s) notFound();
   const source = `service-${slug}`;
   const stepsTitle = lang === "en" ? "How it works" : "Cómo funciona";
+  const clinic = slug === "doctor-consultation" ? getLocation(CLINIC_SLUG) : undefined;
   const faqTitle = lang === "en" ? "Frequently asked questions" : "Preguntas frecuentes";
   return (
     <>
@@ -40,6 +46,11 @@ export default async function ServicePage({ params }: Props) {
           <CtaButtons lang={lang} source={`${source}-hero`} />
         </div>
       </section>
+      {slug === "iv-therapy" && (
+        <section className="container section">
+          <Gallery photos={IV_SESSION_PHOTOS} lang={lang} />
+        </section>
+      )}
       <section className="container section">
         <ul className="checks">
           {s.points.map((p) => (
@@ -56,6 +67,16 @@ export default async function ServicePage({ params }: Props) {
         </ol>
         <CtaButtons lang={lang} source={`${source}-steps`} showCall={false} />
       </section>
+      {clinic && (
+        <section className="container section">
+          <h2>{lang === "en" ? "In person" : "En persona"}</h2>
+          <p>
+            <Link href={localizedPath(lang, `/locations/${clinic.slug}`)}>{clinic.gbpName}</Link>
+            <br />
+            <span className="muted">{fullAddress(clinic)}</span>
+          </p>
+        </section>
+      )}
       <section className="container section">
         <h2>{faqTitle}</h2>
         <FaqList lang={lang} items={s.faqs} />

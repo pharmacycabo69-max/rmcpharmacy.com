@@ -13,6 +13,8 @@ export type Faq = { q: L; a: L };
 
 export type Location = {
   slug: string;
+  /** "clinic" gets MedicalClinic schema, no delivery wording and is not counted as a pharmacy. */
+  kind: "pharmacy" | "clinic";
   /** Exact Google Business Profile name. H1, title, schema and contact blocks use this verbatim. */
   gbpName: string;
   brand: string;
@@ -89,6 +91,7 @@ const RMC_FAQ: Faq[] = [
 const RMC_SERVICES = ["iv-therapy", "doctor-consultation", "home-nursing"];
 
 const RMC_BASE = {
+  kind: "pharmacy" as Location["kind"],
   brand: "RMC",
   gbpName: "RMC Pharmacy",
   neighborhood: "Centro, Marina",
@@ -206,6 +209,7 @@ Si necesitas algo más que un producto, pregunta por nuestros servicios: terapia
   // Other brands. Unknown fields stay null and the store stays unpublished until the owner confirms them.
   {
     slug: "celeste",
+    kind: "pharmacy",
     gbpName: "Celeste Pharmacy",
     brand: "Celeste",
     neighborhood: "Downtown, Centro",
@@ -248,6 +252,7 @@ Nuestros servicios también están disponibles desde esta sucursal: terapia IV e
   },
   {
     slug: "ocean",
+    kind: "pharmacy",
     gbpName: "Ocean Pharmacy",
     brand: "Ocean",
     neighborhood: "Marina",
@@ -288,6 +293,74 @@ Desde esta sucursal también puedes reservar nuestros servicios: terapia IV en t
     isPublished: true,
     needsReview: false,
   },
+  {
+    slug: "cabo-walk-in-clinic",
+    kind: "clinic",
+    // Exact Google Business Profile name of the clinic.
+    gbpName: "Cabo Walk-In Medical Clinic, Urgent Care & Mobile Visits",
+    brand: "Cabo Walk-In",
+    neighborhood: "Centro",
+    placeLabel: "Francisco I Madero",
+    addressLine: "Francisco I Madero B.C.S",
+    ...COMMON,
+    phone: BRAND_PHONE,
+    hours: RMC_HOURS,
+    geo: { lat: 22.8827602, lng: -109.9133287 },
+    mapsUrl: "https://maps.app.goo.gl/RmMhV2CEvJf8qC6x6",
+    reviewUrl: "https://g.page/r/CdOKsP6bcFvgEAI/review",
+    photos: [
+      { src: "/locations/cabo-walk-in-clinic/01-storefront.jpg", width: 765, height: 1020, alt: { en: "Storefront of Cabo Walk-In Medical Clinic", es: "Fachada de Cabo Walk-In Medical Clinic" } },
+      { src: "/locations/cabo-walk-in-clinic/02-storefront-ambulance.jpg", width: 574, height: 1020, alt: { en: "Cabo Walk-In Medical Clinic storefront with an ambulance parked in front", es: "Fachada de Cabo Walk-In Medical Clinic con una ambulancia estacionada al frente" } },
+    ],
+    services: ["doctor-consultation", "iv-therapy"],
+    delivers: false,
+    intro: {
+      en: `Cabo Walk-In Medical Clinic, Urgent Care & Mobile Visits is a private medical clinic on Francisco I Madero, in the Centro area of Cabo San Lucas. We are open every day from 9 am to 6 pm, walk-ins are welcome, and we attend in English and Spanish.
+
+You can see a doctor in person for $99 USD (30 minutes), or by video call for $59 USD from wherever you are staying. If you would rather stay at your villa or hotel, our mobile visits bring a doctor to you for $200 USD. Message us with your questions and we will point you to the option that fits your situation.
+
+We also offer IV therapy at your villa, hotel or boat. See the IV therapy page for prices and how to book.
+
+To ask a question or arrange a visit, message us on WhatsApp at +52 624 226 1023. For severe symptoms such as chest pain, trouble breathing or heavy bleeding, call 911 or go to the nearest emergency room.`,
+      es: `Cabo Walk-In Medical Clinic, Urgent Care & Mobile Visits es una clínica médica privada en Francisco I Madero, en la zona Centro de Cabo San Lucas. Abrimos todos los días de 9 am a 6 pm, atendemos sin cita y hablamos inglés y español.
+
+Puedes ver a un médico en persona por $99 USD (30 minutos), o por videollamada por $59 USD desde donde te hospedas. Si prefieres quedarte en tu villa u hotel, nuestras visitas móviles llevan un médico hasta ti por $200 USD. Escríbenos tus dudas y te orientamos sobre la opción que mejor se ajuste a tu situación.
+
+También ofrecemos terapia IV en tu villa, hotel o yate. Consulta la página de terapia IV para precios y cómo reservar.
+
+Para hacer una pregunta o coordinar una visita, escríbenos por WhatsApp al +52 624 226 1023. Ante síntomas graves como dolor de pecho, dificultad para respirar o sangrado intenso, llama al 911 o acude a urgencias.`,
+    },
+    faq: [
+      {
+        q: { en: "Do I need an appointment?", es: "¿Necesito cita?" },
+        a: { en: "No, walk-ins are welcome.", es: "No, atendemos sin cita." },
+      },
+      {
+        q: { en: "Do you speak English?", es: "¿Hablan inglés?" },
+        a: { en: "Yes, English and Spanish.", es: "Sí, inglés y español." },
+      },
+      {
+        q: { en: "Can a doctor visit me at my villa or hotel?", es: "¿Puede un médico visitarme en mi villa u hotel?" },
+        a: {
+          en: "Yes. Our mobile visits bring a doctor to your villa or hotel for $200 USD. Message us on WhatsApp to arrange it.",
+          es: "Sí. Nuestras visitas móviles llevan un médico a tu villa u hotel por $200 USD. Escríbenos por WhatsApp para coordinarlo.",
+        },
+      },
+      {
+        q: { en: "How much is an in-person consultation?", es: "¿Cuánto cuesta una consulta presencial?" },
+        a: { en: "An in-person consultation is $99 USD for 30 minutes.", es: "La consulta presencial cuesta $99 USD por 30 minutos." },
+      },
+      {
+        q: { en: "What if it is an emergency?", es: "¿Y si es una emergencia?" },
+        a: {
+          en: "For severe symptoms such as chest pain, trouble breathing, heavy bleeding or fainting, call 911 or go to the nearest emergency room.",
+          es: "Ante síntomas graves como dolor de pecho, dificultad para respirar, sangrado intenso o desmayo, llama al 911 o acude a urgencias.",
+        },
+      },
+    ],
+    isPublished: true,
+    needsReview: false,
+  },
 ];
 
 /** Fails loudly (build and dev) when a published store is missing data. */
@@ -314,6 +387,11 @@ validateLocations(ALL_LOCATIONS);
 /** Published stores only. Everything on the site reads this. */
 export const LOCATIONS: Location[] = ALL_LOCATIONS.filter((l) => l.isPublished);
 
+/** Store counts in copy only include pharmacies; the clinic is listed separately. */
+export const PHARMACIES: Location[] = LOCATIONS.filter((l) => l.kind === "pharmacy");
+
+export const CLINIC_SLUG = "cabo-walk-in-clinic";
+
 export function getLocation(slug: string) {
   return LOCATIONS.find((l) => l.slug === slug);
 }
@@ -339,7 +417,7 @@ const NUMBER_WORDS = {
 };
 
 /** "three stores" / "tres sucursales", computed from the published array. */
-export function storeCountLabel(lang: "en" | "es", n: number = LOCATIONS.length) {
+export function storeCountLabel(lang: "en" | "es", n: number = PHARMACIES.length) {
   const word = n <= 10 ? NUMBER_WORDS[lang][n] : String(n);
   if (lang === "en") return `${word} ${n === 1 ? "store" : "stores"}`;
   return `${word} ${n === 1 ? "sucursal" : "sucursales"}`;
