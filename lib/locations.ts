@@ -144,6 +144,12 @@ Esta sucursal también te conecta con nuestros servicios: terapia IV en tu villa
     reviewUrl: "https://g.page/r/CYk7bBeziXGqEAI/review",
     placeLabel: "Plaza Embarcadero",
     needsReview: true, // owner to confirm whether the GBP listing is "Boulevard Marina local 36"
+    photos: [
+      { src: "/locations/plaza-embarcadero/01-storefront.jpg", width: 1360, height: 1020, alt: { en: "Storefront of RMC Pharmacy at Plaza Embarcadero", es: "Fachada de RMC Pharmacy en Plaza Embarcadero" } },
+      { src: "/locations/plaza-embarcadero/02-interior-entrance.jpg", width: 1360, height: 1018, alt: { en: "Inside RMC Pharmacy at Plaza Embarcadero, looking toward the entrance", es: "Interior de RMC Pharmacy en Plaza Embarcadero, mirando hacia la entrada" } },
+      { src: "/locations/plaza-embarcadero/03-display-shelves.jpg", width: 765, height: 1020, alt: { en: "Display shelves inside RMC Pharmacy at Plaza Embarcadero", es: "Estantes de exhibición dentro de RMC Pharmacy en Plaza Embarcadero" } },
+      { src: "/locations/plaza-embarcadero/04-entrance.jpg", width: 1360, height: 909, alt: { en: "Entrance of RMC Pharmacy at Plaza Embarcadero", es: "Entrada de RMC Pharmacy en Plaza Embarcadero" } },
+    ],
     addressLine: "Blvd. Paseo de la Marina S/N, Local 15 Plaza Embarcadero",
     geo: null,
     mapsUrl: null,
