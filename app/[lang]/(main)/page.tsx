@@ -13,6 +13,7 @@ import { buildMetadata } from "@/lib/metadata";
 import { localizedPath } from "@/lib/routes";
 import { SERVICES } from "@/lib/services";
 import { SERVICE_CARD_PHOTO } from "@/lib/sessionPhotos";
+import { TEAM_PHOTOS } from "@/lib/team";
 import { SITE, isLang } from "@/lib/site";
 import { AREA_LABEL, ZONES } from "@/lib/zones";
 
@@ -244,6 +245,26 @@ export default async function Home({ params }: Props) {
             </div>
           ))}
         </div>
+      </section>
+
+      <section className="container section" style={{ paddingTop: 0 }}>
+        <div className="section-head" {...rv()}>
+          <p className="eyebrow">{en ? "Our team" : "Nuestro equipo"}</p>
+          <h2>{en ? "The people who help you" : "Las personas que te atienden"}</h2>
+        </div>
+        <div className="team-grid">
+          {TEAM_PHOTOS.slice(0, 4).map((tp, i) => (
+            <figure key={tp.src} className="team-card" {...rv(i)}>
+              <Image src={tp.src} alt={tp.alt[lang]} width={tp.width} height={tp.height} sizes="(max-width: 720px) 100vw, 280px" />
+              <figcaption>{tp.caption}</figcaption>
+            </figure>
+          ))}
+        </div>
+        <p style={{ marginTop: 24 }}>
+          <Link className="text-link" href={p("/about")}>
+            {en ? "Meet the whole team" : "Conoce a todo el equipo"}
+          </Link>
+        </p>
       </section>
 
       <section className="container section" style={{ paddingTop: 0 }}>
