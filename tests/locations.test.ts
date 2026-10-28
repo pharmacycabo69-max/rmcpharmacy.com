@@ -94,3 +94,8 @@ test("published stores with photos use files that exist, are small, and have neu
     }
   }
 });
+
+test("review links are Google review short links for the five stores and none for the clinic", () => {
+  for (const l of published) assert.match(l.reviewUrl ?? "", /^https:\/\/g\.page\/r\/[\w-]+\/review$/, l.slug);
+  assert.ok(!JSON.stringify(ALL_LOCATIONS).includes("CdOKsP6bcFvgEAI"), "clinic review link must not be used");
+});

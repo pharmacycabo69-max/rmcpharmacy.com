@@ -87,6 +87,7 @@ export const ALL_LOCATIONS: Location[] = [
   {
     ...RMC_BASE,
     slug: "plaza-gali",
+    reviewUrl: "https://g.page/r/Cd-qhz6zjhAaEAI/review",
     placeLabel: "Plaza Gali",
     photos: [
       { src: "/locations/plaza-gali/01-storefront-sign.jpg", width: 1600, height: 900, alt: { en: "RMC Pharmacy sign above the entrance at Plaza Gali", es: "Letrero de RMC Pharmacy sobre la entrada en Plaza Gali" } },
@@ -116,6 +117,7 @@ Esta sucursal también te conecta con nuestros servicios: terapia IV en tu villa
   {
     ...RMC_BASE,
     slug: "plaza-embarcadero",
+    reviewUrl: "https://g.page/r/CYk7bBeziXGqEAI/review",
     placeLabel: "Plaza Embarcadero",
     needsReview: true, // owner to confirm whether the GBP listing is "Boulevard Marina local 36"
     addressLine: "Blvd. Paseo de la Marina S/N, Local 15 Plaza Embarcadero",
@@ -141,6 +143,7 @@ Además de la tienda, puedes reservar terapia IV en tu puerta desde $159 USD, un
   {
     ...RMC_BASE,
     slug: "mercado-marina",
+    reviewUrl: "https://g.page/r/CXz8ZpnRA7MbEAI/review",
     placeLabel: "Mercado Marina",
     photos: [
       { src: "/locations/mercado-marina/01-counter-service.jpg", width: 1600, height: 1069, alt: { en: "Team member at the counter of RMC Pharmacy at Mercado Marina", es: "Integrante del equipo en el mostrador de RMC Pharmacy en Mercado Marina" } },
@@ -180,7 +183,7 @@ Si necesitas algo más que un producto, pregunta por nuestros servicios: terapia
     hours: RMC_HOURS,
     geo: { lat: 22.8859589, lng: -109.9123647 },
     mapsUrl: "https://maps.app.goo.gl/oKHoed9RCi8RvGTV8",
-    reviewUrl: null,
+    reviewUrl: "https://g.page/r/CSfj98p78gqZEAI/review",
     photos: [
       { src: "/locations/celeste/01-sign.jpg", width: 1600, height: 900, alt: { en: "Celeste Pharmacy sign above the entrance", es: "Letrero de Celeste Pharmacy sobre la entrada" } },
       { src: "/locations/celeste/02-personal-care.jpg", width: 1600, height: 1069, alt: { en: "Personal care products on display at Celeste Pharmacy", es: "Productos de cuidado personal en exhibición en Celeste Pharmacy" } },
@@ -219,7 +222,7 @@ Nuestros servicios también están disponibles desde esta sucursal: terapia IV e
     hours: RMC_HOURS,
     geo: { lat: 22.8792611, lng: -109.9088094 },
     mapsUrl: "https://maps.app.goo.gl/hUKii4Xvy8FG1Sg78",
-    reviewUrl: null,
+    reviewUrl: "https://g.page/r/CYFBh9X3v9bqEAI/review",
     photos: [
       { src: "/locations/ocean/01-kiosk-marina.jpg", width: 1600, height: 1069, alt: { en: "Ocean Pharmacy module on Paseo de la Marina", es: "Módulo de Ocean Pharmacy sobre Paseo de la Marina" } },
       { src: "/locations/ocean/02-kiosk-front.jpg", width: 1200, height: 1600, alt: { en: "Front of the Ocean Pharmacy module with open shelves", es: "Frente del módulo de Ocean Pharmacy con estantes abiertos" } },
