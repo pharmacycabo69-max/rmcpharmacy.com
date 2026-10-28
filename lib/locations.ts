@@ -167,7 +167,7 @@ También llevamos la tienda hasta ti. La entrega llega a hoteles y villas de Cab
 Si necesitas algo más que un producto, pregunta por nuestros servicios: terapia IV en tu hotel o villa desde $159 USD, consultas por video con un médico por $59 USD y enfermería a domicilio con nuestra marca hermana Cabo Nurse. Escríbenos y dinos dónde te hospedas.`,
     },
   },
-  // Unpublished until the owner confirms the missing data; unknown fields stay null.
+  // Other brands. Unknown fields stay null and the store stays unpublished until the owner confirms them.
   {
     slug: "celeste",
     gbpName: "Celeste Pharmacy",
@@ -181,12 +181,30 @@ Si necesitas algo más que un producto, pregunta por nuestros servicios: terapia
     geo: { lat: 22.8859589, lng: -109.9123647 },
     mapsUrl: "https://maps.app.goo.gl/oKHoed9RCi8RvGTV8",
     reviewUrl: null,
-    photos: [],
+    photos: [
+      { src: "/locations/celeste/01-sign.jpg", width: 1600, height: 900, alt: { en: "Celeste Pharmacy sign above the entrance", es: "Letrero de Celeste Pharmacy sobre la entrada" } },
+      { src: "/locations/celeste/02-personal-care.jpg", width: 1600, height: 1069, alt: { en: "Personal care products on display at Celeste Pharmacy", es: "Productos de cuidado personal en exhibición en Celeste Pharmacy" } },
+    ],
     services: RMC_SERVICES,
-    delivers: false,
-    intro: null,
-    faq: [],
-    isPublished: false,
+    delivers: true,
+    intro: {
+      en: `Celeste Pharmacy is a pharmacy and minimarket on Blvd. Lázaro Cárdenas, Dep 17, in the downtown (Centro) area of Cabo San Lucas. We are open every day from 9 am to 6 pm and we attend in English and Spanish.
+
+Visit us for everyday essentials, including personal care, sun care, first aid and hydration. If you would like to check what we have before you come, send a message on WhatsApp to +52 624 226 1023.
+
+We also bring the pharmacy to you. Delivery goes to hotels and villas in Cabo San Lucas and San José del Cabo, with an estimated delivery time of up to 70 minutes. You place your order in a WhatsApp chat and pay by card through a secure payment link.
+
+Our services are available from this store as well: IV therapy at your villa or hotel, doctor consultations by video, and home nursing. Message us on WhatsApp, tell us where you are staying and we arrange it with you.`,
+      es: `Celeste Pharmacy es una farmacia y minisúper en Blvd. Lázaro Cárdenas, Dep 17, en la zona Centro de Cabo San Lucas. Abrimos todos los días de 9 am a 6 pm y atendemos en inglés y español.
+
+Visítanos por esenciales de todos los días, entre ellos cuidado personal, protección solar, primeros auxilios e hidratación. Si quieres revisar qué tenemos antes de venir, escríbenos por WhatsApp al +52 624 226 1023.
+
+También llevamos la farmacia hasta ti. La entrega llega a hoteles y villas de Cabo San Lucas y San José del Cabo, con un tiempo estimado de hasta 70 minutos. Haces tu pedido en un chat de WhatsApp y pagas con tarjeta mediante un enlace de pago seguro.
+
+Nuestros servicios también están disponibles desde esta sucursal: terapia IV en tu villa u hotel, consultas médicas por video y enfermería a domicilio. Escríbenos por WhatsApp, dinos dónde te hospedas y lo coordinamos contigo.`,
+    },
+    faq: RMC_FAQ,
+    isPublished: true,
     needsReview: false,
   },
   {
@@ -202,12 +220,31 @@ Si necesitas algo más que un producto, pregunta por nuestros servicios: terapia
     geo: { lat: 22.8792611, lng: -109.9088094 },
     mapsUrl: "https://maps.app.goo.gl/hUKii4Xvy8FG1Sg78",
     reviewUrl: null,
-    photos: [],
+    photos: [
+      { src: "/locations/ocean/01-kiosk-marina.jpg", width: 1600, height: 1069, alt: { en: "Ocean Pharmacy module on Paseo de la Marina", es: "Módulo de Ocean Pharmacy sobre Paseo de la Marina" } },
+      { src: "/locations/ocean/02-kiosk-front.jpg", width: 1200, height: 1600, alt: { en: "Front of the Ocean Pharmacy module with open shelves", es: "Frente del módulo de Ocean Pharmacy con estantes abiertos" } },
+      { src: "/locations/ocean/03-sun-care-shelves.jpg", width: 1600, height: 1069, alt: { en: "Sun care and everyday products on the shelves at Ocean Pharmacy", es: "Protección solar y productos de uso diario en los estantes de Ocean Pharmacy" } },
+    ],
     services: RMC_SERVICES,
-    delivers: false,
-    intro: null,
-    faq: [],
-    isPublished: false,
+    delivers: true,
+    intro: {
+      en: `Ocean Pharmacy is a pharmacy and minimarket in a module on Paseo de la Marina, at Andador Módulo 103, in the marina area of Cabo San Lucas. We are open every day from 9 am to 6 pm and we attend in English and Spanish.
+
+Stop by for everyday things travelers look for near the marina, such as sun care, first aid, hydration and personal care. You can also write to us on WhatsApp at +52 624 226 1023 and ask about availability before you walk over.
+
+If you would rather stay on your boat, at your hotel or in your villa, we deliver in Cabo San Lucas and San José del Cabo, with an estimated delivery time of up to 70 minutes. The order happens in a WhatsApp chat, and you pay by card through a secure payment link.
+
+From this store you can also book our services: IV therapy at your villa or hotel, doctor consultations by video, and home nursing. Message us and tell us where you are.`,
+      es: `Ocean Pharmacy es una farmacia y minisúper en un módulo sobre Paseo de la Marina, en Andador Módulo 103, en la zona de la marina de Cabo San Lucas. Abrimos todos los días de 9 am a 6 pm y atendemos en inglés y español.
+
+Pasa por lo que suelen buscar los viajeros cerca de la marina, como protección solar, primeros auxilios, hidratación y cuidado personal. También puedes escribirnos por WhatsApp al +52 624 226 1023 y preguntar por disponibilidad antes de venir.
+
+Si prefieres quedarte en tu yate, en tu hotel o en tu villa, entregamos en Cabo San Lucas y San José del Cabo, con un tiempo estimado de hasta 70 minutos. El pedido se hace en un chat de WhatsApp y pagas con tarjeta mediante un enlace de pago seguro.
+
+Desde esta sucursal también puedes reservar nuestros servicios: terapia IV en tu villa u hotel, consultas médicas por video y enfermería a domicilio. Escríbenos y dinos dónde estás.`,
+    },
+    faq: RMC_FAQ,
+    isPublished: true,
     needsReview: false,
   },
 ];
