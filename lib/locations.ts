@@ -88,6 +88,11 @@ export const ALL_LOCATIONS: Location[] = [
     ...RMC_BASE,
     slug: "plaza-gali",
     placeLabel: "Plaza Gali",
+    photos: [
+      { src: "/locations/plaza-gali/01-storefront-sign.jpg", width: 1600, height: 900, alt: { en: "RMC Pharmacy sign above the entrance at Plaza Gali", es: "Letrero de RMC Pharmacy sobre la entrada en Plaza Gali" } },
+      { src: "/locations/plaza-gali/02-interior-shelves.jpg", width: 1600, height: 1069, alt: { en: "Shelves with personal care and sun care products inside RMC Pharmacy at Plaza Gali", es: "Estantes con productos de cuidado personal y protección solar dentro de RMC Pharmacy en Plaza Gali" } },
+      { src: "/locations/plaza-gali/03-sun-care.jpg", width: 1600, height: 1069, alt: { en: "Sun care products on the shelves at RMC Pharmacy, Plaza Gali", es: "Productos de protección solar en los estantes de RMC Pharmacy, Plaza Gali" } },
+    ],
     addressLine: "Plaza Gali, Blvd. Paseo de la Marina, Loc 47",
     geo: { lat: 22.8783056, lng: -109.9089587 },
     mapsUrl: "https://maps.app.goo.gl/hiNCXGKqXwE5JRv2A",
@@ -137,6 +142,11 @@ Además de la tienda, puedes reservar terapia IV en tu puerta desde $159 USD, un
     ...RMC_BASE,
     slug: "mercado-marina",
     placeLabel: "Mercado Marina",
+    photos: [
+      { src: "/locations/mercado-marina/01-counter-service.jpg", width: 1600, height: 1069, alt: { en: "Team member at the counter of RMC Pharmacy at Mercado Marina", es: "Integrante del equipo en el mostrador de RMC Pharmacy en Mercado Marina" } },
+      { src: "/locations/mercado-marina/02-shelves.jpg", width: 1600, height: 1069, alt: { en: "Shelves with personal care and everyday products at RMC Pharmacy, Mercado Marina", es: "Estantes con productos de cuidado personal y de uso diario en RMC Pharmacy, Mercado Marina" } },
+      { src: "/locations/mercado-marina/03-interior.jpg", width: 1200, height: 1600, alt: { en: "Store interior with shelves and a drinks cooler at RMC Pharmacy, Mercado Marina", es: "Interior de la tienda con estantes y un refrigerador de bebidas en RMC Pharmacy, Mercado Marina" } },
+    ],
     addressLine: "Mercado Marina 11",
     geo: null,
     mapsUrl: null,

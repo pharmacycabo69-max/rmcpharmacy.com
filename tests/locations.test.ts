@@ -83,3 +83,16 @@ test("open/closed uses America/Mazatlan time", () => {
   assert.equal(getOpenStatus(hours, new Date("2026-10-28T16:00:00Z")).open, true);
   assert.equal(getOpenStatus(hours, new Date("2026-10-29T02:00:00Z")).open, false);
 });
+
+test("published stores with photos use files that exist, are small, and have neutral alt text in both languages", () => {
+  for (const l of published) {
+    for (const ph of l.photos) {
+      const path = join("public", ph.src);
+      assert.ok(statSync(path).size < 400 * 1024, `${path} is larger than 400KB`);
+      for (const lang of ["en", "es"] as const) {
+        assert.ok(ph.alt[lang].length > 10, `${path} alt ${lang}`);
+        assert.doesNotMatch(ph.alt[lang], /licen[sc]|licencia|permit|permiso|certif|cofepris|prescription|receta|antibio|viagra/i, `${path} alt`);
+      }
+    }
+  }
+});
