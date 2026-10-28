@@ -53,8 +53,29 @@ const RMC_FAQ: Faq[] = [
     },
   },
   {
+    q: { en: "Can you deliver to the hotel lobby?", es: "¿Pueden entregar en el lobby del hotel?" },
+    a: {
+      en: "Yes, we deliver to the lobby of your hotel. Send us the hotel name on WhatsApp.",
+      es: "Sí, entregamos en el lobby de tu hotel. Envíanos el nombre del hotel por WhatsApp.",
+    },
+  },
+  {
     q: { en: "Do you speak English?", es: "¿Hablan inglés?" },
     a: { en: "Yes, English and Spanish.", es: "Sí, inglés y español." },
+  },
+  {
+    q: { en: "Do I need an appointment?", es: "¿Necesito cita?" },
+    a: {
+      en: "No, you can walk in. We attend without an appointment.",
+      es: "No, puedes pasar directamente. Atendemos sin cita.",
+    },
+  },
+  {
+    q: { en: "What payment methods do you accept in the store?", es: "¿Qué formas de pago aceptan en la tienda?" },
+    a: {
+      en: "Cash or card, in Mexican pesos or US dollars.",
+      es: "Efectivo o tarjeta, en pesos mexicanos o en dólares.",
+    },
   },
   {
     q: { en: "How do I pay for a delivery?", es: "¿Cómo pago una entrega?" },

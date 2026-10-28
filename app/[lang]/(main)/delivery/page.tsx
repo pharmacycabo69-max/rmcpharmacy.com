@@ -17,6 +17,13 @@ const FAQS = [
     },
   },
   {
+    q: { en: "Can you deliver to the hotel lobby?", es: "¿Pueden entregar en el lobby del hotel?" },
+    a: {
+      en: "Yes, we deliver to the lobby of your hotel.",
+      es: "Sí, entregamos en el lobby de tu hotel.",
+    },
+  },
+  {
     q: { en: "How do I order?", es: "¿Cómo hago un pedido?" },
     a: {
       en: "Message us on WhatsApp, tell us what you need and where you are staying, and we confirm the total and the arrival time.",

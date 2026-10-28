@@ -102,3 +102,16 @@ Nota: si el lanzamiento del sitio es después del 2026-10-21, mover las fechas p
 
 ## Celeste y Ocean
 Teléfono +52 624 226 1023 y horario todos los días 9 a 18 (confirmados por el cliente, 2026-10-28). Siguen sin publicar: faltan intro (150 a 250 palabras), 2 FAQ confirmadas, `mapsUrl`, fotos sin letreros de receta y confirmar si entregan a domicilio.
+
+## Confirmaciones del dueño (2026-10-29)
+| # | Dato |
+|---|------|
+| O1 | Plaza Gali: Loc 47 (se mantiene). La ficha de Embarcadero sigue sin confirmar (`needsReview`). |
+| O2 | Horario real de las tiendas: todos los días 9 a 18. Horario de entrega: 9 a 18. |
+| O3 | La entrega cubre todas las zonas, con entrega en el lobby del hotel. No se afirma entrega a la habitación. |
+| O4 | En tienda: sin cita; pago en efectivo o tarjeta, en pesos o dólares. Estacionamiento y farmacéutico en sitio: sin confirmar, fuera del sitio. |
+| O5 | Celeste y Ocean dan los mismos servicios y entrega que las RMC. |
+| O6 | Las fichas de Google ya se llaman "RMC Pharmacy". |
+| O7 | Precios tomados de QuickTurno: consulta presencial $99 (30 min), consulta por video $59, médico a la villa $200, IV Recovery $159 domicilio / $129 consultorio. Enfermería a domicilio: precio sin encontrar. |
+| O8 | QuickTurno tiene "Group IV (4+ personas)" inactivo y en $0, mientras el sitio dice "grupos de 3 o más, $139". Por alinear. |
+| O9 | Sin fotos de fachada sin letreros de receta. Pendiente decidir qué hacer con las que ya existen (regla 2). |

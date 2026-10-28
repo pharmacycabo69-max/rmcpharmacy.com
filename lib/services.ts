@@ -64,18 +64,19 @@ export const SERVICES: ServiceItem[] = [
     name: { en: "Doctor consultation", es: "Consulta médica" },
     metaTitle: { en: "Doctor Consultation in Cabo San Lucas", es: "Consulta médica en Cabo San Lucas" },
     metaDescription: {
-      en: "See a doctor by video call from your hotel or villa in Cabo San Lucas, $59 USD. In-person visits also available.",
-      es: "Consulta médica por videollamada desde tu hotel o villa en Cabo San Lucas, $59 USD. También presencial.",
+      en: "See a doctor by video call from your hotel or villa in Cabo San Lucas, $59 USD, or in person for $99 USD. A doctor can also visit you.",
+      es: "Consulta médica por videollamada desde tu hotel o villa en Cabo San Lucas, $59 USD, o presencial por $99 USD. Un médico también puede visitarte.",
     },
     headline: { en: "See a doctor without leaving your vacation", es: "Consulta con un médico sin salir de tus vacaciones" },
     intro: {
       en: "Talk to a doctor by video from wherever you are staying, or visit in person. Service in English and Spanish.",
       es: "Habla con un médico por videollamada desde donde te hospedas, o acude en persona. Atención en inglés y español.",
     },
-    price: { en: "Video consultation $59 USD", es: "Consulta por videollamada $59 USD" },
+    price: { en: "Video consultation $59 USD · In person $99 USD", es: "Consulta por videollamada $59 USD · Presencial $99 USD" },
     points: [
       { en: "Video consultation for $59 USD", es: "Consulta por videollamada por $59 USD" },
-      { en: "In-person visits also available", es: "También consultas presenciales" },
+      { en: "In-person consultation for $99 USD (30 minutes)", es: "Consulta presencial por $99 USD (30 minutos)" },
+      { en: "A doctor can also visit you at your villa or hotel for $200 USD", es: "Un médico también puede visitarte en tu villa u hotel por $200 USD" },
       { en: "English and Spanish", es: "Inglés y español" },
     ],
     steps: [
@@ -90,7 +91,7 @@ export const SERVICES: ServiceItem[] = [
       },
       {
         q: { en: "Can I be seen in person?", es: "¿Puedo ser atendido en persona?" },
-        a: { en: "Yes. Message us on WhatsApp for in-person availability and price.", es: "Sí. Escríbenos por WhatsApp para disponibilidad y precio de la consulta presencial." },
+        a: { en: "Yes. An in-person consultation is $99 USD for 30 minutes. Message us on WhatsApp to schedule it.", es: "Sí. La consulta presencial cuesta $99 USD por 30 minutos. Escríbenos por WhatsApp para agendarla." },
       },
       {
         q: { en: "Do you speak English?", es: "¿Hablan inglés?" },
