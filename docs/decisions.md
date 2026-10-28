@@ -116,10 +116,5 @@ Teléfono +52 624 226 1023 y horario todos los días 9 a 18 (confirmados por el 
 | O8 | QuickTurno tiene "Group IV (4+ personas)" inactivo y en $0, mientras el sitio dice "grupos de 3 o más, $139". Por alinear. |
 | O9 | Sin fotos de fachada sin letreros de receta. Pendiente decidir qué hacer con las que ya existen (regla 2). |
 
-## Clínica (2026-10-29)
-| # | Decisión |
-|---|----------|
-| K1 | Cabo Walk-In Medical Clinic, Urgent Care & Mobile Visits entra al sitio como ubicación `kind: "clinic"` (`/locations/cabo-walk-in-clinic`), con schema MedicalClinic, sin lenguaje de entrega y sin contar en "N tiendas" (solo farmacias). |
-| K2 | Datos confirmados: teléfono +52 624 226 1023, horario 9 a 18 todos los días, dirección tal cual la ficha, visitas móviles = médico a la villa por $200. |
-| K3 | Fotos de sesiones de terapia IV en villas (con permiso de los clientes, confirmado por el dueño) en /services/iv-therapy y /services/iv-therapy/groups. Foto de la fachada con ambulancia incluida por indicación del dueño. |
-| K4 | La página de consulta médica enlaza a la clínica como lugar de consulta presencial (supuesto por confirmar). Terapia IV en consultorio: lugar sin confirmar. |
+## Clínica (2026-10-29) — retirada
+El dueño decidió no incluir Cabo Walk-In Medical Clinic, Urgent Care & Mobile Visits en este sitio, porque ya tiene su propio dominio y página. Se eliminó su página de ubicación, su enlace de reseñas y sus fotos de fachada, y el bloque "En persona" de la consulta médica. Se conservan las fotos de sesiones de terapia IV en villas en las páginas de terapia IV y de grupos.

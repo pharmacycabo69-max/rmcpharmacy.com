@@ -3,7 +3,7 @@ import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { test } from "node:test";
 import { getOpenStatus } from "../lib/hours.ts";
-import { ALL_LOCATIONS, LOCATIONS, PHARMACIES, locationH1, validateLocations, type Location } from "../lib/locations.ts";
+import { ALL_LOCATIONS, LOCATIONS, locationH1, validateLocations, type Location } from "../lib/locations.ts";
 import { IV_PRODUCTS } from "../lib/ivProducts.ts";
 import { IV_SESSION_PHOTOS } from "../lib/sessionPhotos.ts";
 
@@ -13,7 +13,7 @@ test("H1 equals the exact GBP name for every published store", () => {
   assert.ok(published.length > 0);
   for (const l of published) {
     assert.equal(locationH1(l), l.gbpName, l.slug);
-    if (l.kind === "pharmacy") assert.doesNotMatch(l.gbpName, /cabo|delivery|24/i, `${l.slug} name has keywords`);
+    assert.doesNotMatch(l.gbpName, /cabo|delivery|24/i, `${l.slug} name has keywords`);
   }
 });
 
@@ -101,14 +101,10 @@ test("every published store has a Google review short link", () => {
   for (const l of published) assert.match(l.reviewUrl ?? "", /^https:\/\/g\.page\/r\/[\w-]+\/review$/, l.slug);
 });
 
-test("the clinic uses its exact Google name, is not counted as a pharmacy and has no delivery wording", () => {
-  const c = ALL_LOCATIONS.find((l) => l.slug === "cabo-walk-in-clinic")!;
-  assert.equal(c.gbpName, "Cabo Walk-In Medical Clinic, Urgent Care & Mobile Visits");
-  assert.equal(c.kind, "clinic");
-  assert.equal(c.delivers, false);
-  assert.ok(!PHARMACIES.includes(c));
-  assert.ok(LOCATIONS.includes(c));
-  assert.doesNotMatch(JSON.stringify(c.faq) + JSON.stringify(c.intro), /deliver|entrega/i);
+test("the clinic is not part of this site", () => {
+  const all = JSON.stringify(ALL_LOCATIONS);
+  assert.doesNotMatch(all, /walk-in|cabo-walk-in|CdOKsP6bcFvgEAI/i);
+  assert.ok(!ALL_LOCATIONS.some((l) => l.slug === "cabo-walk-in-clinic"));
 });
 
 test("session photos exist and are small", () => {

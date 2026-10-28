@@ -44,13 +44,9 @@ export default async function LocationPage({ params }: Props) {
   if (!isLang(lang) || !l || !l.hours || !l.phone || !l.intro) notFound();
 
   const rawMessage =
-    l.kind === "clinic"
-      ? lang === "en"
-        ? `Hi! I'd like to see a doctor or ask about the clinic. ref: branch-${l.slug}`
-        : `¡Hola! Me gustaría ver a un médico o preguntar por la clínica. ref: branch-${l.slug}`
-      : lang === "en"
-        ? `Hi! I'm near ${l.gbpName} (${l.neighborhood}). ref: branch-${l.slug}`
-        : `¡Hola! Estoy cerca de ${l.gbpName} (${l.neighborhood}). ref: branch-${l.slug}`;
+    lang === "en"
+      ? `Hi! I'm near ${l.gbpName} (${l.neighborhood}). ref: branch-${l.slug}`
+      : `¡Hola! Estoy cerca de ${l.gbpName} (${l.neighborhood}). ref: branch-${l.slug}`;
   const others = LOCATIONS.filter((o) => o.slug !== l.slug);
   const services = l.services.map((s) => ({ slug: s, service: getService(s) })).filter((s) => s.service);
 
