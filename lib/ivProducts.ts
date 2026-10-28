@@ -1,4 +1,4 @@
-import type { Lang } from "./site";
+import type { Lang } from "./site.ts";
 
 type L = Record<Lang, string>;
 

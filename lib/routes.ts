@@ -1,4 +1,4 @@
-import { DEFAULT_LANG, type Lang } from "./site";
+import { DEFAULT_LANG, type Lang } from "./site.ts";
 
 // Internal (English) route segments and their Spanish public equivalents.
 export const ES_SEGMENTS: Record<string, string> = {

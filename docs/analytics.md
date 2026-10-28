@@ -11,6 +11,8 @@
 | `whatsapp_click` | clic en cualquier botón de WhatsApp | `cta_source`, `page_path`, `page_language`, `utm_*` |
 | `call_click` | clic en "Llamar" | igual |
 | `directions_click` | clic en "Cómo llegar" | igual |
+| `bot_open` | se abre el asistente de respuestas rápidas | `page_path` |
+| `bot_topic` | se elige un tema en el asistente | `bot_topic` (delivery, stores, iv, doctor, nursing, payments), `page_path` |
 | `form_submit` | formulario de contacto (pendiente: se agrega cuando exista el formulario) | — |
 
 ## Configuración en GTM
@@ -26,3 +28,6 @@ Se cargó GTM sin banner de consentimiento. Antes de lanzar, decidir si se requi
 
 ## Prueba
 GTM → Vista previa con la URL del sitio, hacer clic en los botones y comprobar los eventos y sus parámetros; luego revisar GA4 → DebugView.
+
+## Asistente de respuestas rápidas
+El asistente (`components/ChatBot.tsx`, contenido en `lib/botFlows.ts`) responde con textos precargados, sin escritura libre ni llamadas a servidor. Cada tema termina en un botón de WhatsApp con `data-cta="whatsapp"` y `data-source="bot-<tema>"`, así que cuenta como `whatsapp_click` con `cta_source` = `bot-delivery`, `bot-iv`, etc. Para agregar un tema o cambiar una respuesta, edita `lib/botFlows.ts` (en inglés y español); el test comprueba que no haya palabras prohibidas y que los precios coincidan con las páginas.

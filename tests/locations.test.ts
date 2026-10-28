@@ -4,6 +4,7 @@ import { join } from "node:path";
 import { test } from "node:test";
 import { getOpenStatus } from "../lib/hours.ts";
 import { ALL_LOCATIONS, LOCATIONS, locationH1, validateLocations, type Location } from "../lib/locations.ts";
+import { buildBot } from "../lib/botFlows.ts";
 import { IV_PRODUCTS } from "../lib/ivProducts.ts";
 import { IV_SESSION_PHOTOS } from "../lib/sessionPhotos.ts";
 
@@ -118,4 +119,29 @@ test("IV products list prices consistent with the minimums and no drug names or 
   assert.equal(Math.min(...IV_PRODUCTS.map((p) => p.home)), 159);
   assert.equal(Math.min(...IV_PRODUCTS.map((p) => p.office)), 129);
   assert.doesNotMatch(JSON.stringify(IV_PRODUCTS), /ondans|omepra|licen[sc]|certif|detox|hangover|cure|medical-grade/i);
+});
+
+test("bot answers: every topic ends on WhatsApp, in both languages, with no regulatory or drug wording", () => {
+  for (const lang of ["en", "es"] as const) {
+    const bot = buildBot(lang);
+    assert.ok(bot.topics.length >= 5);
+    assert.match(bot.directUrl, /^https:\/\/wa\.me\/526242261023\?text=/);
+    for (const topic of bot.topics) {
+      assert.match(topic.waUrl, /^https:\/\/wa\.me\/526242261023\?text=.*bot-/, topic.id);
+      assert.ok(topic.answer.length >= 1 && topic.label.length > 2);
+    }
+    const all = JSON.stringify(bot);
+    assert.doesNotMatch(all, /licen[sc]|licencia|permit|permiso|certif|cofepris|coepris|prescription|receta|antibio|viagra|ondans|omepra|detox|hangover/i);
+    // the stores answer lists every published store, never a hardcoded count
+    const stores = bot.topics.find((x) => x.id === "stores")!.answer.join(" ");
+    for (const l of LOCATIONS) assert.ok(stores.includes(l.addressLine), l.slug);
+  }
+});
+
+test("bot prices match the service pages", () => {
+  const en = JSON.stringify(buildBot("en"));
+  assert.ok(en.includes("$59") && en.includes("$99") && en.includes("$200") && en.includes("$139"));
+  const services = readFileSync("lib/services.ts", "utf8");
+  for (const price of ["$59", "$99", "$200"]) assert.ok(services.includes(price), price);
+  assert.ok(readFileSync("lib/groups.ts", "utf8").includes("$139"));
 });

@@ -1,4 +1,4 @@
-import { SITE, type Lang } from "./site";
+import { SITE, type Lang } from "./site.ts";
 
 const GREETING: Record<Lang, string> = {
   en: "Hi! I'd like some help from RMC Pharmacy.",

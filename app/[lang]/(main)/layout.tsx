@@ -2,7 +2,8 @@ import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { WhatsAppFab } from "@/components/WhatsAppFab";
+import { ChatBot } from "@/components/ChatBot";
+import { buildBot } from "@/lib/botFlows";
 import { UI } from "@/lib/i18n";
 import { isLang } from "@/lib/site";
 
@@ -16,7 +17,7 @@ export default async function MainLayout({ children, params }: { children: React
       </a>
       <Header lang={lang} />
       <main id="main">{children}</main>
-      <WhatsAppFab lang={lang} />
+      <ChatBot config={buildBot(lang)} />
       <Footer lang={lang} />
     </>
   );

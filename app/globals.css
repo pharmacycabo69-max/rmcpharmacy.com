@@ -150,18 +150,15 @@ address { font-style: normal; margin: 0 0 1em; }
 .cta-band .btn-secondary { color: var(--brand-fg); border-color: var(--brand-fg); }
 .gallery .g-main { grid-column: 1 / -1; aspect-ratio: 16 / 9; object-fit: cover; }
 .gallery img { object-fit: cover; }
-.fab { position: fixed; right: 18px; bottom: 18px; z-index: 20; display: inline-flex; align-items: center; gap: 10px; padding: 14px 20px 14px 16px; border-radius: 999px; background: #0f8a43; color: #fff; font-weight: 700; text-decoration: none; box-shadow: 0 10px 28px rgb(0 0 0 / 0.28); transition: transform .15s ease; }
-.fab:hover { transform: translateY(-2px) scale(1.02); }
-.fab:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
 @media (max-width: 900px) {
   .hero-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 520px) {
-  .fab { padding: 14px; }
-  .fab-label { display: none; }
+  .bot-launcher { padding: 14px; }
+  .bot-launcher-label { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .service-card, .store-card, .fab { transition: none; }
+  .service-card, .store-card, .bot-launcher { transition: none; }
 }
 
 .product-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
@@ -216,3 +213,33 @@ h2::after { content: ""; display: block; width: 44px; height: 4px; border-radius
 .faq summary { padding-block: 2px; }
 .lang-switch { padding: 6px 12px; border-radius: 999px; border: 1px solid var(--border); color: var(--brand); font-weight: 600; }
 .status-open { color: var(--brand); }
+
+/* ---- Chat assistant ---- */
+.bot-launcher { position: fixed; right: 18px; bottom: 18px; z-index: 30; display: inline-flex; align-items: center; gap: 10px; padding: 14px 20px 14px 16px; border: 0; border-radius: 999px; background: #0f8a43; color: #fff; font: inherit; font-weight: 700; cursor: pointer; box-shadow: 0 10px 28px rgb(0 0 0 / 0.28); transition: transform .15s ease; }
+.bot-launcher:hover { transform: translateY(-2px) scale(1.02); }
+.bot-launcher:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.bot { position: fixed; right: 18px; bottom: 82px; z-index: 30; width: min(380px, calc(100vw - 36px)); max-height: min(640px, calc(100vh - 110px)); display: flex; flex-direction: column; background: var(--bg); color: var(--fg); border: 1px solid var(--border); border-radius: 22px; box-shadow: 0 24px 60px rgb(0 0 0 / 0.28); overflow: hidden; }
+.bot-head { display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; background: linear-gradient(135deg, #1f6b35, #14451f); color: #fff; }
+.bot-head div { display: grid; line-height: 1.25; }
+.bot-head span { font-size: 0.82rem; opacity: 0.85; }
+.bot-close { background: transparent; border: 0; color: #fff; font-size: 1.8rem; line-height: 1; cursor: pointer; padding: 0 6px; border-radius: 8px; }
+.bot-close:focus-visible { outline: 3px solid var(--accent); }
+.bot-body { padding: 14px; display: grid; gap: 8px; overflow-y: auto; align-content: start; background: var(--surface); min-height: 140px; }
+.bubble { margin: 0; padding: 10px 14px; border-radius: 16px; max-width: 92%; font-size: 0.95rem; line-height: 1.5; }
+.bubble p { margin: 0 0 6px; }
+.bubble p:last-child { margin: 0; }
+.bot-bubble { background: var(--bg); border: 1px solid var(--border); border-top-left-radius: 4px; }
+.user-bubble { background: var(--brand); color: var(--brand-fg); justify-self: end; border-top-right-radius: 4px; }
+.bot-cta { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 18px; font-size: 0.95rem; }
+.bot-cta svg { width: 20px; height: 20px; }
+.bot-link { font-size: 0.9rem; font-weight: 600; }
+.bot-foot { padding: 12px 14px 14px; border-top: 1px solid var(--border); display: grid; gap: 10px; }
+.bot-chips { display: flex; flex-wrap: nowrap; gap: 8px; overflow-x: auto; padding-bottom: 6px; scrollbar-width: thin; }
+.chip-btn { flex: none; white-space: nowrap; background: var(--accent-soft); color: var(--fg); border: 1px solid var(--border); border-radius: 999px; padding: 8px 14px; font: inherit; font-size: 0.88rem; cursor: pointer; }
+.chip-btn:hover { border-color: var(--brand); }
+.chip-btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.bot-person { font-size: 0.9rem; font-weight: 700; }
+.bot-foot small { color: var(--muted); font-size: 0.78rem; }
+@media (max-width: 520px) {
+  .bot { right: 10px; left: 10px; width: auto; bottom: 78px; }
+}
