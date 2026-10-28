@@ -2,7 +2,7 @@ import type { Lang } from "./site";
 
 type L = Record<Lang, string>;
 
-// Group IV landing page content. Prices are placeholders until confirmed.
+// Group IV landing page content. The group price ($139 pp, 3+) was set by the owner's delegation; single home sessions start at $159.
 export const GROUPS = {
   metaTitle: { en: "Group IV Therapy in Cabo San Lucas", es: "Terapia IV grupal en Cabo San Lucas" } as L,
   metaDescription: {
@@ -17,7 +17,7 @@ export const GROUPS = {
     en: "Planning a group trip to Cabo? Our nurses come to your villa, hotel or yacht and set up sessions for the whole group, so everyone can relax together and stay on schedule.",
     es: "¿Organizas un viaje en grupo a Cabo? Nuestras enfermeras van a tu villa, hotel o yate y preparan sesiones para todo el grupo, para que todos descansen juntos y sigan el plan del viaje.",
   } as L,
-  price: { en: "From $___ USD per person, groups of 3+", es: "Desde $___ USD por persona, grupos de 3 o más" } as L,
+  price: { en: "From $139 USD per person, groups of 3+", es: "Desde $139 USD por persona, grupos de 3 o más" } as L,
   packagesTitle: { en: "Packages", es: "Paquetes" } as L,
   packages: [
     { name: { en: "Bachelorette / Bachelor", es: "Despedida de soltera / soltero" } as L, text: { en: "Sessions for the whole party at your villa, hotel or yacht.", es: "Sesiones para todo el grupo en tu villa, hotel o yate." } as L },

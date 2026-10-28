@@ -98,4 +98,7 @@ Nota: si el lanzamiento del sitio es después del 2026-10-21, mover las fechas p
 |---|----------|
 | P1 | El sitio publica solo precios mínimos: desde $159 USD a domicilio y $129 USD en consultorio. |
 | P2 | No se publican nombres de fórmulas ni ingredientes de la tabla (incluye fármacos), por la regla 2 y la regla 5. |
-| P3 | Precio por persona de grupos sigue como placeholder `$___` en `lib/groups.ts`. |
+| P3 | Precio de grupos: desde $139 USD por persona, grupos de 3+ (decidido por delegación del cliente el 2026-10-28; 12% menos que una sesión individual a domicilio de $159 y sobre los $129 de consultorio). Cambiar en `lib/groups.ts`. |
+
+## Celeste y Ocean
+Teléfono +52 624 226 1023 y horario todos los días 9 a 18 (confirmados por el cliente, 2026-10-28). Siguen sin publicar: faltan intro (150 a 250 palabras), 2 FAQ confirmadas, `mapsUrl`, fotos sin letreros de receta y confirmar si entregan a domicilio.

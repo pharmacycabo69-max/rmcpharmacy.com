@@ -25,15 +25,16 @@ test("confirmed addresses are used verbatim and Embarcadero is flagged for revie
   assert.ok(published.every((l) => l.phone === "+52 624 226 1023"));
 });
 
-test("Celeste and Ocean keep their own names and stay unpublished with nulls", () => {
+test("Celeste and Ocean keep their own names and stay unpublished until intro and FAQ exist", () => {
   const celeste = ALL_LOCATIONS.find((l) => l.slug === "celeste")!;
   const ocean = ALL_LOCATIONS.find((l) => l.slug === "ocean")!;
   assert.equal(celeste.gbpName, "Celeste Pharmacy");
   assert.equal(ocean.gbpName, "Ocean Pharmacy");
   for (const l of [celeste, ocean]) {
     assert.equal(l.isPublished, false);
-    assert.equal(l.phone, null);
-    assert.equal(l.hours, null);
+    assert.equal(l.phone, "+52 624 226 1023");
+    assert.ok(l.hours);
+    assert.equal(l.intro, null);
   }
   assert.ok(!LOCATIONS.some((l) => l.brand !== "RMC"));
 });
