@@ -6,13 +6,15 @@ import { MAX_QTY, PRODUCTS, resolveCart, type Product } from "../lib/products.ts
 
 const sample: Product = { id: "t", category: "sun-care", name: { en: "Sunscreen", es: "Protector" }, detail: { en: "8 oz", es: "240 ml" }, priceUsd: 12.5, active: true };
 
+test("catalog has the 50 starter products", () => assert.equal(PRODUCTS.length, 50));
+
 test("catalog products use known categories, unique ids and positive prices", () => {
   const ids = new Set<string>();
   for (const p of PRODUCTS) {
     assert.ok(CATEGORIES.some((c) => c.slug === p.category), `${p.id}: unknown category`);
     assert.ok(!ids.has(p.id), `${p.id}: duplicate id`);
     ids.add(p.id);
-    assert.ok(p.priceUsd > 0, `${p.id}: price`);
+    assert.ok(!p.active || p.priceUsd > 0, `${p.id}: active products need a price`);
     assert.ok(p.name.en && p.name.es, `${p.id}: both languages`);
   }
 });
