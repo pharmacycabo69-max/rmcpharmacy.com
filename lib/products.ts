@@ -23,7 +23,7 @@ export type Product = {
 // Starter list of 50 generic OTC items. Each stays inactive (not sold, shop hidden) until the owner sets a real price
 // and flips active to true. While none is active, /shop shows a WhatsApp prompt and stays out of the sitemap.
 export const PRODUCTS: Product[] = [
-  { id: "sunscreen-spf50-lotion", category: "sun-care", name: { en: "Sunscreen lotion SPF 50", es: "Protector solar en loción FPS 50" }, detail: { en: "125 ml", es: "125 ml" }, priceUsd: 0, active: false },
+  { id: "sunscreen-spf50-lotion", category: "sun-care", name: { en: "Sunscreen lotion SPF 50", es: "Protector solar en loción FPS 50" }, detail: { en: "125 ml", es: "125 ml" }, priceUsd: 15, active: true },
   { id: "sunscreen-spf50-spray", category: "sun-care", name: { en: "Sunscreen spray SPF 50", es: "Protector solar en spray FPS 50" }, detail: { en: "Water resistant", es: "Resistente al agua" }, priceUsd: 0, active: false },
   { id: "sunscreen-kids", category: "sun-care", name: { en: "Kids sunscreen SPF 50", es: "Protector solar para niños FPS 50" }, detail: { en: "Sensitive skin", es: "Piel sensible" }, priceUsd: 0, active: false },
   { id: "aftersun-gel", category: "sun-care", name: { en: "After-sun gel", es: "Gel after-sun" }, detail: { en: "240 g", es: "240 g" }, priceUsd: 0, active: false },
