@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRef, useState } from "react";
 import { CATEGORIES } from "@/lib/categories";
 import { MAX_QTY, type Product } from "@/lib/products";
@@ -59,6 +60,7 @@ export function ProductShop({ lang, products, fallback }: { lang: Lang; products
             <ul className="shop-grid">
               {items.map((p) => (
                 <li key={p.id} className="shop-item">
+                  {p.photo && <Image className="shop-photo" src={p.photo} alt={p.name[lang]} width={640} height={480} sizes="(max-width: 720px) 50vw, 240px" />}
                   <strong>{p.name[lang]}</strong>
                   <span className="muted">{p.detail[lang]}</span>
                   <span className="shop-price">{usd(p.priceUsd)}</span>

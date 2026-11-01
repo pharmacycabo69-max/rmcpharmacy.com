@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { CtaButtons } from "@/components/CtaButtons";
 import { ProductShop } from "@/components/ProductShop";
 import { buildMetadata } from "@/lib/metadata";
+import { withPhotos } from "@/lib/productPhotos";
 import { activeProducts } from "@/lib/products";
 import { isLang } from "@/lib/site";
 import { whatsappUrl } from "@/lib/whatsapp";
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Shop({ params }: Props) {
   const { lang } = await params;
   if (!isLang(lang)) return null;
-  const products = activeProducts();
+  const products = withPhotos(activeProducts());
   const fallback = whatsappUrl(lang, "shop-page", lang === "en" ? "Hi! I'd like to place an order." : "¡Hola! Quiero hacer un pedido.");
   return (
     <div className="container section">
