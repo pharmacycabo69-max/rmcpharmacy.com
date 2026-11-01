@@ -1,38 +1,53 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { CATEGORIES } from "../lib/categories.ts";
 import { buildCheckoutParams, parseDelivery } from "../lib/checkout.ts";
-import { MAX_QTY, PRODUCTS, resolveCart, type Product } from "../lib/products.ts";
+import { CATEGORIES, MAX_QTY, PRODUCTS, getProduct, queryProducts, resolveCart, type Product } from "../lib/products.ts";
 
 const sample: Product = { id: "t", category: "sun-care", name: { en: "Sunscreen", es: "Protector" }, detail: { en: "8 oz", es: "240 ml" }, priceUsd: 12.5, active: true };
+const real = PRODUCTS[0];
 
-test("catalog has the 50 starter products", () => assert.equal(PRODUCTS.length, 50));
+test("catalog imports the cvupharmacy products with photos", () => {
+  assert.ok(PRODUCTS.length > 2000);
+  assert.ok(PRODUCTS.every((p) => p.photo?.startsWith("/products/cvu/")));
+});
 
 test("catalog products use known categories, unique ids and positive prices", () => {
   const ids = new Set<string>();
   for (const p of PRODUCTS) {
-    assert.ok(CATEGORIES.some((c) => c.slug === p.category), `${p.id}: unknown category`);
+    assert.ok(CATEGORIES[p.category], `${p.id}: unknown category`);
     assert.ok(!ids.has(p.id), `${p.id}: duplicate id`);
     ids.add(p.id);
     assert.ok(!p.active || p.priceUsd > 0, `${p.id}: active products need a price`);
     assert.ok(p.name.en && p.name.es, `${p.id}: both languages`);
+    assert.ok(Number.isInteger(Math.round(p.priceUsd * 100)), `${p.id}: price in cents`);
   }
 });
 
-test("resolveCart rejects empty, unknown, duplicate and out-of-range lines", () => {
+test("resolveCart rejects empty, unknown, duplicate and out-of-range lines and ignores client prices", () => {
+  const id = real.id;
   assert.equal(resolveCart([]).ok, false);
   assert.equal(resolveCart("x").ok, false);
   assert.equal(resolveCart([{ id: "nope", qty: 1 }]).ok, false);
-  PRODUCTS.push(sample);
-  try {
-    assert.equal(resolveCart([{ id: "t", qty: 0 }]).ok, false);
-    assert.equal(resolveCart([{ id: "t", qty: MAX_QTY + 1 }]).ok, false);
-    assert.equal(resolveCart([{ id: "t", qty: 1.5 }]).ok, false);
-    assert.equal(resolveCart([{ id: "t", qty: 1 }, { id: "t", qty: 1 }]).ok, false);
-    assert.equal(resolveCart([{ id: "t", qty: 2, price: 0 }]).ok, true);
-  } finally {
-    PRODUCTS.pop();
-  }
+  assert.equal(resolveCart([{ id, qty: 0 }]).ok, false);
+  assert.equal(resolveCart([{ id, qty: MAX_QTY + 1 }]).ok, false);
+  assert.equal(resolveCart([{ id, qty: 1.5 }]).ok, false);
+  assert.equal(resolveCart([{ id, qty: 1 }, { id, qty: 1 }]).ok, false);
+  const ok = resolveCart([{ id, qty: 2, price: 0 }]);
+  assert.ok(ok.ok && ok.lines[0].product.priceUsd === real.priceUsd);
+  assert.equal(getProduct(id)?.id, id);
+});
+
+test("queryProducts filters by category and words, and paginates", () => {
+  const all = queryProducts({});
+  assert.equal(all.total, PRODUCTS.length);
+  assert.equal(all.items.length, 24);
+  assert.ok(all.pages > 1);
+  const cat = Object.keys(CATEGORIES)[0];
+  assert.ok(queryProducts({ category: cat }).items.every((p) => p.category === cat));
+  const word = real.name.en.split(" ")[0];
+  assert.ok(queryProducts({ q: word }).total >= 1);
+  assert.equal(queryProducts({ q: "zzzzqqqq" }).total, 0);
+  assert.equal(queryProducts({ page: 9999 }).page, all.pages);
 });
 
 test("checkout params use server prices in cents and localized urls", () => {

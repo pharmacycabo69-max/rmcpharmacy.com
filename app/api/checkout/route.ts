@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { buildCheckoutParams, parseDelivery } from "@/lib/checkout";
-import { withPhotos } from "@/lib/productPhotos";
 import { resolveCart } from "@/lib/products";
 import { isLang, SITE } from "@/lib/site";
 import { whatsappUrl } from "@/lib/whatsapp";
@@ -27,7 +26,7 @@ export async function POST(request: Request) {
     const r = await fetch("https://api.stripe.com/v1/checkout/sessions", {
       method: "POST",
       headers: { Authorization: `Bearer ${secret}`, "Content-Type": "application/x-www-form-urlencoded" },
-      body: buildCheckoutParams(cart.lines.map((l) => ({ ...l, product: withPhotos([l.product])[0] })), lang, SITE.url, delivery.delivery),
+      body: buildCheckoutParams(cart.lines, lang, SITE.url, delivery.delivery),
     });
     const data = await r.json();
     if (!r.ok || !data.url) {
