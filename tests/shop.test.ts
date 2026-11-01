@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { CATEGORIES } from "../lib/categories.ts";
-import { buildCheckoutParams } from "../lib/checkout.ts";
+import { buildCheckoutParams, parseDelivery } from "../lib/checkout.ts";
 import { MAX_QTY, PRODUCTS, resolveCart, type Product } from "../lib/products.ts";
 
 const sample: Product = { id: "t", category: "sun-care", name: { en: "Sunscreen", es: "Protector" }, detail: { en: "8 oz", es: "240 ml" }, priceUsd: 12.5, active: true };
@@ -36,12 +36,14 @@ test("resolveCart rejects empty, unknown, duplicate and out-of-range lines", () 
 });
 
 test("checkout params use server prices in cents and localized urls", () => {
-  const p = buildCheckoutParams([{ product: sample, qty: 2 }], "es", "https://x.test");
+  const p = buildCheckoutParams([{ product: sample, qty: 2 }], "es", "https://x.test", { name: "Ana", phone: "+52 624 111 2222", place: "Hotel X", room: "204", notes: "" });
   assert.equal(p.get("line_items[0][price_data][unit_amount]"), "1250");
   assert.equal(p.get("line_items[0][quantity]"), "2");
   assert.equal(p.get("line_items[0][price_data][product_data][name]"), "Protector");
   assert.equal(p.get("success_url"), "https://x.test/es/tienda/gracias");
   assert.equal(p.get("mode"), "payment");
+  assert.equal(p.get("metadata[location]"), "Hotel X, 204");
+  assert.equal(p.get("metadata[customer_name]"), "Ana");
 });
 
 test("webhook verifies signatures and only confirms paid sessions", async () => {
@@ -60,4 +62,15 @@ test("webhook verifies signatures and only confirms paid sessions", async () => 
   assert.match(mail.text, /Hotel X 204/);
   assert.match(mail.text, /Sunscreen x2/);
   assert.match(mail.subject, /\$25\.00/);
+});
+
+test("parseDelivery requires name, place and a valid phone, and caps lengths", () => {
+  const ok = { name: " Ana ", phone: "624 111 2222", place: "Hotel X", room: "", notes: "" };
+  const r = parseDelivery(ok);
+  assert.ok(r.ok && r.delivery.name === "Ana");
+  assert.equal(parseDelivery({ ...ok, name: "" }).ok, false);
+  assert.equal(parseDelivery({ ...ok, place: "" }).ok, false);
+  assert.equal(parseDelivery({ ...ok, phone: "123" }).ok, false);
+  assert.equal(parseDelivery({ ...ok, notes: "x".repeat(201) }).ok, false);
+  assert.equal(parseDelivery(null).ok, false);
 });

@@ -37,16 +37,17 @@ export function isConfirmedPayment(event: { type?: string; data?: { object?: Ses
 export function composeOrderEmail(session: Session, businessName = "") {
   const m = session.metadata ?? {};
   const cd = session.customer_details ?? {};
-  const location = session.custom_fields?.find((f) => f.key === "location")?.text?.value ?? "";
+  const location = m.location || session.custom_fields?.find((f) => f.key === "location")?.text?.value || "";
   const paid = ((session.amount_total ?? 0) / 100).toFixed(2);
   const lines = [
     "New paid order",
-    `Customer: ${cd.name || "-"}`,
-    `Phone: ${cd.phone || "-"}`,
+    `Customer: ${m.customer_name || cd.name || "-"}`,
+    `Phone: ${m.customer_phone || cd.phone || "-"}`,
     `Email: ${cd.email || "-"}`,
     `Deliver to: ${location || "-"}`,
     "Items:",
     ...(m.items ? m.items.split("|").map((i) => `  - ${i}`) : ["  - (not recorded)"]),
+    ...(m.notes ? [`Notes: ${m.notes}`] : []),
     `Paid: $${paid} ${(session.currency ?? "usd").toUpperCase()}`,
   ];
   if (session.payment_intent) lines.push(`Stripe: https://dashboard.stripe.com/payments/${session.payment_intent}`);

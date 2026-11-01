@@ -426,3 +426,10 @@ h3 { font-size: 1.2rem; letter-spacing: -0.015em; }
 .shop-cart { position: sticky; bottom: 16px; display: grid; gap: 10px; margin-top: 32px; padding: 18px 20px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-lg); }
 .shop-cart p { margin: 0; }
 .essential-photo { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: calc(var(--radius) - 6px); margin-bottom: 4px; }
+.shop-dialog { width: min(480px, calc(100vw - 32px)); padding: 24px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); color: var(--fg); box-shadow: var(--shadow-lg); }
+.shop-dialog::backdrop { background: rgb(0 0 0 / 0.45); }
+.shop-dialog form { display: grid; gap: 12px; }
+.shop-dialog h2 { margin: 0; }
+.shop-dialog label { display: grid; gap: 4px; font-weight: 600; font-size: 0.92rem; }
+.shop-dialog input, .shop-dialog textarea { font: inherit; padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--bg); color: var(--fg); }
+.shop-dialog-actions { display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap; }
