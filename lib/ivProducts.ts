@@ -7,6 +7,7 @@ export type IvProduct = {
   name: L;
   /** Only what the booking system states about the product; no health claims. */
   description: L;
+  photo: string;
   minutes: number;
   /** USD, taxes not included. */
   home: number;
@@ -17,6 +18,7 @@ export type IvProduct = {
 export const IV_PRODUCTS: IvProduct[] = [
   {
     slug: "recovery",
+    photo: "/services/iv-products/recovery.jpg",
     name: { en: "Recovery IV", es: "IV Recovery" },
     description: { en: "Our Recovery infusion.", es: "Nuestra infusión Recovery." },
     minutes: 60,
@@ -25,6 +27,7 @@ export const IV_PRODUCTS: IvProduct[] = [
   },
   {
     slug: "multivitamin",
+    photo: "/services/iv-products/multivitamin.jpg",
     name: { en: "Multivitamin IV", es: "IV Multivitamínico" },
     description: { en: "Multivitamin infusion.", es: "Infusión multivitamínica." },
     minutes: 60,
@@ -33,6 +36,7 @@ export const IV_PRODUCTS: IvProduct[] = [
   },
   {
     slug: "nad-plus",
+    photo: "/services/iv-products/nad-plus.jpg",
     name: { en: "NAD+ IV", es: "IV NAD+" },
     description: { en: "NAD+ infusion.", es: "Infusión de NAD+." },
     minutes: 60,

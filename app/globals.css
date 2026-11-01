@@ -449,3 +449,4 @@ h3 { font-size: 1.2rem; letter-spacing: -0.015em; }
 .cart-lines img { width: 48px; height: 36px; object-fit: cover; border-radius: 6px; }
 .shop-dialog h3 { margin: 4px 0 0; font-size: 1rem; }
 .shop-dialog { max-height: calc(100vh - 32px); overflow: auto; }
+.product-photo { width: 100%; height: auto; aspect-ratio: 10 / 7; object-fit: cover; border-radius: calc(var(--radius) - 8px); }

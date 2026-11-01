@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CtaButtons } from "@/components/CtaButtons";
 import { JsonLd } from "@/components/JsonLd";
+import Image from "next/image";
 import { Gallery } from "@/components/Gallery";
 import { FaqList } from "@/components/ServiceFaqList";
 import { buildMetadata } from "@/lib/metadata";
 import { IV_PRODUCTS, ivBookingMessage } from "@/lib/ivProducts";
 import { DOCTOR_PHOTOS, IV_SESSION_PHOTOS, NURSING_PHOTOS } from "@/lib/sessionPhotos";
-import { DropIcon } from "@/components/Icons";
 import { whatsappUrl } from "@/lib/whatsapp";
 import { breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
 import { SERVICES, getService } from "@/lib/services";
@@ -57,9 +57,7 @@ export default async function ServicePage({ params }: Props) {
           <div className="product-grid">
             {IV_PRODUCTS.map((p) => (
               <article key={p.slug} className="product-card">
-                <span className="service-icon">
-                  <DropIcon />
-                </span>
+                <Image className="product-photo" src={p.photo} alt={p.name[lang]} width={960} height={672} sizes="(max-width: 720px) 100vw, 360px" />
                 <h3>{p.name[lang]}</h3>
                 <p className="muted">
                   {p.description[lang]} {p.minutes} min
