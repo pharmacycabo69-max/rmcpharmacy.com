@@ -36,7 +36,7 @@ test("resolveCart rejects empty, unknown, duplicate and out-of-range lines", () 
 });
 
 test("checkout params use server prices in cents and localized urls", () => {
-  const p = buildCheckoutParams([{ product: sample, qty: 2 }], "es", "https://x.test", { name: "Ana", phone: "+52 624 111 2222", place: "Hotel X", room: "204", notes: "" });
+  const p = buildCheckoutParams([{ product: sample, qty: 2 }], "es", "https://x.test", { name: "Ana", email: "ana@x.com", phone: "+52 624 111 2222", place: "Hotel X", room: "204", notes: "" });
   assert.equal(p.get("line_items[0][price_data][unit_amount]"), "1250");
   assert.equal(p.get("line_items[0][quantity]"), "2");
   assert.equal(p.get("line_items[0][price_data][product_data][name]"), "Protector");
@@ -44,6 +44,9 @@ test("checkout params use server prices in cents and localized urls", () => {
   assert.equal(p.get("mode"), "payment");
   assert.equal(p.get("metadata[location]"), "Hotel X, 204");
   assert.equal(p.get("metadata[customer_name]"), "Ana");
+  assert.equal(p.get("customer_email"), "ana@x.com");
+  assert.match(p.get("custom_text[submit][message]")!, /Hotel X, 204/);
+  assert.equal(p.get("line_items[0][price_data][product_data][description]"), "240 ml");
 });
 
 test("webhook verifies signatures and only confirms paid sessions", async () => {
@@ -65,12 +68,13 @@ test("webhook verifies signatures and only confirms paid sessions", async () => 
 });
 
 test("parseDelivery requires name, place and a valid phone, and caps lengths", () => {
-  const ok = { name: " Ana ", phone: "624 111 2222", place: "Hotel X", room: "", notes: "" };
+  const ok = { name: " Ana ", email: "", phone: "624 111 2222", place: "Hotel X", room: "", notes: "" };
   const r = parseDelivery(ok);
   assert.ok(r.ok && r.delivery.name === "Ana");
   assert.equal(parseDelivery({ ...ok, name: "" }).ok, false);
   assert.equal(parseDelivery({ ...ok, place: "" }).ok, false);
   assert.equal(parseDelivery({ ...ok, phone: "123" }).ok, false);
   assert.equal(parseDelivery({ ...ok, notes: "x".repeat(201) }).ok, false);
+  assert.equal(parseDelivery({ ...ok, email: "nope" }).ok, false);
   assert.equal(parseDelivery(null).ok, false);
 });

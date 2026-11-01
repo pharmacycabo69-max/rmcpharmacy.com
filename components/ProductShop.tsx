@@ -22,7 +22,7 @@ export function ProductShop({ lang, products, fallback }: { lang: Lang; products
 
   async function pay(form: HTMLFormElement) {
     const f = new FormData(form);
-    const delivery = Object.fromEntries(["name", "phone", "place", "room", "notes"].map((k) => [k, String(f.get(k) ?? "")]));
+    const delivery = Object.fromEntries(["name", "email", "phone", "place", "room", "notes"].map((k) => [k, String(f.get(k) ?? "")]));
     setBusy(true);
     setError("");
     try {
@@ -94,6 +94,7 @@ export function ProductShop({ lang, products, fallback }: { lang: Lang; products
         >
           <h2 id="delivery-title">{t("Where do we deliver?", "¿Dónde entregamos?")}</h2>
           <label>{t("Your name", "Tu nombre")}<input name="name" required maxLength={80} autoComplete="name" /></label>
+          <label>{t("Email (for your receipt)", "Correo (para tu recibo)")}<input name="email" type="email" maxLength={120} autoComplete="email" /></label>
           <label>{t("Phone / WhatsApp", "Teléfono / WhatsApp")}<input name="phone" type="tel" required maxLength={30} autoComplete="tel" placeholder="+1 555 123 4567" /></label>
           <label>{t("Hotel, resort or villa", "Hotel, resort o villa")}<input name="place" required maxLength={100} list="shop-hotels" /></label>
           <datalist id="shop-hotels">{HOTELS.map((h) => <option key={h} value={h} />)}</datalist>
