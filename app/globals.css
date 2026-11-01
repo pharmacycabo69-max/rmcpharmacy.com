@@ -425,3 +425,4 @@ h3 { font-size: 1.2rem; letter-spacing: -0.015em; }
 .shop-qty button:disabled { opacity: 0.4; cursor: default; }
 .shop-cart { position: sticky; bottom: 16px; display: grid; gap: 10px; margin-top: 32px; padding: 18px 20px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-lg); }
 .shop-cart p { margin: 0; }
+.essential-photo { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: calc(var(--radius) - 6px); margin-bottom: 4px; }
