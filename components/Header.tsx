@@ -16,6 +16,7 @@ export function Header({ lang }: { lang: Lang }) {
         </Link>
         <nav aria-label="Main" className="nav">
           <Link href={p("/pharmacy")}>{t(lang, UI.nav.pharmacy)}</Link>
+          <Link href={p("/shop")}>{lang === "en" ? "Shop" : "Tienda"}</Link>
           <Link href={p("/delivery")}>{t(lang, UI.nav.delivery)}</Link>
           <details className="menu">
             <summary>{lang === "en" ? "Services" : "Servicios"}</summary>
