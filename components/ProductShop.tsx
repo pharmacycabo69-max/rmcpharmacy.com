@@ -75,7 +75,7 @@ export function ProductShop({ lang, products, fallback }: { lang: Lang; products
       })}
       <div className="shop-cart" role="region" aria-label={t("Your order", "Tu pedido")}>
         <strong>{t("Total", "Total")}: {usd(total)}</strong>
-        <button type="button" className="btn" onClick={() => dialog.current?.showModal()} disabled={!lines.length || busy} data-source="shop-pay">
+        <button type="button" className="btn btn-primary" onClick={() => dialog.current?.showModal()} disabled={!lines.length || busy} data-source="shop-pay">
           {t("Pay by card", "Pagar con tarjeta")}
         </button>
         {error && (
@@ -103,7 +103,7 @@ export function ProductShop({ lang, products, fallback }: { lang: Lang; products
           {error && <p role="alert">{error}</p>}
           <div className="shop-dialog-actions">
             <button type="button" className="btn btn-secondary" onClick={() => dialog.current?.close()}>{t("Cancel", "Cancelar")}</button>
-            <button type="submit" className="btn" disabled={busy}>{busy ? t("Opening secure checkout…", "Abriendo pago seguro…") : t("Continue to payment", "Continuar al pago")}</button>
+            <button type="submit" className="btn btn-primary" disabled={busy}>{busy ? t("Opening secure checkout…", "Abriendo pago seguro…") : t("Continue to payment", "Continuar al pago")}</button>
           </div>
         </form>
       </dialog>
