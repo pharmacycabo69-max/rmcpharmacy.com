@@ -14,6 +14,8 @@ export function buildCheckoutParams(lines: { product: Product; qty: number }[], 
     "custom_fields[0][label][custom]": lang === "es" ? "Hotel / villa y habitación o dirección" : "Hotel / villa and room or address",
     "custom_fields[0][type]": "text",
     "payment_intent_data[description]": "RMC Pharmacy online order",
+    // Read back by the webhook email (Stripe metadata values are capped at 500 characters).
+    "metadata[items]": lines.map(({ product, qty }) => `${product.name.en} x${qty}`).join("|").slice(0, 500),
   });
   lines.forEach(({ product, qty }, i) => {
     p.set(`line_items[${i}][quantity]`, String(qty));

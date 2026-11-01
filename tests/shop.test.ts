@@ -43,3 +43,21 @@ test("checkout params use server prices in cents and localized urls", () => {
   assert.equal(p.get("success_url"), "https://x.test/es/tienda/gracias");
   assert.equal(p.get("mode"), "payment");
 });
+
+test("webhook verifies signatures and only confirms paid sessions", async () => {
+  const { createHmac } = await import("node:crypto");
+  const { verifyStripeSignature, isConfirmedPayment, composeOrderEmail } = await import("../lib/stripeWebhook.ts");
+  const body = '{"a":1}';
+  const t = 1_800_000_000;
+  const sig = createHmac("sha256", "whsec_x").update(`${t}.${body}`).digest("hex");
+  assert.equal(verifyStripeSignature(body, `t=${t},v1=${sig}`, "whsec_x", t), true);
+  assert.equal(verifyStripeSignature(body, `t=${t},v1=${sig}`, "whsec_y", t), false);
+  assert.equal(verifyStripeSignature(body, `t=${t},v1=${sig}`, "whsec_x", t + 1000), false);
+  assert.equal(verifyStripeSignature(body, null, "whsec_x", t), false);
+  assert.equal(isConfirmedPayment({ type: "checkout.session.completed", data: { object: { payment_status: "unpaid" } } }), false);
+  assert.equal(isConfirmedPayment({ type: "checkout.session.completed", data: { object: { payment_status: "paid" } } }), true);
+  const mail = composeOrderEmail({ amount_total: 2500, metadata: { items: "Sunscreen x2|Wipes x1" }, custom_fields: [{ key: "location", text: { value: "Hotel X 204" } }] }, "RMC");
+  assert.match(mail.text, /Hotel X 204/);
+  assert.match(mail.text, /Sunscreen x2/);
+  assert.match(mail.subject, /\$25\.00/);
+});
