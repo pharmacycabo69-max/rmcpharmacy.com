@@ -28,8 +28,8 @@ export default async function Pharmacy({ params }: Props) {
       <h1>{lang === "en" ? "Pharmacy and minimarket" : "Farmacia y minisúper"}</h1>
       <p className="lead">
         {lang === "en"
-          ? "Everyday essentials for your trip, in English and Spanish. Ask us on WhatsApp if you want to check availability before you walk over."
-          : "Esenciales de todos los días para tu viaje, en inglés y español. Pregúntanos por WhatsApp para revisar disponibilidad antes de venir."}
+          ? "Everyday over-the-counter essentials for your trip, in English and Spanish. Pick a category to see what we carry, then ask us on WhatsApp to confirm availability before you walk over or order delivery."
+          : "Esenciales de venta libre para tu viaje, en inglés y español. Elige una categoría para ver qué tenemos y pregúntanos por WhatsApp para confirmar disponibilidad antes de venir o pedir entrega."}
       </p>
       <EssentialsGrid lang={lang} />
       <CtaButtons lang={lang} source="pharmacy-page" />

@@ -5,6 +5,8 @@ export const SITE = {
   phoneDigits: "526242261023",
   hours: { days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], opens: "09:00", closes: "18:00" },
   hoursLabel: { en: "Every day, 9 am to 6 pm", es: "Todos los días, 9 am a 6 pm" },
+  /** Public social/profile URLs for Organization.sameAs. Leave empty until the profiles exist. */
+  social: [] as string[],
 } as const;
 
 export const LANGS = ["en", "es"] as const;

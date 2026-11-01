@@ -235,10 +235,10 @@ export default async function Home({ params }: Props) {
           <p className="eyebrow">{en ? "Pharmacy and minimarket" : "Farmacia y minisúper"}</p>
           <h2>{en ? "Everyday essentials" : "Esenciales de todos los días"}</h2>
           <p className="muted">
-            {en ? "Tap a category to check availability on WhatsApp. We confirm before you walk over or order delivery." : "Toca una categoría para revisar disponibilidad por WhatsApp. Confirmamos antes de que vengas o pidas entrega."}
+            {en ? "Tap a category to see what we carry. We confirm availability on WhatsApp before you walk over or order delivery." : "Toca una categoría para ver qué tenemos. Confirmamos disponibilidad por WhatsApp antes de que vengas o pidas entrega."}
           </p>
         </div>
-        <EssentialsGrid lang={lang} />
+        <EssentialsGrid lang={lang} featured />
       </section>
 
       <section className="container section">

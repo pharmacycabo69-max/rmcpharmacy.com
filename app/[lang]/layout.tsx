@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
-import { AnalyticsHead, AnalyticsNoscript } from "@/components/Analytics";
+import { ANALYTICS_ENABLED, AnalyticsHead, AnalyticsNoscript } from "@/components/Analytics";
+import { ConsentBanner } from "@/components/ConsentBanner";
 import { CtaTracker } from "@/components/CtaTracker";
 import { JsonLd } from "@/components/JsonLd";
 import { RevealOnScroll } from "@/components/RevealOnScroll";
@@ -33,6 +34,7 @@ export default async function LangLayout({ children, params }: { children: React
         <RevealOnScroll />
         <JsonLd data={organizationSchema()} />
         {children}
+        <ConsentBanner lang={lang} enabled={ANALYTICS_ENABLED} />
       </body>
     </html>
   );

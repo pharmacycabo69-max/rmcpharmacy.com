@@ -23,8 +23,12 @@ Por cada evento:
 
 En GA4: marcar `whatsapp_click`, `call_click`, `directions_click` (y `form_submit`) como **eventos clave**, y registrar `cta_source` y `page_language` como dimensiones personalizadas de evento.
 
-## Consentimiento
-Se cargó GTM sin banner de consentimiento. Antes de lanzar, decidir si se requiere uno para tu audiencia (visitantes de EE.UU. y México) y configurar Consent Mode en GTM si es el caso.
+## Consentimiento (Consent Mode v2)
+- `AnalyticsHead` fija el default **denied** para `ad_storage`, `ad_user_data`, `ad_personalization` y `analytics_storage` antes de cargar gtm.js (`wait_for_update: 500`). Si hay una elección guardada en `localStorage` (`rmc_consent_v1`) se aplica de inmediato.
+- `ConsentBanner` (EN/ES) aparece solo cuando hay GTM y no hay elección guardada; "Aceptar" → `granted`, "Solo esenciales" → `denied`. Envía `gtag('consent','update', …)` y el evento `consent_update` con `consent_choice`.
+- En GTM no hace falta nada más para las etiquetas de Google: respetan las señales de consentimiento por sí solas (con `denied` GA4 manda pings sin cookies y modela). Si se agregan etiquetas de terceros (Meta Pixel, etc.), configurar en cada una "Consentimiento adicional" → `ad_storage`.
+- Para resetear la elección en pruebas: `localStorage.removeItem('rmc_consent_v1')`.
+- Pendiente: página de aviso de privacidad y enlazarla desde el banner.
 
 ## Prueba
 GTM → Vista previa con la URL del sitio, hacer clic en los botones y comprobar los eventos y sus parámetros; luego revisar GA4 → DebugView.

@@ -145,3 +145,9 @@ El dueño decidió no incluir Cabo Walk-In Medical Clinic, Urgent Care & Mobile 
 | S4 | Página 404 propia (bilingüe) con enlaces al inicio. |
 | S5 | Esenciales de todos los días: 6 categorías con ícono que abren WhatsApp con una pregunta de disponibilidad. Sin precios. |
 | S6 | 6 artículos nuevos (zonas de Médano y San José/corredor, guía de protector solar, esenciales para un día en barco, lista de farmacia con niños, cómo funciona la entrega en el lobby). Salen de uno en uno cada semana del 16 dic 2026 al 20 ene 2027. |
+
+## Tienda en línea con Stripe (OTC)
+- Checkout de Stripe (pago único, USD) en `app/api/checkout/route.ts`, portado de cabonurse. Precios solo en servidor (`lib/products.ts`); el cliente envía ids y cantidades.
+- Solo venta libre y cuidado personal. Sin medicamentos con receta en línea (regla del proyecto); eso va por WhatsApp.
+- `PRODUCTS` está vacío hasta recibir el catálogo; mientras tanto `/shop` (ES `/es/tienda`) es noindex y no entra al sitemap.
+- Requiere `STRIPE_SECRET_KEY` en Vercel. Sin ella, el botón ofrece WhatsApp.

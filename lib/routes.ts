@@ -1,3 +1,4 @@
+import { ES_CATEGORY_SLUGS } from "./categories.ts";
 import { DEFAULT_LANG, type Lang } from "./site.ts";
 
 // Internal (English) route segments and their Spanish public equivalents.
@@ -12,6 +13,9 @@ export const ES_SEGMENTS: Record<string, string> = {
   "doctor-consultation": "consulta-medica",
   "home-nursing": "enfermeria-a-domicilio",
   groups: "grupos",
+  shop: "tienda",
+  thanks: "gracias",
+  ...ES_CATEGORY_SLUGS,
 };
 
 const EN_FROM_ES = Object.fromEntries(Object.entries(ES_SEGMENTS).map(([en, es]) => [es, en]));

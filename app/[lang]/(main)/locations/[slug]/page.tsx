@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { CtaButtons } from "@/components/CtaButtons";
 import { Gallery } from "@/components/Gallery";
 import { JsonLd } from "@/components/JsonLd";
+import { MapEmbed } from "@/components/MapEmbed";
+import { Reviews } from "@/components/Reviews";
 import { ZoneCard } from "@/components/ZoneCard";
 import { OpenStatus } from "@/components/OpenStatus";
 import { FaqList } from "@/components/ServiceFaqList";
@@ -11,6 +13,7 @@ import { DAYS, DAY_LABEL, formatRange } from "@/lib/hours";
 import { LOCATIONS, fullAddress, getLocation, locationH1 } from "@/lib/locations";
 import { locationDescription, locationTitle } from "@/lib/locationMeta";
 import { buildMetadata } from "@/lib/metadata";
+import { getReviews } from "@/lib/reviews";
 import { localizedPath } from "@/lib/routes";
 import { breadcrumbSchema, faqSchema, locationSchema } from "@/lib/schema";
 import { getService } from "@/lib/services";
@@ -80,6 +83,8 @@ export default async function LocationPage({ params }: Props) {
 
       <CtaButtons lang={lang} source={`branch-${l.slug}`} location={l} rawMessage={rawMessage} />
 
+      <MapEmbed location={l} lang={lang} />
+
       <section className="section">
         <Gallery photos={l.photos} lang={lang} />
       </section>
@@ -121,13 +126,7 @@ export default async function LocationPage({ params }: Props) {
         <FaqList lang={lang} items={l.faq} />
       </section>
 
-      {l.reviewUrl && (
-        <p>
-          <a className="btn btn-secondary" href={l.reviewUrl} target="_blank" rel="noopener">
-            {lang === "en" ? "Leave a review" : "Deja una reseña"}
-          </a>
-        </p>
-      )}
+      <Reviews lang={lang} reviews={getReviews(l.slug)} mapsUrl={l.mapsUrl} reviewUrl={l.reviewUrl} storeName={l.gbpName} />
 
       {others.length > 0 && (
         <section className="section">

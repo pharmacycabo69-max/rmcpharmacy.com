@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
+import { CATEGORIES } from "@/lib/categories";
 import { LOCATIONS } from "@/lib/locations";
+import { activeProducts } from "@/lib/products";
 import { getPublishedPosts } from "@/lib/posts";
 import { localizedPath } from "@/lib/routes";
 import { SERVICES } from "@/lib/services";
@@ -14,6 +16,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/locations",
     ...LOCATIONS.map((l) => `/locations/${l.slug}`),
     "/pharmacy",
+    ...CATEGORIES.map((c) => `/pharmacy/${c.slug}`),
+    ...(activeProducts().length ? ["/shop"] : []),
     "/delivery",
     ...ZONES.map((z) => `/delivery/${z.slug}`),
     ...SERVICES.map((s) => `/services/${s.slug}`),
@@ -22,8 +26,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/contact",
     ...(getPublishedPosts().length ? ["/blog", ...getPublishedPosts().map((p) => `/blog/${p.slug}`)] : []),
   ];
+  const postDates = new Map(getPublishedPosts().map((p) => [`/blog/${p.slug}`, p.date]));
   return paths.map((path) => ({
     url: SITE.url + localizedPath("en", path),
+    ...(postDates.has(path) ? { lastModified: new Date(postDates.get(path)!) } : {}),
     alternates: { languages: Object.fromEntries(LANGS.map((l) => [l, SITE.url + localizedPath(l, path)])) },
   }));
 }

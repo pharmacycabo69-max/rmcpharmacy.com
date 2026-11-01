@@ -1,4 +1,4 @@
-import { DAYS, type Location } from "./locations";
+import { DAYS, LOCATIONS, type Location } from "./locations";
 import { localizedPath } from "./routes";
 import type { ServiceItem } from "./services";
 import { SITE, type Lang } from "./site";
@@ -45,6 +45,10 @@ export function locationSchema(l: Location, lang: Lang) {
       : {}),
     ...(image ? { image } : {}),
     ...(l.mapsUrl ? { hasMap: l.mapsUrl, sameAs: [l.mapsUrl] } : {}),
+    priceRange: "$$",
+    currenciesAccepted: "MXN, USD",
+    paymentAccepted: "Cash, Credit Card, Debit Card",
+    parentOrganization: { "@id": `${SITE.url}/#organization` },
   };
 }
 
@@ -73,13 +77,32 @@ export function faqSchema(items: { q: string; a: string }[]) {
 }
 
 export function organizationSchema() {
+  const main = LOCATIONS.find((l) => l.isPublished) ?? LOCATIONS[0];
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": `${SITE.url}/#organization`,
     name: SITE.name,
     url: SITE.url,
     logo: `${SITE.url}/icon.png`,
     telephone: SITE.phone,
+    ...(main
+      ? {
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: main.addressLine,
+            addressLocality: main.city,
+            addressRegion: main.region,
+            postalCode: main.postalCode,
+            addressCountry: "MX",
+          },
+        }
+      : {}),
+    areaServed: [
+      { "@type": "City", name: "Cabo San Lucas" },
+      { "@type": "City", name: "San José del Cabo" },
+    ],
+    ...(SITE.social.length ? { sameAs: [...SITE.social] } : {}),
     contactPoint: { "@type": "ContactPoint", telephone: SITE.phone, contactType: "customer service", availableLanguage: ["English", "Spanish"] },
   };
 }
