@@ -8,13 +8,28 @@ import io, json, os, re, sys
 from html import unescape
 from PIL import Image, ImageOps
 
+# Medicines stay out of the shop (house rule, and Google Ads suspended the account over the pharmacy policy).
+MEDICINE_CATEGORIES = {"pain-relief", "digestive", "cold-flu", "diabetic-care", "diabetic", "health-pharmacy", "womens-health"}
+MEDICINE_WORDS = re.compile(
+    r"\b(caps|tabs?|drops|tablet|tablets|tableta|tabletas|capsule|capsules|capsula|capsulas|syrup|jarabe|solution|solucion|solución|suspension|suspensión|injection|inyectable|ointment|pomada|eye drops|gotas|oral|nasal|spray nasal|pearls|pearl|sachets? \d+ ?mg|\d+ ?mg|\d+ ?mcg|\d+/\d+ ?mg)\b|"
+    r"paracetamol|acetaminophen|ibuprofen|ibuprofeno|naproxen|naproxeno|diclofenac|aspirin|aspirina|loratadine|loratadina|cetirizine|cetirizina|diphenhydramine|difenhidramina|dimenhydrinate|dimenhidrinato|"
+    r"guaifenesin|chlorphenamine|clorfenamina|phenylephrine|fenilefrina|pseudoephedrine|benzocaine|benzocaina|senosides|sennosides|omeprazole|omeprazol|ranitidine|metformin|metformina|insulin|insulina|"
+    r"amoxicillin|amoxicilina|azithromycin|azitromicina|ciprofloxacin|ciprofloxacino|sildenafil|tadalafil|tramadol|ketorolac|ketorolaco|dexamethasone|dexametasona|prednisone|prednisona|"
+    r"loperamide|loperamida|bismuth|bismuto|simethicone|simeticona|ambroxol|bromhexine|bromhexina|dextromethorphan|dextrometorfano|oxolamine|salbutamol|clotrimazole|clotrimazol|miconazole|miconazol|hydrocortisone|hidrocortisona|"
+    r"minoxidil|finasteride|finasterida|tretinoin|tretinoína|retinol a|antibiotic|antibiótico|antihistamin|antiinflamatorio|analgesic|analgésico|antiacid|antiácido|antipyretic|antifebril|laxative|laxante|probiotic drops",
+    re.I,
+)
+
 src = sys.argv[1]
 root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 out_img = os.path.join(root, "public/products/cvu")
 os.makedirs(out_img, exist_ok=True)
+for old in os.listdir(out_img):
+    os.remove(os.path.join(out_img, old))
 data = json.load(open(os.path.join(src, "data/products.json")))
 
 rows, cats = [], {}
+removed = 0
 for p in data:
     cents = int((p.get("prices") or {}).get("price") or 0)
     if not p.get("is_in_stock") or cents <= 0 or not p.get("images"):
@@ -26,6 +41,9 @@ for p in data:
     links = [c["link"] for c in (p.get("categories") or [])]
     seg = re.search(r"product-category/([^/]+)/", links[0]) if links else None
     top = seg.group(1) if seg else "other"
+    if top in MEDICINE_CATEGORIES or MEDICINE_WORDS.search(unescape(p["name"])):
+        removed += 1
+        continue
     label = unescape(next((c["name"] for c in p["categories"] if c["link"] == links[0]), top))
     if top not in cats:
         cats[top] = None
@@ -66,4 +84,4 @@ for r in rows:
     ts.append("  " + json.dumps(list(r), ensure_ascii=False) + ",")
 ts.append("];")
 open(os.path.join(root, "lib/cvuProducts.ts"), "w").write("\n".join(ts) + "\n")
-print(len(rows), "products;", len(used), "categories")
+print(len(rows), "products;", len(used), "categories;", removed, "medicine products left out")

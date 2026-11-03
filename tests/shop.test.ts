@@ -7,7 +7,13 @@ const sample: Product = { id: "t", category: "sun-care", name: { en: "Sunscreen"
 const real = PRODUCTS[0];
 
 test("catalog imports the cvupharmacy products with photos", () => {
-  assert.ok(PRODUCTS.length > 2000);
+  assert.ok(PRODUCTS.length > 1500);
+  // Medicines stay out of the shop: no medicine categories and no dosage-form or drug words in names.
+  const banned = /\b(\d+ ?mg|caps|tabs?|tablets?|capsules?|syrup|jarabe)\b|paracetamol|ibuprofen|loratadine|diphenhydramine|dimenhydrinate|amoxicillin|sildenafil/i;
+  for (const p of PRODUCTS) {
+    assert.ok(!["pain-relief", "digestive", "cold-flu", "diabetic-care", "health-pharmacy", "womens-health"].includes(p.category), `${p.id}: medicine category`);
+    assert.ok(!banned.test(p.name.en), `${p.id}: drug-like name "${p.name.en}"`);
+  }
   assert.ok(PRODUCTS.every((p) => p.photo?.startsWith("/products/cvu/")));
 });
 
