@@ -450,3 +450,7 @@ h3 { font-size: 1.2rem; letter-spacing: -0.015em; }
 .shop-dialog h3 { margin: 4px 0 0; font-size: 1rem; }
 .shop-dialog { max-height: calc(100vh - 32px); overflow: auto; }
 .product-photo { width: 100%; height: auto; aspect-ratio: 10 / 7; object-fit: cover; border-radius: calc(var(--radius) - 8px); }
+.shop-grid { grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr)); }
+.shop-item { min-width: 0; }
+.shop-item * { min-width: 0; max-width: 100%; }
+.shop-name { overflow-wrap: anywhere; }
