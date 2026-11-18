@@ -27,9 +27,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...(getPublishedPosts().length ? ["/blog", ...getPublishedPosts().map((p) => `/blog/${p.slug}`)] : []),
   ];
   const postDates = new Map(getPublishedPosts().map((p) => [`/blog/${p.slug}`, p.date]));
-  return paths.map((path) => ({
-    url: SITE.url + localizedPath("en", path),
-    ...(postDates.has(path) ? { lastModified: new Date(postDates.get(path)!) } : {}),
-    alternates: { languages: Object.fromEntries(LANGS.map((l) => [l, SITE.url + localizedPath(l, path)])) },
-  }));
+  // One <url> per language version (Google wants every indexable URL listed), each carrying the full hreflang set.
+  return paths.flatMap((path) => {
+    const languages = Object.fromEntries(LANGS.map((l) => [l, SITE.url + localizedPath(l, path)]));
+    return LANGS.map((lang) => ({
+      url: SITE.url + localizedPath(lang, path),
+      ...(postDates.has(path) ? { lastModified: new Date(postDates.get(path)!) } : {}),
+      alternates: { languages },
+    }));
+  });
 }
