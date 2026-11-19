@@ -299,7 +299,7 @@ h3 { font-size: 1.2rem; letter-spacing: -0.015em; }
 .site-footer a { color: var(--accent); }
 .site-footer address { color: var(--footer-fg); }
 .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 28px; }
-.footer-title { font-size: 1rem; margin-bottom: 8px; letter-spacing: -0.01em; }
+.footer-title { font-size: 1rem; font-weight: 700; margin: 0 0 8px; letter-spacing: -0.01em; }
 .footer-title a { color: #fff; text-decoration: none; }
 .footer-links { display: flex; gap: 22px; padding-top: 32px; }
 .footer-links a { color: var(--footer-fg); text-decoration: none; }

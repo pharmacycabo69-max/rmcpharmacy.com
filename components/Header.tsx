@@ -30,6 +30,7 @@ export function Header({ lang }: { lang: Lang }) {
             </div>
           </details>
           <Link href={p("/locations")}>{t(lang, UI.nav.locations)}</Link>
+          <Link href={p("/blog")}>{t(lang, UI.nav.blog)}</Link>
           <Link href={p("/contact")}>{t(lang, UI.nav.contact)}</Link>
         </nav>
         <LanguageSwitcher lang={lang} />

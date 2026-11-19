@@ -21,6 +21,7 @@ import { SERVICES } from "@/lib/services";
 import { SERVICE_CARD_PHOTO } from "@/lib/sessionPhotos";
 import { TEAM_PHOTOS } from "@/lib/team";
 import { SITE, isLang } from "@/lib/site";
+import { telUrl } from "@/lib/whatsapp";
 import { AREA_LABEL, ZONES } from "@/lib/zones";
 
 type Props = { params: Promise<{ lang: string }> };
@@ -31,11 +32,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return buildMetadata({
     lang,
     enPath: "/",
-    title: lang === "en" ? "Pharmacy in Cabo San Lucas Marina" : "Farmacia en la Marina de Cabo San Lucas",
+    title: lang === "en" ? "Pharmacy in Cabo San Lucas | Delivery to Your Hotel" : "Farmacia en Cabo San Lucas | Entrega a tu hotel",
     description:
       lang === "en"
-        ? "RMC Pharmacy and minimarket on the Cabo San Lucas marina. English and Spanish, open every day, with delivery to your hotel or villa."
-        : "RMC Pharmacy, farmacia y minisúper en la marina de Cabo San Lucas. Inglés y español, abierto todos los días, con entrega a tu hotel o villa.",
+        ? "RMC Pharmacy and minimarket on the Cabo San Lucas marina. Delivery to your hotel, villa or boat every day, 7 am to 11 pm. English and Spanish."
+        : "RMC Pharmacy, farmacia y minisúper en la marina de Cabo San Lucas. Entrega a tu hotel, villa o yate todos los días, de 7 am a 11 pm. Inglés y español.",
   });
 }
 
@@ -107,18 +108,18 @@ export default async function Home({ params }: Props) {
             <h1>
               {en ? (
                 <>
-                  Your pharmacy on the <em>Cabo marina</em>
+                  Pharmacy in Cabo San Lucas, <em>delivered to your hotel</em>
                 </>
               ) : (
                 <>
-                  Tu farmacia en la <em>marina de Cabo</em>
+                  Farmacia en Cabo San Lucas, <em>entrega a tu hotel</em>
                 </>
               )}
             </h1>
             <p className="lead">
               {en
-                ? "Pharmacy and minimarket near the marina. We speak English and Spanish, and we deliver to your hotel, villa or boat."
-                : "Farmacia y minisúper cerca de la marina. Hablamos inglés y español, y entregamos en tu hotel, villa o yate."}
+                ? "Pharmacy and minimarket on the marina. We deliver to your hotel, villa or boat every day from 7 am to 11 pm, in English or Spanish."
+                : "Farmacia y minisúper en la marina. Entregamos en tu hotel, villa o yate todos los días de 7 am a 11 pm, en inglés o español."}
             </p>
             <HotelFinder
               lang={lang}
@@ -132,7 +133,12 @@ export default async function Home({ params }: Props) {
                 zonePage: en ? "See this zone" : "Ver esta zona",
               }}
             />
-            <CtaButtons lang={lang} source="home-hero" />
+            {/* The finder above is the WhatsApp CTA (it works with an empty field); calling is the alternative. */}
+            <div className="cta-row">
+              <a className="btn btn-secondary" href={telUrl()} data-cta="call" data-source="home-hero">
+                {en ? `Or call ${SITE.phone}` : `O llama al ${SITE.phone}`}
+              </a>
+            </div>
             {reviewStore && homeReviews && homeReviews.items.length > 0 && (
               <a
                 className="rating-badge"
