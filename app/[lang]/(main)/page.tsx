@@ -56,7 +56,7 @@ export default async function Home({ params }: Props) {
     { icon: <ClockIcon />, title: en ? "Open every day" : "Abierto todos los días", text: SITE.hoursLabel[lang].replace(/^[^,]+,\s*/, "") },
     { icon: <GlobeIcon />, title: en ? "English & Spanish" : "Inglés y español", text: en ? "We speak both" : "Atendemos en ambos" },
     { icon: <CardIcon />, title: en ? "Cash or card" : "Efectivo o tarjeta", text: en ? "Pesos or US dollars" : "Pesos o dólares" },
-    { icon: <BagIcon />, title: en ? "Delivery to your hotel" : "Entrega en tu hotel", text: en ? "Estimated up to 70 min" : "Estimada hasta 70 min" },
+    { icon: <BagIcon />, title: en ? "Delivery to your hotel" : "Entrega en tu hotel", text: en ? "7 am to 11 pm, up to 70 min" : "7 am a 11 pm, hasta 70 min" },
   ];
 
   const steps = [

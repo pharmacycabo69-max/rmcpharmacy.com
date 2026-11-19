@@ -51,12 +51,12 @@ export function buildBot(lang: Lang): BotConfig {
       answer: en
         ? [
             "We deliver to hotels and villas in all of Cabo San Lucas and San José del Cabo, to the hotel lobby.",
-            "Estimated delivery: up to 70 minutes. Delivery hours: every day, 9 am to 6 pm.",
+            "Estimated delivery: up to 70 minutes. Delivery hours: every day, 7 am to 11 pm.",
             "You order on WhatsApp and pay by card with a secure link.",
           ]
         : [
             "Entregamos en hoteles y villas de todo Cabo San Lucas y San José del Cabo, en el lobby del hotel.",
-            "Entrega estimada: hasta 70 minutos. Horario de entrega: todos los días, de 9 am a 6 pm.",
+            "Entrega estimada: hasta 70 minutos. Horario de entrega: todos los días, de 7 am a 11 pm.",
             "Pides por WhatsApp y pagas con tarjeta mediante un enlace seguro.",
           ],
       waUrl: wa("delivery", en ? "Hi! I'd like to order delivery to my hotel." : "¡Hola! Me gustaría pedir entrega en mi hotel."),

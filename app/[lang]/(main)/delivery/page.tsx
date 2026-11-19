@@ -7,7 +7,7 @@ import { FaqList } from "@/components/ServiceFaqList";
 import { buildMetadata } from "@/lib/metadata";
 import { faqSchema } from "@/lib/schema";
 import { localizedPath } from "@/lib/routes";
-import { isLang } from "@/lib/site";
+import { isLang, SITE } from "@/lib/site";
 import { AREA_LABEL, ZONES, type Zone } from "@/lib/zones";
 
 type Props = { params: Promise<{ lang: string }> };
@@ -18,6 +18,13 @@ const FAQS = [
     a: {
       en: "Hotels, villas, the marina and boats across Cabo San Lucas, the Tourist Corridor and San José del Cabo. Send us your location on WhatsApp.",
       es: "Hoteles, villas, la marina y yates en Cabo San Lucas, el Corredor Turístico y San José del Cabo. Envíanos tu ubicación por WhatsApp.",
+    },
+  },
+  {
+    q: { en: "What are your delivery hours?", es: "¿Cuál es el horario de entrega?" },
+    a: {
+      en: "We deliver every day from 7 am to 11 pm, with an estimated time of up to 70 minutes depending on the zone. Our stores are open every day from 9 am to 6 pm.",
+      es: "Entregamos todos los días de 7 am a 11 pm, con un tiempo estimado de hasta 70 minutos según la zona. Nuestras sucursales abren todos los días de 9 am a 6 pm.",
     },
   },
   {
@@ -52,8 +59,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: lang === "en" ? "Delivery to Your Villa or Hotel in Cabo" : "Entrega a tu villa u hotel en Cabo",
     description:
       lang === "en"
-        ? "Order everyday essentials on WhatsApp and get them at your hotel, villa or boat in Cabo San Lucas."
-        : "Pide esenciales por WhatsApp y recíbelos en tu hotel, villa o yate en Cabo San Lucas.",
+        ? "Order essentials on WhatsApp and get them at your hotel, villa or boat in Cabo San Lucas. Delivery every day, 7 am to 11 pm."
+        : "Pide esenciales por WhatsApp y recíbelos en tu hotel, villa o yate en Cabo San Lucas. Entrega todos los días de 7 am a 11 pm.",
   });
 }
 
@@ -66,8 +73,8 @@ export default async function Delivery({ params }: Props) {
       <h1>{lang === "en" ? "Delivery to your villa, hotel or boat" : "Entrega en tu villa, hotel o yate"}</h1>
       <p className="lead">
         {lang === "en"
-          ? "Order on WhatsApp and we bring everyday essentials to where you are staying."
-          : "Pide por WhatsApp y llevamos esenciales de todos los días a donde te hospedas."}
+          ? `Order on WhatsApp and we bring everyday essentials to where you are staying. ${SITE.deliveryHoursLabel.en}.`
+          : `Pide por WhatsApp y llevamos esenciales de todos los días a donde te hospedas. ${SITE.deliveryHoursLabel.es}.`}
       </p>
       <CtaButtons lang={lang} source="delivery-hero" />
       <h2>{lang === "en" ? "Delivery zones" : "Zonas de entrega"}</h2>

@@ -24,7 +24,7 @@ export const post: Post = {
       { p: "You pay by card with a secure payment link that we send in the same WhatsApp chat." },
       { h: "Good to know" },
       { ul: [
-        "We deliver every day from 9 am to 6 pm.",
+        "We deliver every day from 7 am to 11 pm.",
         "Delivery covers Cabo San Lucas, the Tourist Corridor and San José del Cabo.",
         "In our stores, you can pay in cash or by card, in pesos or US dollars.",
       ] },
@@ -42,7 +42,7 @@ export const post: Post = {
       { p: "Pagas con tarjeta mediante un enlace de pago seguro que te enviamos en el mismo chat de WhatsApp." },
       { h: "Es bueno saber" },
       { ul: [
-        "Entregamos todos los días de 9 am a 6 pm.",
+        "Entregamos todos los días de 7 am a 11 pm.",
         "La entrega cubre Cabo San Lucas, el Corredor Turístico y San José del Cabo.",
         "En nuestras tiendas puedes pagar en efectivo o con tarjeta, en pesos o dólares.",
       ] },
@@ -63,7 +63,7 @@ export const post: Post = {
     },
     {
       q: { en: "What are your delivery hours?", es: "¿Cuál es el horario de entrega?" },
-      a: { en: "Every day from 9 am to 6 pm.", es: "Todos los días de 9 am a 6 pm." },
+      a: { en: "Every day from 7 am to 11 pm.", es: "Todos los días de 7 am a 11 pm." },
     },
   ],
 };
