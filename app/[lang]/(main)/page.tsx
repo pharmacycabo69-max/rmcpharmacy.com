@@ -4,6 +4,8 @@ import Image from "next/image";
 import { CtaButtons } from "@/components/CtaButtons";
 import { BagIcon, CardIcon, ChatIcon, ClockIcon, DropIcon, GlobeIcon, PulseIcon, UserIcon } from "@/components/Icons";
 import { OpenStatus } from "@/components/OpenStatus";
+import { Reviews } from "@/components/Reviews";
+import { getReviews } from "@/lib/reviews";
 import { EssentialsGrid } from "@/components/EssentialsGrid";
 import { JsonLd } from "@/components/JsonLd";
 import { websiteSchema } from "@/lib/schema";
@@ -51,6 +53,9 @@ export default async function Home({ params }: Props) {
     TEAM_PHOTOS.find((x) => x.src.endsWith("ocean/06-counter-team.jpg")),
   ].filter((x): x is NonNullable<typeof x> => Boolean(x));
   const hoursStore = getLocation("plaza-gali");
+  // The store whose Google reviews we show; the rating badge names it so the number is not read as chain-wide.
+  const reviewStore = getLocation("plaza-embarcadero");
+  const homeReviews = reviewStore ? getReviews(reviewStore.slug) : null;
 
   const trust = [
     { icon: <ClockIcon />, title: en ? "Open every day" : "Abierto todos los días", text: SITE.hoursLabel[lang].replace(/^[^,]+,\s*/, "") },
@@ -124,6 +129,24 @@ export default async function Home({ params }: Props) {
               }}
             />
             <CtaButtons lang={lang} source="home-hero" />
+            {reviewStore && homeReviews && homeReviews.items.length > 0 && (
+              <a
+                className="rating-badge"
+                href={reviewStore.mapsUrl ?? "#reviews"}
+                target={reviewStore.mapsUrl ? "_blank" : undefined}
+                rel={reviewStore.mapsUrl ? "noopener" : undefined}
+                data-cta="reviews-all"
+                data-source="home-hero"
+              >
+                <span className="stars" aria-hidden="true">★</span>
+                <strong>{homeReviews.ratingValue.toFixed(1)}</strong>
+                <span>
+                  {en
+                    ? `${homeReviews.reviewCount} Google reviews · ${reviewStore.placeLabel}`
+                    : `${homeReviews.reviewCount} reseñas en Google · ${reviewStore.placeLabel}`}
+                </span>
+              </a>
+            )}
           </div>
 
           {bento.length === 3 && (
@@ -147,7 +170,7 @@ export default async function Home({ params }: Props) {
               )}
               <div className="float-card float-b">
                 <strong>{en ? "Delivery to your hotel" : "Entrega en tu hotel"}</strong>
-                <span className="muted">{en ? "Estimated up to 70 min" : "Estimada hasta 70 min"}</span>
+                <span className="muted">{en ? "7 am to 11 pm, up to 70 min" : "7 am a 11 pm, hasta 70 min"}</span>
               </div>
             </div>
           )}
@@ -167,6 +190,20 @@ export default async function Home({ params }: Props) {
           ))}
         </ul>
       </section>
+
+      {reviewStore && homeReviews && homeReviews.items.length > 0 && (
+        <div className="container" id="reviews">
+          <Reviews
+            lang={lang}
+            reviews={homeReviews}
+            mapsUrl={reviewStore.mapsUrl}
+            reviewUrl={reviewStore.reviewUrl}
+            storeName={`${reviewStore.gbpName} · ${reviewStore.placeLabel}`}
+            source="home-reviews"
+            showStore
+          />
+        </div>
+      )}
 
       <section className="container section">
         <div className="section-head" {...rv()}>
