@@ -15,7 +15,7 @@ export const post: Post = {
     en: [
       { p: "Médano Beach is the busiest stretch of Cabo San Lucas: resorts, beach clubs and restaurants right on the sand, a few minutes from the marina. It is also where a forgotten bottle of sunscreen is most likely to ruin a beach day." },
       { h: "How long does delivery take?" },
-      { p: "Médano is one of our closest zones. Our estimated delivery time to Médano Beach is 15 to 25 minutes, and it can vary with traffic. We deliver every day from 9 am to 6 pm." },
+      { p: "Médano is one of our closest zones. Our estimated delivery time to Médano Beach is 15 to 25 minutes, and it can vary with traffic. We deliver every day from 7 am to 11 pm." },
       { h: "What guests on the beach ask for" },
       { ul: ["Sunscreen and after-sun", "Water and electrolyte drinks", "Basic first aid", "Small travel basics"] },
       { h: "How to order" },
@@ -31,7 +31,7 @@ export const post: Post = {
     es: [
       { p: "Playa Médano es la zona más concurrida de Cabo San Lucas: resorts, beach clubs y restaurantes sobre la arena, a pocos minutos de la marina. También es donde olvidar el protector solar puede arruinar un día de playa." },
       { h: "¿Cuánto tarda la entrega?" },
-      { p: "Médano es una de nuestras zonas más cercanas. El tiempo estimado de entrega a Playa Médano es de 15 a 25 minutos y puede variar con el tráfico. Entregamos todos los días de 9 am a 6 pm." },
+      { p: "Médano es una de nuestras zonas más cercanas. El tiempo estimado de entrega a Playa Médano es de 15 a 25 minutos y puede variar con el tráfico. Entregamos todos los días de 7 am a 11 pm." },
       { h: "Lo que piden los huéspedes en la playa" },
       { ul: ["Protector solar y after-sun", "Agua y bebidas con electrolitos", "Primeros auxilios básicos", "Pequeños básicos de viaje"] },
       { h: "Cómo pedir" },

@@ -1,7 +1,7 @@
 import { hoursSummary } from "./hours.ts";
 import { getLocation } from "./locations.ts";
 import { localizedPath } from "./routes.ts";
-import type { Lang } from "./site.ts";
+import { SITE, type Lang } from "./site.ts";
 import { AREA_LABEL, ZONE_PRIMARY_STORE, type Zone } from "./zones.ts";
 
 export type ZoneContent = {
@@ -83,14 +83,14 @@ export function zoneContent(z: Zone, lang: Lang): ZoneContent {
           { q: "Can you deliver to the lobby or my room?", a: "We deliver to the hotel lobby. For a villa, we confirm with you where to meet." },
           { q: "Do you accept USD and cards?", a: "For delivery you pay by card with a secure payment link in the WhatsApp chat. In our stores we accept cash or card, in Mexican pesos or US dollars." },
           { q: "Do you speak English?", a: "Yes, we attend in English and Spanish." },
-          { q: `How long does delivery to ${name} take?`, a: `The estimated time is ${eta} minutes, and it can vary with traffic and distance. Delivery hours are ${hours.toLowerCase()}.` },
+          { q: `How long does delivery to ${name} take?`, a: `The estimated time is ${eta} minutes, and it can vary with traffic and distance. Delivery hours are ${SITE.deliveryHoursLabel.en.toLowerCase()}.` },
         ]
       : [
           { q: `¿Entregan en ${featured}?`, a: `Sí. Entregamos en hoteles y villas de ${name}, con un tiempo estimado de ${eta} minutos. Envíanos el nombre de tu hotel por WhatsApp.` },
           { q: "¿Pueden entregar en el lobby o en mi habitación?", a: "Entregamos en el lobby del hotel. Si es una villa, confirmamos contigo dónde encontrarnos." },
           { q: "¿Aceptan dólares y tarjetas?", a: "En entregas pagas con tarjeta mediante un enlace de pago seguro en el chat de WhatsApp. En nuestras tiendas aceptamos efectivo o tarjeta, en pesos mexicanos o dólares." },
           { q: "¿Hablan inglés?", a: "Sí, atendemos en inglés y español." },
-          { q: `¿Cuánto tarda la entrega en ${name}?`, a: `El tiempo estimado es de ${eta} minutos y puede variar con el tráfico y la distancia. El horario de entrega es ${hours.toLowerCase()}.` },
+          { q: `¿Cuánto tarda la entrega en ${name}?`, a: `El tiempo estimado es de ${eta} minutos y puede variar con el tráfico y la distancia. El horario de entrega es ${SITE.deliveryHoursLabel.es.toLowerCase()}.` },
         ],
     otherZonesTitle: en ? "Other delivery zones" : "Otras zonas de entrega",
     whatsapp: en

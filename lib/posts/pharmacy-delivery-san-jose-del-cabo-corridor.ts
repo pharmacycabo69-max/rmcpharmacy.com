@@ -26,7 +26,7 @@ export const post: Post = {
       { p: "These are estimates, and they can change with traffic. 70 minutes is the longest we quote." },
       { h: "Plan ahead if you are far from town" },
       { ul: [
-        "Order earlier in the day: we deliver every day from 9 am to 6 pm.",
+        "We deliver every day from 7 am to 11 pm.",
         "Bundle what the whole group needs into one order.",
         "Tell us your hotel or villa name, and the gate or guard-house details for private communities.",
       ] },
@@ -48,7 +48,7 @@ export const post: Post = {
       { p: "Son tiempos estimados y pueden cambiar con el tráfico. 70 minutos es lo máximo que ofrecemos." },
       { h: "Planea con anticipación si estás lejos del centro" },
       { ul: [
-        "Pide temprano: entregamos todos los días de 9 am a 6 pm.",
+        "Entregamos todos los días de 7 am a 11 pm.",
         "Junta lo que necesita todo el grupo en un solo pedido.",
         "Dinos el nombre de tu hotel o villa y los datos de la caseta si es una comunidad privada.",
       ] },

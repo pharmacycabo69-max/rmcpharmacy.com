@@ -54,7 +54,7 @@ export const CATEGORIES: Category[] = [
       es: ["Aplícalo 15 minutos antes de que salga la lancha y después de cada nadada.", "Reaplica más seguido de lo que dice el frasco: el sudor y la toalla se lo llevan.", "Si una quemadura hace ampollas o sientes mareo o fiebre, acude a un médico."],
     },
     faq: [
-      { q: { en: "Do you deliver sunscreen to hotels and villas?", es: "¿Entregan protector solar en hoteles y villas?" }, a: { en: "Yes. Delivery runs daily 9 am to 6 pm to Cabo San Lucas, the Tourist Corridor and San José del Cabo, usually in 15 to 70 minutes depending on the zone.", es: "Sí. Entregamos todos los días de 9 am a 6 pm en Cabo San Lucas, el Corredor Turístico y San José del Cabo, normalmente en 15 a 70 minutos según la zona." } },
+      { q: { en: "Do you deliver sunscreen to hotels and villas?", es: "¿Entregan protector solar en hoteles y villas?" }, a: { en: "Yes. Delivery runs daily 7 am to 11 pm to Cabo San Lucas, the Tourist Corridor and San José del Cabo, usually in 15 to 70 minutes depending on the zone.", es: "Sí. Entregamos todos los días de 7 am a 11 pm en Cabo San Lucas, el Corredor Turístico y San José del Cabo, normalmente en 15 a 70 minutos según la zona." } },
       { q: { en: "Do you have reef-safe options?", es: "¿Tienen opciones reef-safe?" }, a: { en: "Usually, yes. Stock changes with the season, so ask on WhatsApp and we will tell you what is available today.", es: "Normalmente sí. El inventario cambia con la temporada; pregunta por WhatsApp y te decimos qué hay disponible hoy." } },
       { q: { en: "Can I pay in US dollars or by card?", es: "¿Puedo pagar en dólares o con tarjeta?" }, a: { en: "Yes, both. For delivery we send a secure card link before the courier leaves.", es: "Sí, ambos. Para entregas enviamos un enlace seguro de pago con tarjeta antes de que salga el repartidor." } },
     ],
@@ -176,7 +176,7 @@ export const CATEGORIES: Category[] = [
       es: ["Sigue la dosis del empaque; más no es más rápido.", "En niños la dosis depende del peso: tenlo a la mano cuando nos escribas.", "Fiebre con cuello rígido, sarpullido, confusión o dificultad para respirar es emergencia: llama al 911."],
     },
     faq: [
-      { q: { en: "Can you deliver at night?", es: "¿Entregan de noche?" }, a: { en: "Delivery runs 9 am to 6 pm. Outside those hours, message us anyway: we will tell you the nearest option that is open.", es: "La entrega es de 9 am a 6 pm. Fuera de ese horario escríbenos de todos modos: te decimos la opción abierta más cercana." } },
+      { q: { en: "Can you deliver at night?", es: "¿Entregan de noche?" }, a: { en: "Yes, until 11 pm. Delivery runs every day from 7 am to 11 pm. Outside those hours, message us anyway: we will tell you the nearest option that is open.", es: "Sí, hasta las 11 pm. Entregamos todos los días de 7 am a 11 pm. Fuera de ese horario escríbenos de todos modos: te decimos la opción abierta más cercana." } },
       { q: { en: "Do I need a prescription?", es: "¿Necesito receta?" }, a: { en: "Not for the over-the-counter categories on this page. If you need something stronger, our doctor can evaluate you in person or by video.", es: "No para las categorías de venta libre de esta página. Si necesitas algo más fuerte, nuestro médico puede valorarte en persona o por video." } },
     ],
     ask: { en: "Hi! I need something for pain or fever.", es: "¡Hola! Necesito algo para dolor o fiebre." },
