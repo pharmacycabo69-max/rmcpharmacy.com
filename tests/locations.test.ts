@@ -164,7 +164,9 @@ test("13 delivery zones with the agreed estimated ranges and 300+ words of page 
       const c = zoneContent(z, lang);
       assert.ok(c.words >= 300, `${z.slug} ${lang} has ${c.words} words`);
       assert.ok(c.faqs.length >= 4);
-      assert.match(c.title, /\d+–\d+ min/);
+      // the ETA goes in the meta description; the title stays short enough for Google to show it whole
+      assert.match(c.description, /\d+–\d+ min/);
+      assert.ok(c.title.length <= 80,`${z.slug} ${lang} title is ${c.title.length} chars`);
       // delivery times are always estimates, and 70 minutes is the maximum
       assert.ok(z.etaMax <= 70);
       assert.match(JSON.stringify(c), /stimad|stimated/i);

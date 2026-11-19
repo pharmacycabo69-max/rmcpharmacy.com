@@ -17,8 +17,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: lang === "en" ? "About RMC Pharmacy" : "Sobre RMC Pharmacy",
     description:
       lang === "en"
-        ? `RMC Pharmacy: ${storeCountLabel("en")} in Cabo San Lucas, in English and Spanish.`
-        : `RMC Pharmacy: ${storeCountLabel("es")} en Cabo San Lucas, en inglés y español.`,
+        ? `RMC Pharmacy: ${storeCountLabel("en")} in Cabo San Lucas, in English and Spanish. Travel essentials, delivery to your hotel or villa, IV therapy and doctor consultations.`
+        : `RMC Pharmacy: ${storeCountLabel("es")} en Cabo San Lucas, en inglés y español. Esenciales de viaje, entrega a tu hotel o villa, terapia IV y consultas médicas.`,
   });
 }
 

@@ -18,8 +18,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: lang === "en" ? "Cabo Travel Health Tips" : "Consejos de salud para viajar a Cabo",
     description:
       lang === "en"
-        ? "Practical tips for staying well on vacation in Los Cabos."
-        : "Consejos prácticos para cuidarte en tus vacaciones en Los Cabos.",
+        ? "Practical tips for staying well on vacation in Los Cabos: sun and heat, upset stomach, first-aid kits, IV therapy and getting pharmacy items delivered to your hotel."
+        : "Consejos prácticos para cuidarte en tus vacaciones en Los Cabos: sol y calor, malestar estomacal, botiquín, terapia IV y entrega de farmacia a tu hotel.",
   });
   return getPublishedPosts().length === 0 ? { ...meta, robots: { index: false, follow: true } } : meta;
 }
