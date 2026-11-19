@@ -57,6 +57,22 @@ export const SERVICES: ServiceItem[] = [
         q: { en: "How do I book?", es: "¿Cómo reservo?" },
         a: { en: "Tap the WhatsApp button, tell us where you are staying and when you would like us to come.", es: "Toca el botón de WhatsApp, dinos dónde te hospedas y a qué hora quieres que vayamos." },
       },
+      {
+        q: { en: "How long does an IV session take?", es: "¿Cuánto dura una sesión de terapia IV?" },
+        a: { en: "About 60 minutes. You can rest in your room, on the terrace or on deck while the nurse stays with you.", es: "Alrededor de 60 minutos. Puedes descansar en tu habitación, en la terraza o en cubierta mientras la enfermera te acompaña." },
+      },
+      {
+        q: { en: "Can we book IV therapy for a group?", es: "¿Podemos reservar terapia IV para un grupo?" },
+        a: { en: "Yes. Groups of 3 or more start at $139 USD per person, a good fit for bachelor and bachelorette parties, weddings and family trips.", es: "Sí. Los grupos de 3 o más personas comienzan en $139 USD por persona, ideal para despedidas de soltero, bodas y viajes familiares." },
+      },
+      {
+        q: { en: "Can I book in English?", es: "¿Puedo reservar en inglés?" },
+        a: { en: "Yes. We book and attend in English and Spanish.", es: "Sí. Reservamos y atendemos en inglés y español." },
+      },
+      {
+        q: { en: "What if I feel seriously unwell?", es: "¿Y si me siento muy mal?" },
+        a: { en: "Call 911. IV therapy is not a substitute for emergency care.", es: "Llama al 911. La terapia IV no sustituye la atención de emergencias." },
+      },
     ],
   },
   {
@@ -97,6 +113,18 @@ export const SERVICES: ServiceItem[] = [
         q: { en: "Do you speak English?", es: "¿Hablan inglés?" },
         a: { en: "Yes, we attend in English and Spanish.", es: "Sí, atendemos en inglés y español." },
       },
+      {
+        q: { en: "Can a doctor come to my hotel or villa?", es: "¿Puede un médico venir a mi hotel o villa?" },
+        a: { en: "Yes. A doctor visit at your villa or hotel is $200 USD. Message us on WhatsApp with your location and we confirm the arrival time.", es: "Sí. La visita de un médico a tu villa u hotel cuesta $200 USD. Escríbenos por WhatsApp con tu ubicación y confirmamos la hora de llegada." },
+      },
+      {
+        q: { en: "What do I need for a video consultation?", es: "¿Qué necesito para la consulta por video?" },
+        a: { en: "A phone or computer with a camera and a stable internet connection. Your hotel wifi is usually enough.", es: "Un teléfono o computadora con cámara y una conexión a internet estable. Normalmente basta con el wifi del hotel." },
+      },
+      {
+        q: { en: "What if it is an emergency?", es: "¿Y si es una emergencia?" },
+        a: { en: "Call 911. Our consultations are not a substitute for emergency care.", es: "Llama al 911. Nuestras consultas no sustituyen la atención de emergencias." },
+      },
     ],
   },
   {
@@ -131,6 +159,18 @@ export const SERVICES: ServiceItem[] = [
       {
         q: { en: "How do I request a nurse?", es: "¿Cómo solicito una enfermera?" },
         a: { en: "Tap the WhatsApp button and tell us where you are and what you need.", es: "Toca el botón de WhatsApp y dinos dónde estás y qué necesitas." },
+      },
+      {
+        q: { en: "How much does home nursing cost?", es: "¿Cuánto cuesta la enfermería a domicilio?" },
+        a: { en: "It depends on what you need and how long the visit takes. We confirm the price on WhatsApp before the nurse comes.", es: "Depende de lo que necesites y de la duración de la visita. Confirmamos el precio por WhatsApp antes de que la enfermera vaya." },
+      },
+      {
+        q: { en: "Do your nurses speak English?", es: "¿Las enfermeras hablan inglés?" },
+        a: { en: "We attend in English and Spanish.", es: "Atendemos en inglés y español." },
+      },
+      {
+        q: { en: "What if it is an emergency?", es: "¿Y si es una emergencia?" },
+        a: { en: "Call 911. Home nursing is not a substitute for emergency care.", es: "Llama al 911. La enfermería a domicilio no sustituye la atención de emergencias." },
       },
     ],
     external: { url: "https://cabonurse.com", label: { en: "Visit Cabo Nurse", es: "Visitar Cabo Nurse" } },

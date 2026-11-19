@@ -35,15 +35,18 @@ export function zoneContent(z: Zone, lang: Lang): ZoneContent {
   const name = z.name[lang];
   const area = AREA_LABEL[z.area][lang];
   const eta = `${z.etaMin}–${z.etaMax}`;
+  const placeName = name.includes(area) ? name : `${name}, ${area}`;
   const store = getLocation(ZONE_PRIMARY_STORE);
   const hours = store?.hours ? hoursSummary(store.hours, lang) : "";
   const featured = z.hotels.find((h) => !/^Private/i.test(h)) ?? z.hotels[0];
 
   const c: ZoneContent = {
     h1: en ? `Pharmacy delivery to ${name}` : `Entrega de farmacia en ${name}`,
+    // Kept short so Google shows it whole: the ETA lives in the description, and the area is
+    // skipped when the zone name already contains it ("San José del Cabo Hotel Zone").
     title: en
-      ? `Pharmacy Delivery to ${name}, ${area} | ${eta} min | RMC Pharmacy`
-      : `Entrega de farmacia en ${name}, ${area} | ${eta} min | RMC Pharmacy`,
+      ? `Pharmacy Delivery to ${placeName} | RMC Pharmacy`
+      : `Entrega de farmacia en ${placeName} | RMC Pharmacy`,
     description: en
       ? `Everyday pharmacy essentials delivered to ${name}, ${area}. Estimated delivery ${eta} minutes, to your hotel lobby. Order on WhatsApp.`
       : `Esenciales de farmacia entregados en ${name}, ${area}. Entrega estimada de ${eta} minutos, en el lobby de tu hotel. Pide por WhatsApp.`,

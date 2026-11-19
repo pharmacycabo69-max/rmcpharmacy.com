@@ -8,6 +8,7 @@ import { FaqList } from "@/components/ServiceFaqList";
 import { buildMetadata } from "@/lib/metadata";
 import { localizedPath } from "@/lib/routes";
 import { breadcrumbSchema, faqSchema } from "@/lib/schema";
+import { hotelByName, hotelPath } from "@/lib/hotels";
 import { LANGS, SITE, isLang } from "@/lib/site";
 import { zoneContent } from "@/lib/zoneContent";
 import { AREA_LABEL, ZONES, getZone } from "@/lib/zones";
@@ -79,9 +80,10 @@ export default async function ZonePage({ params }: Props) {
         <h2>{c.hotelsTitle}</h2>
         <p>{c.hotelsIntro}</p>
         <ul className="checks">
-          {c.hotels.map((h) => (
-            <li key={h}>{h}</li>
-          ))}
+          {c.hotels.map((h) => {
+            const page = hotelByName(h);
+            return <li key={h}>{page && page.zone === z.slug ? <Link href={localizedPath(lang, hotelPath(page))}>{h}</Link> : h}</li>;
+          })}
         </ul>
       </section>
 
