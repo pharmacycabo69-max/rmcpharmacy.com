@@ -20,10 +20,20 @@ function Stars({ n }: { n: number }) {
   );
 }
 
-type Props = { lang: Lang; reviews: StoreReviews | null; mapsUrl: string | null; reviewUrl: string | null; storeName: string };
+type Props = {
+  lang: Lang;
+  reviews: StoreReviews | null;
+  mapsUrl: string | null;
+  reviewUrl: string | null;
+  storeName: string;
+  /** Analytics source for the CTA links (data-source). */
+  source?: string;
+  /** Name the store next to the rating (for pages that are not that store's own page). */
+  showStore?: boolean;
+};
 
 /** Real Google reviews for a store, or an invitation to leave the first one. */
-export function Reviews({ lang, reviews, mapsUrl, reviewUrl, storeName }: Props) {
+export function Reviews({ lang, reviews, mapsUrl, reviewUrl, storeName, source = "branch-reviews", showStore = false }: Props) {
   const en = lang === "en";
   if (!reviews || reviews.items.length === 0) {
     if (!reviewUrl) return null;
@@ -35,7 +45,7 @@ export function Reviews({ lang, reviews, mapsUrl, reviewUrl, storeName }: Props)
             ? `Been to ${storeName}? A short Google review helps other travelers find us.`
             : `¿Ya visitaste ${storeName}? Una reseña corta en Google ayuda a otros viajeros a encontrarnos.`}
         </p>
-        <a className="btn btn-secondary" href={reviewUrl} target="_blank" rel="noopener" data-cta="review" data-source="branch-reviews">
+        <a className="btn btn-secondary" href={reviewUrl} target="_blank" rel="noopener" data-cta="review" data-source={source}>
           {en ? "Leave a review on Google" : "Deja una reseña en Google"}
         </a>
       </section>
@@ -49,6 +59,7 @@ export function Reviews({ lang, reviews, mapsUrl, reviewUrl, storeName }: Props)
           <strong>{reviews.ratingValue.toFixed(1)}</strong> <Stars n={Math.round(reviews.ratingValue)} />{" "}
           <span className="muted">
             {en ? `${reviews.reviewCount} Google reviews` : `${reviews.reviewCount} reseñas en Google`}
+            {showStore && ` · ${storeName}`}
           </span>
         </p>
       </div>
@@ -72,12 +83,12 @@ export function Reviews({ lang, reviews, mapsUrl, reviewUrl, storeName }: Props)
       </ul>
       <div className="cta-row">
         {mapsUrl && (
-          <a className="btn btn-secondary" href={mapsUrl} target="_blank" rel="noopener" data-cta="reviews-all" data-source="branch-reviews">
+          <a className="btn btn-secondary" href={mapsUrl} target="_blank" rel="noopener" data-cta="reviews-all" data-source={source}>
             {en ? "Read all reviews on Google" : "Ver todas las reseñas en Google"}
           </a>
         )}
         {reviewUrl && (
-          <a className="btn btn-secondary" href={reviewUrl} target="_blank" rel="noopener" data-cta="review" data-source="branch-reviews">
+          <a className="btn btn-secondary" href={reviewUrl} target="_blank" rel="noopener" data-cta="review" data-source={source}>
             {en ? "Leave a review" : "Deja una reseña"}
           </a>
         )}

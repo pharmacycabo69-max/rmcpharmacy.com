@@ -28,8 +28,8 @@ export type StoreReviews = {
 export const REVIEWS: Record<string, StoreReviews> = {
   "plaza-embarcadero": {
     ratingValue: 4.8,
-    reviewCount: 49,
-    asOf: "2026-11-01",
+    reviewCount: 50,
+    asOf: "2026-11-18",
     items: [
       {
         author: "Eryn W.",
