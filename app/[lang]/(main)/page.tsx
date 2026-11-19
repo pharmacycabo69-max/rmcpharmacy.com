@@ -6,6 +6,7 @@ import { BagIcon, CardIcon, ChatIcon, ClockIcon, DropIcon, GlobeIcon, PulseIcon,
 import { OpenStatus } from "@/components/OpenStatus";
 import { Reviews } from "@/components/Reviews";
 import { getReviews } from "@/lib/reviews";
+import { hotelByName, hotelPath } from "@/lib/hotels";
 import { EssentialsGrid } from "@/components/EssentialsGrid";
 import { JsonLd } from "@/components/JsonLd";
 import { websiteSchema } from "@/lib/schema";
@@ -82,7 +83,10 @@ export default async function Home({ params }: Props) {
   const hotelOptions: HotelOption[] = ZONES.flatMap((z) => {
     const base = { zoneName: z.name[lang], zoneSlug: z.slug, etaMin: z.etaMin, etaMax: z.etaMax, href: p(`/delivery/${z.slug}`) };
     return [
-      ...z.hotels.map((h) => ({ ...base, name: h, aliases: z.aliases })),
+      ...z.hotels.map((h) => {
+        const page = hotelByName(h);
+        return { ...base, name: h, aliases: z.aliases, ...(page && page.zone === z.slug ? { href: p(hotelPath(page)) } : {}) };
+      }),
       { ...base, name: z.name[lang], aliases: z.aliases },
     ];
   });

@@ -157,8 +157,8 @@ export const ZONES: Zone[] = [
     photo: { src: "/zones/cabo-bello-misiones.jpg", width: 1365, height: 768, alt: { en: "Rocky coast and a small beach on the Tourist Corridor near Cabo Bello", es: "Costa rocosa y una pequeña playa en el Corredor Turístico cerca de Cabo Bello" } },
     etaMin: 20,
     etaMax: 35,
-    hotels: ["Cabo Bello", "Misiones del Cabo", "Esperanza, an Auberge Resort"],
-    aliases: ["cabo bello", "misiones del cabo", "punta ballena", "esperanza"],
+    hotels: ["Cabo Bello", "Misiones del Cabo", "Esperanza, an Auberge Resort", "The Cape, a Thompson Hotel"],
+    aliases: ["cabo bello", "misiones del cabo", "punta ballena", "esperanza", "the cape", "el tezal"],
     blurb: {
       en: "Cabo Bello and Misiones del Cabo sit at the start of the Tourist Corridor, the coastal highway that links Cabo San Lucas with San José del Cabo, with villas and hillside residences facing the Sea of Cortez.",
       es: "Cabo Bello y Misiones del Cabo están al inicio del Corredor Turístico, la carretera costera que une Cabo San Lucas con San José del Cabo, con villas y residencias en la ladera frente al Mar de Cortés.",
@@ -180,7 +180,7 @@ export const ZONES: Zone[] = [
     photo: { src: "/zones/corredor-chileno.jpg", width: 1600, height: 900, alt: { en: "Infinity pool and cabanas at sunset on the Tourist Corridor near Chileno Bay", es: "Alberca infinita y cabañas al atardecer en el Corredor Turístico cerca de Bahía Chileno" } },
     etaMin: 30,
     etaMax: 45,
-    hotels: ["Viceroy Los Cabos", "Chileno Bay Resort & Residences"],
+    hotels: ["Chileno Bay Resort & Residences"],
     aliases: ["chileno", "chileno bay", "bahía chileno"],
     blurb: {
       en: "Chileno Bay is one of the calm swimming and snorkeling coves on the Tourist Corridor, surrounded by luxury resorts and residences. It is a favorite for beach days away from the city.",
@@ -249,8 +249,8 @@ export const ZONES: Zone[] = [
     photo: { src: "/zones/costa-azul.jpg", width: 1080, height: 718, alt: { en: "Surfers on the beach at Costa Azul", es: "Surfistas en la playa de Costa Azul" } },
     etaMin: 45,
     etaMax: 60,
-    hotels: ["The Cape, a Thompson Hotel", "Cabo Surf Hotel"],
-    aliases: ["zippers", "the cape", "acapulquito"],
+    hotels: ["Cabo Surf Hotel"],
+    aliases: ["zippers", "acapulquito"],
     blurb: {
       en: "Costa Azul is the surf area just west of San José del Cabo, known for its beach breaks and relaxed hotels and rentals. It has a more laid-back feel than the resort strips.",
       es: "Costa Azul es la zona de surf justo al oeste de San José del Cabo, conocida por sus olas y por sus hoteles y rentas relajados. Tiene un ambiente más tranquilo que las zonas de resorts.",
@@ -272,8 +272,8 @@ export const ZONES: Zone[] = [
     photo: { src: "/zones/zona-hotelera-san-jose.jpg", width: 1366, height: 768, alt: { en: "Beach and hotels in the San Jos\u00e9 del Cabo hotel zone", es: "Playa y hoteles en la zona hotelera de San José del Cabo" } },
     etaMin: 50,
     etaMax: 65,
-    hotels: ["Holiday Inn Resort Los Cabos", "Barceló Grand Faro Los Cabos", "Posada Real Los Cabos"],
-    aliases: ["hotel zone", "san jose hotel zone", "zona hotelera"],
+    hotels: ["Viceroy Los Cabos", "Holiday Inn Resort Los Cabos", "Barceló Grand Faro Los Cabos", "Posada Real Los Cabos"],
+    aliases: ["hotel zone", "san jose hotel zone", "zona hotelera", "viceroy"],
     blurb: {
       en: "The San José del Cabo hotel zone is a beachfront strip of resorts west of downtown, with wide beaches and a quieter pace than Cabo San Lucas. Many visitors stay all-inclusive and rarely leave the resort.",
       es: "La zona hotelera de San José del Cabo es una franja de resorts frente a la playa al oeste del centro, con playas amplias y un ritmo más tranquilo que Cabo San Lucas. Muchos visitantes se hospedan todo incluido y casi no salen del resort.",
