@@ -85,6 +85,7 @@ export function organizationSchema() {
     name: SITE.name,
     url: SITE.url,
     logo: `${SITE.url}/icon.png`,
+    foundingDate: String(SITE.foundedYear),
     telephone: SITE.phone,
     ...(main
       ? {
