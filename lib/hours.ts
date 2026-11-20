@@ -37,7 +37,7 @@ export function formatRange(d: DayHours, lang: Lang) {
   return `${formatTime(d.opens)} – ${formatTime(d.closes)}`;
 }
 
-/** "Every day, 9 am to 6 pm" when all days match, otherwise a neutral pointer to the hours list. */
+/** "Every day, 8 am to 6 pm" when all days match, otherwise a neutral pointer to the hours list. */
 export function hoursSummary(hours: Hours, lang: Lang) {
   const first = hours.monday;
   const same = DAYS.every((d) => JSON.stringify(hours[d]) === JSON.stringify(first));

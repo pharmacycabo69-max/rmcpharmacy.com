@@ -4,10 +4,10 @@ Reglas: responder en el idioma de la reseña, en 48 horas, con el nombre del cli
 
 ## 5 y 4 estrellas
 **EN**
-> Thank you, {name}! We are glad we could help during your stay in Cabo. If you need anything else, message us on WhatsApp at +52 624 226 1023. We are open every day from 9 am to 6 pm. — {team member}, RMC Pharmacy
+> Thank you, {name}! We are glad we could help during your stay in Cabo. If you need anything else, message us on WhatsApp at +52 624 226 1023. We are open every day from 8 am to 6 pm. — {team member}, RMC Pharmacy
 
 **ES**
-> ¡Gracias, {name}! Nos alegra haberte ayudado durante tu estancia en Cabo. Si necesitas algo más, escríbenos por WhatsApp al +52 624 226 1023. Abrimos todos los días de 9 am a 6 pm. — {persona}, RMC Pharmacy
+> ¡Gracias, {name}! Nos alegra haberte ayudado durante tu estancia en Cabo. Si necesitas algo más, escríbenos por WhatsApp al +52 624 226 1023. Abrimos todos los días de 8 am a 6 pm. — {persona}, RMC Pharmacy
 
 ## Mencionan entrega a hotel o villa
 **EN**

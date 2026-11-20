@@ -55,7 +55,7 @@ prescription, receta, antibiotics, antibioticos, pills, pastillas, pharmacy, far
 ## Vínculos a sitios
 - Video Consultation | Talk to a doctor by video | $59 USD, English and Spanish
 - Home Nursing | A nurse at your villa or hotel | Price confirmed on WhatsApp
-- Contact Us | Message us on WhatsApp | Open daily 9 am to 6 pm
+- Contact Us | Message us on WhatsApp | Open daily 8 am to 6 pm
 
 ## Mensaje de WhatsApp
 Hi! I'd like to book a video consultation with a doctor in Los Cabos.

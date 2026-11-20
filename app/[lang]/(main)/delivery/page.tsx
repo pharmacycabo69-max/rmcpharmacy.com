@@ -23,8 +23,8 @@ const FAQS = [
   {
     q: { en: "What are your delivery hours?", es: "¿Cuál es el horario de entrega?" },
     a: {
-      en: "We deliver every day from 7 am to 11 pm, with an estimated time of up to 70 minutes depending on the zone. Our stores are open every day from 9 am to 6 pm.",
-      es: "Entregamos todos los días de 7 am a 11 pm, con un tiempo estimado de hasta 70 minutos según la zona. Nuestras sucursales abren todos los días de 9 am a 6 pm.",
+      en: "We deliver every day from 7 am to 11 pm, with an estimated time of up to 70 minutes depending on the zone. Our stores are open every day from 8 am to 6 pm.",
+      es: "Entregamos todos los días de 7 am a 11 pm, con un tiempo estimado de hasta 70 minutos según la zona. Nuestras sucursales abren todos los días de 8 am a 6 pm.",
     },
   },
   {

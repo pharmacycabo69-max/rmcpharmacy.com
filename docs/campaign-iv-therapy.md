@@ -54,7 +54,7 @@ prescription, receta, ketamine, jobs, course, training, certification, how to, f
 ## Vínculos a sitios
 - IV Therapy | Choose your IV | Prices and options | https://www.rmcpharmacy.com/services/iv-therapy
 - Group IV Therapy | IV therapy for your group | Villas, hotels and poolside | https://www.rmcpharmacy.com/services/iv-therapy/groups
-- Contact Us | Message us on WhatsApp | Open daily 9 am to 6 pm | https://www.rmcpharmacy.com/contact
+- Contact Us | Message us on WhatsApp | Open daily 8 am to 6 pm | https://www.rmcpharmacy.com/contact
 - About Us | English and Spanish team | Meet the RMC Pharmacy team | https://www.rmcpharmacy.com/about
 
 ## Mensaje de WhatsApp

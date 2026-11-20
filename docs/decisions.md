@@ -151,3 +151,4 @@ El dueño decidió no incluir Cabo Walk-In Medical Clinic, Urgent Care & Mobile 
 - Solo venta libre y cuidado personal. Sin medicamentos con receta en línea (regla del proyecto); eso va por WhatsApp.
 - `PRODUCTS` está vacío hasta recibir el catálogo; mientras tanto `/shop` (ES `/es/tienda`) es noindex y no entra al sitemap.
 - Requiere `STRIPE_SECRET_KEY` en Vercel. Sin ella, el botón ofrece WhatsApp.
+| D11 | Horario de tiendas: lunes a domingo, 8:00 a 18:00 (2026-11-20). Entrega a domicilio (servicio CMC): 7:00 a 23:00 | confirmada |

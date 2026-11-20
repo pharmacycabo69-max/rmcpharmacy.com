@@ -33,7 +33,7 @@ export const post: Post = {
       { h: "See a doctor from your villa" },
       { p: "You do not need to leave your room. We can set up a doctor consultation by video for $59 USD, in English or Spanish. Message us on WhatsApp and we schedule it." },
       { h: "Essentials near the marina" },
-      { p: "Hydration items and personal care essentials are available at our stores on the Cabo marina, open every day from 9 am to 6 pm, and we can deliver to your hotel or villa." },
+      { p: "Hydration items and personal care essentials are available at our stores on the Cabo marina, open every day from 8 am to 6 pm, and we can deliver to your hotel or villa." },
     ],
     es: [
       { p: "Un clima nuevo, comida distinta y días largos pueden alterar el estómago de cualquiera. La mayoría de los casos son leves. Esto es lo que suele ayudar y cuándo conviene revisarse." },
@@ -56,7 +56,7 @@ export const post: Post = {
       { h: "Ve a un médico desde tu villa" },
       { p: "No necesitas salir de tu habitación. Podemos agendar una consulta médica por videollamada por $59 USD, en inglés o español. Escríbenos por WhatsApp y la programamos." },
       { h: "Esenciales cerca de la marina" },
-      { p: "Productos de hidratación y cuidado personal están disponibles en nuestras sucursales en la marina de Cabo, abiertas todos los días de 9 am a 6 pm, y podemos entregarlos en tu hotel o villa." },
+      { p: "Productos de hidratación y cuidado personal están disponibles en nuestras sucursales en la marina de Cabo, abiertas todos los días de 8 am a 6 pm, y podemos entregarlos en tu hotel o villa." },
     ],
   },
   related: [

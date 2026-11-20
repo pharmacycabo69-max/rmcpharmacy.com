@@ -25,7 +25,7 @@ export const post: Post = {
       { h: "If you tend to feel queasy on the water" },
       { p: "Eat lightly before you go and stay hydrated. If you want to know which options are available at the store, ask our team and we will point you to them." },
       { h: "Last-minute? We are on the marina" },
-      { p: "Our stores are on Paseo de la Marina, close to the docks. We are open every day from 9 am to 6 pm, in English and Spanish. If your boat leaves early, order the night before and pick up on your way, or ask for delivery to your hotel." },
+      { p: "Our stores are on Paseo de la Marina, close to the docks. We are open every day from 8 am to 6 pm, in English and Spanish. If your boat leaves early, order the night before and pick up on your way, or ask for delivery to your hotel." },
       { p: "We have {stores} in Cabo San Lucas. Check the one nearest to you." },
     ],
     es: [
@@ -41,7 +41,7 @@ export const post: Post = {
       { h: "Si sueles marearte en el agua" },
       { p: "Come ligero antes de salir y mantente hidratado. Si quieres saber qué opciones hay en la tienda, pregunta a nuestro equipo y te las mostramos." },
       { h: "¿A última hora? Estamos en la marina" },
-      { p: "Nuestras tiendas están sobre Paseo de la Marina, cerca de los muelles. Abrimos todos los días de 9 am a 6 pm, en inglés y español. Si tu barco sale temprano, pide la noche anterior y recoge de camino, o solicita entrega en tu hotel." },
+      { p: "Nuestras tiendas están sobre Paseo de la Marina, cerca de los muelles. Abrimos todos los días de 8 am a 6 pm, en inglés y español. Si tu barco sale temprano, pide la noche anterior y recoge de camino, o solicita entrega en tu hotel." },
       { p: "Tenemos {stores} en Cabo San Lucas. Revisa la más cercana a ti." },
     ],
   },

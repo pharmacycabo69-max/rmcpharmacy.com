@@ -15,8 +15,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: lang === "en" ? "Contact RMC Pharmacy" : "Contacto RMC Pharmacy",
     description:
       lang === "en"
-        ? "Message us on WhatsApp or call RMC Pharmacy in Cabo San Lucas. Open every day from 9 am to 6 pm."
-        : "Escríbenos por WhatsApp o llama a RMC Pharmacy en Cabo San Lucas. Abierto todos los días de 9 am a 6 pm.",
+        ? "Message us on WhatsApp or call RMC Pharmacy in Cabo San Lucas. Open every day from 8 am to 6 pm."
+        : "Escríbenos por WhatsApp o llama a RMC Pharmacy en Cabo San Lucas. Abierto todos los días de 8 am a 6 pm.",
   });
 }
 
