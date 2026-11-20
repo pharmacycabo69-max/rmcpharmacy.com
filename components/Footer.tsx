@@ -13,15 +13,19 @@ export function Footer({ lang }: { lang: Lang }) {
       <div className="container footer-grid">
         {LOCATIONS.map((l) => (
           <div key={l.slug}>
-            <h2 className="footer-title">
+            <p className="footer-title">
               <Link href={localizedPath(lang, `/locations/${l.slug}`)}>{l.gbpName}</Link>
-            </h2>
+            </p>
             <address>{fullAddress(l)}</address>
           </div>
         ))}
         <div>
-          <h2 className="footer-title">{t(lang, UI.footer.hours)}</h2>
+          <p className="footer-title">{t(lang, UI.footer.hours)}</p>
           <p>{SITE.hoursLabel[lang]}</p>
+          <p>
+            {lang === "en" ? "Delivery: " : "Entrega: "}
+            {SITE.deliveryHoursLabel[lang].toLowerCase()}
+          </p>
           <p>
             <a href={telUrl()}>{SITE.phone}</a>
           </p>
@@ -29,7 +33,7 @@ export function Footer({ lang }: { lang: Lang }) {
       </div>
       <div className="container footer-lists">
         <div>
-          <h2 className="footer-title">{lang === "en" ? "Delivery zones" : "Zonas de entrega"}</h2>
+          <p className="footer-title">{lang === "en" ? "Delivery zones" : "Zonas de entrega"}</p>
           <ul>
             {ZONES.map((z) => (
               <li key={z.slug}>
@@ -39,7 +43,7 @@ export function Footer({ lang }: { lang: Lang }) {
           </ul>
         </div>
         <div>
-          <h2 className="footer-title">{lang === "en" ? "Services" : "Servicios"}</h2>
+          <p className="footer-title">{lang === "en" ? "Services" : "Servicios"}</p>
           <ul>
             {SERVICES.map((s) => (
               <li key={s.slug}>
