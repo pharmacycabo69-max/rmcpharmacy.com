@@ -8,6 +8,8 @@ export const SITE = {
   /** Delivery runs longer than the stores are open. */
   deliveryHours: { opens: "07:00", closes: "23:00" },
   deliveryHoursLabel: { en: "Every day, 7 am to 11 pm", es: "Todos los días, 7 am a 11 pm" },
+  /** Year the business started (9 years in 2026, per the owner). Drives "N years" on the site and foundingDate in schema. */
+  foundedYear: 2017,
   /** Public social/profile URLs for Organization.sameAs. Leave empty until the profiles exist. */
   social: [] as string[],
 } as const;
