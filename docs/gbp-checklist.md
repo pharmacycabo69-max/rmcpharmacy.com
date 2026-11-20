@@ -13,7 +13,7 @@ Revisar los 3 perfiles (Plaza Gali, Plaza Embarcadero, Mercado Marina) al lanzar
 
 ## 2. Información básica
 - [ ] Categoría principal: Farmacia. Secundaria: Minisúper.
-- [ ] Horario lunes a domingo 9:00 a 18:00. Horarios especiales para festivos.
+- [ ] Horario lunes a domingo 8:00 a 18:00 (tienda). Agregar horario de "Entrega" 7:00 a 23:00. Horarios especiales para festivos.
 - [ ] Sitio web con UTMs del perfil (`docs/utm-convention.md`), apuntando a su página de sucursal.
 - [ ] Descripción de `docs/gbp-content.md` (máx. 750 caracteres).
 - [ ] Atributos: habla inglés, entrega a domicilio, abierto todos los días.

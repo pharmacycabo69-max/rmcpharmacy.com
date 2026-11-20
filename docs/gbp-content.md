@@ -7,7 +7,7 @@ Reglas: sin licencias, permisos ni certificaciones; sin medicamentos de receta; 
 ## Datos comunes
 - **Nombre:** RMC Pharmacy
 - **Teléfono:** +52 624 226 1023
-- **Horario:** lunes a domingo, 9:00 a 18:00
+- **Horario:** lunes a domingo, 8:00 a 18:00
 - **Categoría principal:** Farmacia · **Secundaria:** Minisúper
 - **Atributos útiles (si el perfil los ofrece):** habla inglés, entrega a domicilio, abierto todos los días, accesible
 - **Sitio web (con UTMs, ver `utm-convention.md`):**
@@ -20,24 +20,24 @@ Reglas: sin licencias, permisos ni certificaciones; sin medicamentos de receta; 
 
 ### Plaza Gali
 **EN**
-> Pharmacy and minimarket on Paseo de la Marina, Plaza Gali, Local 47, steps from the Cabo San Lucas marina. We are open every day from 9 am to 6 pm and we speak English and Spanish. Find everyday essentials, sun care, first aid and travel basics. We deliver to hotels, villas and boats, and we offer IV therapy at your door, doctor consultations by video and home nursing. Message us on WhatsApp at +52 624 226 1023.
+> Pharmacy and minimarket on Paseo de la Marina, Plaza Gali, Local 47, steps from the Cabo San Lucas marina. We are open every day from 8 am to 6 pm and we speak English and Spanish. Find everyday essentials, sun care, first aid and travel basics. We deliver to hotels, villas and boats, and we offer IV therapy at your door, doctor consultations by video and home nursing. Message us on WhatsApp at +52 624 226 1023.
 
 **ES**
-> Farmacia y minisúper sobre Paseo de la Marina, Plaza Gali, Local 47, a pasos de la marina de Cabo San Lucas. Abrimos todos los días de 9 am a 6 pm y hablamos inglés y español. Encuentra esenciales de todos los días, protección solar, primeros auxilios y básicos de viaje. Entregamos en hoteles, villas y yates, y ofrecemos terapia IV a domicilio, consulta médica por videollamada y enfermería a domicilio. Escríbenos por WhatsApp al +52 624 226 1023.
+> Farmacia y minisúper sobre Paseo de la Marina, Plaza Gali, Local 47, a pasos de la marina de Cabo San Lucas. Abrimos todos los días de 8 am a 6 pm y hablamos inglés y español. Encuentra esenciales de todos los días, protección solar, primeros auxilios y básicos de viaje. Entregamos en hoteles, villas y yates, y ofrecemos terapia IV a domicilio, consulta médica por videollamada y enfermería a domicilio. Escríbenos por WhatsApp al +52 624 226 1023.
 
 ### Plaza Embarcadero
 **EN**
-> Pharmacy and minimarket at Plaza Embarcadero, Local 15, on Paseo de la Marina in Cabo San Lucas. We are open every day from 9 am to 6 pm and we speak English and Spanish. Find everyday essentials, sun care, first aid and travel basics. We deliver to hotels, villas and boats, and we offer IV therapy at your door, doctor consultations by video and home nursing. Message us on WhatsApp at +52 624 226 1023.
+> Pharmacy and minimarket at Plaza Embarcadero, Local 15, on Paseo de la Marina in Cabo San Lucas. We are open every day from 8 am to 6 pm and we speak English and Spanish. Find everyday essentials, sun care, first aid and travel basics. We deliver to hotels, villas and boats, and we offer IV therapy at your door, doctor consultations by video and home nursing. Message us on WhatsApp at +52 624 226 1023.
 
 **ES**
-> Farmacia y minisúper en Plaza Embarcadero, Local 15, sobre Paseo de la Marina en Cabo San Lucas. Abrimos todos los días de 9 am a 6 pm y hablamos inglés y español. Encuentra esenciales de todos los días, protección solar, primeros auxilios y básicos de viaje. Entregamos en hoteles, villas y yates, y ofrecemos terapia IV a domicilio, consulta médica por videollamada y enfermería a domicilio. Escríbenos por WhatsApp al +52 624 226 1023.
+> Farmacia y minisúper en Plaza Embarcadero, Local 15, sobre Paseo de la Marina en Cabo San Lucas. Abrimos todos los días de 8 am a 6 pm y hablamos inglés y español. Encuentra esenciales de todos los días, protección solar, primeros auxilios y básicos de viaje. Entregamos en hoteles, villas y yates, y ofrecemos terapia IV a domicilio, consulta médica por videollamada y enfermería a domicilio. Escríbenos por WhatsApp al +52 624 226 1023.
 
 ### Mercado Marina
 **EN**
-> Pharmacy and minimarket at Mercado Marina, local 11, in the Cabo San Lucas marina area. We are open every day from 9 am to 6 pm and we speak English and Spanish. Find everyday essentials, sun care, first aid and travel basics. We deliver to hotels, villas and boats, and we offer IV therapy at your door, doctor consultations by video and home nursing. Message us on WhatsApp at +52 624 226 1023.
+> Pharmacy and minimarket at Mercado Marina, local 11, in the Cabo San Lucas marina area. We are open every day from 8 am to 6 pm and we speak English and Spanish. Find everyday essentials, sun care, first aid and travel basics. We deliver to hotels, villas and boats, and we offer IV therapy at your door, doctor consultations by video and home nursing. Message us on WhatsApp at +52 624 226 1023.
 
 **ES**
-> Farmacia y minisúper en Mercado Marina, local 11, en la zona de la marina de Cabo San Lucas. Abrimos todos los días de 9 am a 6 pm y hablamos inglés y español. Encuentra esenciales de todos los días, protección solar, primeros auxilios y básicos de viaje. Entregamos en hoteles, villas y yates, y ofrecemos terapia IV a domicilio, consulta médica por videollamada y enfermería a domicilio. Escríbenos por WhatsApp al +52 624 226 1023.
+> Farmacia y minisúper en Mercado Marina, local 11, en la zona de la marina de Cabo San Lucas. Abrimos todos los días de 8 am a 6 pm y hablamos inglés y español. Encuentra esenciales de todos los días, protección solar, primeros auxilios y básicos de viaje. Entregamos en hoteles, villas y yates, y ofrecemos terapia IV a domicilio, consulta médica por videollamada y enfermería a domicilio. Escríbenos por WhatsApp al +52 624 226 1023.
 
 Nota: GBP admite una sola descripción por perfil. Usa la de inglés como principal; la de español puede ir en la sección de idioma/traducción si tu perfil la ofrece, o en publicaciones.
 
