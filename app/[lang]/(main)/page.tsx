@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return buildMetadata({
     lang,
     enPath: "/",
-    title: lang === "en" ? "Pharmacy in Cabo San Lucas | Delivery to Your Hotel" : "Farmacia en Cabo San Lucas | Entrega a tu hotel",
+    title: lang === "en" ? "Pharmacy in Cabo San Lucas | Hotel Delivery" : "Farmacia en Cabo San Lucas | Entrega a tu hotel",
     description:
       lang === "en"
         ? "RMC Pharmacy and minimarket on the Cabo San Lucas marina. Delivery to your hotel, villa or boat every day, 7 am to 11 pm. English and Spanish."

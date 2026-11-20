@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CtaButtons } from "@/components/CtaButtons";
 import { JsonLd } from "@/components/JsonLd";
+import { MapFacade } from "@/components/MapFacade";
 import { FaqList } from "@/components/ServiceFaqList";
 import { hotelContent } from "@/lib/hotelContent";
 import { HOTELS, getHotel, hotelPath, nearbyHotels } from "@/lib/hotels";
@@ -99,15 +100,13 @@ export default async function HotelPage({ params }: Props) {
           {c.where[1].split(c.storeName).slice(1).join(c.storeName)}
         </p>
         {h.geo && (
-          <figure className="map-embed">
-            <iframe
-              src={`https://www.google.com/maps?q=${h.geo.lat},${h.geo.lng}&z=15&hl=${lang}&output=embed`}
-              title={en ? `Map: ${h.name}` : `Mapa: ${h.name}`}
-              loading="lazy"
-              allowFullScreen
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </figure>
+          <MapFacade
+            src={`https://www.google.com/maps?q=${h.geo.lat},${h.geo.lng}&z=15&hl=${lang}&output=embed`}
+            openUrl={`https://www.google.com/maps?q=${h.geo.lat},${h.geo.lng}`}
+            title={en ? `Map: ${h.name}` : `Mapa: ${h.name}`}
+            showLabel={en ? "Show map" : "Ver mapa"}
+            openLabel={en ? "Open in Google Maps" : "Abrir en Google Maps"}
+          />
         )}
       </section>
 
